@@ -5,6 +5,11 @@ using namespace std;
 #ifndef LOGIN_HPP
 #define LOGIN_HPP
 
+/**
+ * @brief Login class to login the user
+ * 
+ * @class Login
+ */
 class Login {
   private:
     User user;

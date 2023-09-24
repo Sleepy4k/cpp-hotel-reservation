@@ -5,6 +5,11 @@ using namespace std;
 #ifndef REGISTER_HPP
 #define REGISTER_HPP
 
+/**
+ * @brief Register class to register the user
+ * 
+ * @class Register
+ */
 class Register {
   private:
     User user;

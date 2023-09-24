@@ -6,6 +6,11 @@ using namespace std;
 #ifndef USER_HPP
 #define USER_HPP
 
+/**
+ * @brief User struct to store the user data
+ * 
+ * @struct User
+ */
 struct User {
   string uid;
   string role;

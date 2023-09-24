@@ -6,6 +6,11 @@ using namespace std;
 #ifndef UUID_HPP
 #define UUID_HPP
 
+/**
+ * @brief UUID class to generate UUID
+ * 
+ * @class UUID
+ */
 class UUID {
   public:
     /**
