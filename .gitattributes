@@ -1,0 +1,9 @@
+* text=auto eol=lf
+
+*.h diff=cpp
+*.cpp diff=cpp
+*.hpp diff=cpp
+
+/.github export-ignore
+CHANGELOG.md export-ignore
+.styleci.yml export-ignore
