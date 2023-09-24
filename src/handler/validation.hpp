@@ -7,6 +7,11 @@ using namespace std;
 #ifndef VALIDATION_HPP
 #define VALIDATION_HPP
 
+/**
+ * @brief Validation class to validate the data
+ * 
+ * @class Validation
+ */
 class Validation {
   public:
     /**
@@ -89,7 +94,6 @@ class Validation {
      */
     int static input_validation(int min, int max) {
       int choice;
-      bool invalid = true;
 
       regex integer("[0-9]+");
 
@@ -101,10 +105,12 @@ class Validation {
           cin.clear();
           cin.ignore(512, '\n');
           cout << "\nPlease enter a number!!" << endl;
-        } else if (choice >= min && choice <= max) {
+          continue;
+        }
+
+        if (choice >= min && choice <= max) {
           if (regex_match(to_string(choice), integer)) {
             cin.ignore(512, '\n');
-            invalid = false;
             break;
           } else {
             cin.ignore(512, '\n');
@@ -113,12 +119,11 @@ class Validation {
         } else {
           cin.ignore(512, '\n');
           cout << "\nPlease enter a number between " << min << " and " << max << "!!" << endl;
+          continue;
         }
       }
 
-      if (!invalid) {
-        return choice;
-      }
+      return choice;
     }
 };
 
