@@ -15,8 +15,7 @@ using namespace std;
  * @return int 
  */
 int main() {
-  Menu menu;
-  menu.main_menu();
+  Menu::main_menu();
 
   return 0;
 }
