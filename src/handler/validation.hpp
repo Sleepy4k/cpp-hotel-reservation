@@ -50,34 +50,20 @@ class Validation {
      * @return false 
      */
     bool static is_date_valid(string date) {
-      string delimiter = "/";
+      regex datePattern("^\\d{2}/\\d{2}/\\d{4}$");
 
-      string day = date.substr(0, date.find(delimiter));
-      date.erase(0, date.find(delimiter) + 1);
-
-      string month = date.substr(0, date.find(delimiter));
-      date.erase(0, date.find(delimiter) + 1);
-
-      string year = date.substr(0, date.find(delimiter));
-      date.erase(0, date.find(delimiter) + 1);
-
-      if (!is_data_numeric(day, false) || !is_data_numeric(month, false) || !is_data_numeric(year, false)) {
+      if (!regex_match(date, datePattern)) {
         return false;
       }
 
-      if (day.length() != 2 || month.length() != 2 || year.length() != 4) {
-        return false;
-      }
+      smatch match;
+      regex_search(date, match, datePattern);
 
-      if (stoi(day) < 1 || stoi(day) > 31) {
-        return false;
-      }
+      int day = stoi(match.str(1));
+      int month = stoi(match.str(2));
+      int year = stoi(match.str(3));
 
-      if (stoi(month) < 1 || stoi(month) > 12) {
-        return false;
-      }
-
-      if (stoi(year) < 1000 || stoi(year) > 9999) {
+      if (day < 1 || day > 31 || month < 1 || month > 12 || year < 1000 || year > 9999) {
         return false;
       }
 

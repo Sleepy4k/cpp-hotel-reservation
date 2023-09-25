@@ -1,6 +1,8 @@
 #include "validation.hpp"
+#include "../const/app.hpp"
 #include "../auth/login.hpp"
 #include "../auth/register.hpp"
+#include "../const/menu_list.hpp"
 
 using namespace std;
 
@@ -19,15 +21,15 @@ class Menu {
      * 
      * @return void
      */
-    void main_menu() {
+    void static main_menu() {
       cout << "\n\n--------------------------------------------------------------------" << endl;
-      cout << "               Hotel Reservation System                  " << endl;
+      cout << "               " << App::APP_NAME << "                  " << endl;
       cout << "--------------------------------------------------------------------" << endl;
       cout << "Welcome To Home Page" << endl;
-      cout << "Press 1 --> Admin Dashboard" << endl;
-      cout << "Press 2 --> User Dashboard" << endl;
-      cout << "Press 3 --> Registration User" << endl;
-      cout << "Press 4 --> Exit" << endl;
+
+      for (int i = 0; i < MenuList::MAIN_MENU.size(); i++) {
+        cout << "Press " << i + 1 << " --> " << MenuList::MAIN_MENU[i] << endl;
+      }
 
       int menu = Validation::input_validation(1, 4);
 
