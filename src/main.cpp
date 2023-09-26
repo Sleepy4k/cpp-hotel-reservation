@@ -5,6 +5,7 @@
 // 1. Apri Pandu Wicaksono (NIM: 2311102081)
 //=================================================================================
 
+#include "./const/path.hpp"
 #include "./handler/menu.hpp"
 
 using namespace std;
@@ -14,7 +15,8 @@ using namespace std;
  * 
  * @return int 
  */
-int main() {
+int main(int argc, char* argv[]) {
+  Path::setPath(argv[0]);
   Menu::main_menu();
 
   return 0;
