@@ -3,8 +3,8 @@
 
 using namespace std;
 
-#ifndef UUID_HPP
-#define UUID_HPP
+#ifndef HANDLER_UUID_HPP
+#define HANDLER_UUID_HPP
 
 /**
  * @brief UUID class to generate UUID
@@ -18,7 +18,7 @@ class UUID {
      * 
      * @return string
      */
-    string static generate_uuid() {
+    static string generate_uuid() {
       string uuid = "";
       srand(time(NULL));
       string characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";

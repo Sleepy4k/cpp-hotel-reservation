@@ -6,8 +6,8 @@
 
 using namespace std;
 
-#ifndef MENU_HPP
-#define MENU_HPP
+#ifndef HANDLER_MENU_HPP
+#define HANDLER_MENU_HPP
 
 /**
  * @brief Menu class to show the menu list to the user
@@ -21,7 +21,7 @@ class Menu {
      * 
      * @return void
      */
-    void static main_menu() {
+    static void main_menu() {
       cout << "\n\n--------------------------------------------------------------------" << endl;
       cout << "               " << App::APP_NAME << "                  " << endl;
       cout << "--------------------------------------------------------------------" << endl;
@@ -31,7 +31,7 @@ class Menu {
         cout << "Press " << i + 1 << " --> " << MenuList::MAIN_MENU[i] << endl;
       }
 
-      int menu = Validation::input_validation(1, 4);
+      int menu = Validation::integer_validation(1, 4);
 
       switch (menu) {
         case 1:

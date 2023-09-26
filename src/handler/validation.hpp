@@ -4,8 +4,8 @@
 
 using namespace std;
 
-#ifndef VALIDATION_HPP
-#define VALIDATION_HPP
+#ifndef HANDLER_VALIDATION_HPP
+#define HANDLER_VALIDATION_HPP
 
 /**
  * @brief Validation class to validate the data
@@ -23,7 +23,7 @@ class Validation {
      * @return true 
      * @return false 
      */
-    bool static is_data_numeric(string data, bool is_ws) {
+    static bool is_data_numeric(string data, bool is_ws) {
       if (is_ws) {
         for (int i = 0; i < data.length(); i++) {
           if (!isdigit(data[i]) && !isspace(data[i])) {
@@ -49,7 +49,7 @@ class Validation {
      * @return true 
      * @return false 
      */
-    bool static is_date_valid(string date) {
+    static bool is_date_valid(string date) {
       regex datePattern("^\\d{2}/\\d{2}/\\d{4}$");
 
       if (!regex_match(date, datePattern)) {
@@ -71,14 +71,14 @@ class Validation {
     }
 
     /**
-     * @brief Validate input data for integer
+     * @brief Validate the input data for integer type
      * 
      * @param min integer
      * @param max integer
      * 
      * @return int 
      */
-    int static input_validation(int min, int max) {
+    static int integer_validation(int min, int max) {
       int choice;
 
       regex integer("[0-9]+");
@@ -110,6 +110,87 @@ class Validation {
       }
 
       return choice;
+    }
+
+    /**
+     * @brief Validate the input data for string type
+     * 
+     * @param type string
+     * 
+     * @return string 
+     */
+    static string string_validation(string type) {
+      string data;
+
+      if (type == "username") {
+        regex username("^[a-zA-Z0-9]{5,}$");
+
+        while (true) {
+          cout << "Please Enter Your Username : ";
+          getline(cin, data);
+
+          if (regex_match(data, username)) {
+            break;
+          } else {
+            cout << "\nPlease enter a valid username!!" << endl;
+            continue;
+          }
+        }
+      } else if (type == "password") {
+        regex password("^[a-zA-Z0-9]{8,}$");
+
+        while (true) {
+          cout << "Please Enter Your Password : ";
+          getline(cin, data);
+
+          if (regex_match(data, password)) {
+            break;
+          } else {
+            cout << "\nPlease enter a valid password!!" << endl;
+            continue;
+          }
+        }
+      } else if (type == "password_confirmation") {
+        regex password("^[a-zA-Z0-9]{8,}$");
+
+        while (true) {
+          cout << "Please Enter Your Password Confirmation : ";
+          getline(cin, data);
+
+          if (regex_match(data, password)) {
+            break;
+          } else {
+            cout << "\nPlease enter a valid password confirmation!!" << endl;
+            continue;
+          }
+        }
+      } else if (type == "date") {
+        while (true) {
+          cout << "Please Enter Your Date (dd/mm/yyyy) : ";
+          getline(cin, data);
+
+          if (is_date_valid(data)) {
+            break;
+          } else {
+            cout << "\nPlease enter a valid date!!" << endl;
+            continue;
+          }
+        }
+      } else {
+        while (true) {
+          cout << "Please Enter Your " << type << " : ";
+          getline(cin, data);
+
+          if (data.length() > 0) {
+            break;
+          } else {
+            cout << "\nPlease enter a valid " << type << "!!" << endl;
+            continue;
+          }
+        }
+      }
+
+      return data;
     }
 };
 
