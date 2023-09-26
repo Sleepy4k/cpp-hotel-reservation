@@ -1,10 +1,11 @@
-#include <string>
-#include <iostream>
+#include <sstream>
+#include "../const/path.hpp"
+#include "../storage/file.hpp"
 
 using namespace std;
 
-#ifndef USER_HPP
-#define USER_HPP
+#ifndef MODEL_USER_HPP
+#define MODEL_USER_HPP
 
 /**
  * @brief User struct to store the user data
@@ -40,6 +41,85 @@ struct User {
     this->role = "";
     this->username = "";
     this->password = "";
+  }
+
+  /**
+   * @brief Get the user object
+   * 
+   * @param username string
+   * @param password string
+   * 
+   * @return User
+   */
+  User get_user(string username, string password) {
+    string content = File::read(Path::getPath() + "/user.csv");
+
+    User user;
+    string line;
+    vector<string> row;
+    stringstream ss(content);
+
+    while (getline(ss, line, '\n')) {
+      string word;
+      stringstream s(line);
+
+      while (getline(s, word, ',')) {
+        row.push_back(word);
+      }
+
+      if (row[2] == username) {
+        user = User(row[0], row[1], row[2], row[3]);
+      }
+
+      row.clear();
+    }
+
+    return user;
+  }
+
+  /**
+   * @brief Create the user
+   * 
+   * @return void
+   */
+  void create() {
+    string content = File::read(Path::getPath() + "/user.csv");
+
+    string line;
+    vector<string> row;
+    bool is_exist = false;
+    stringstream ss(content);
+
+    while (getline(ss, line, '\n')) {
+      string word;
+      stringstream s(line);
+
+      while (getline(s, word, ',')) {
+        row.push_back(word);
+      }
+
+      if (row[2] == this->username) {
+        is_exist = true;
+      }
+
+      row.clear();
+    }
+
+    if (is_exist) {
+      cout << "Username already exist" << endl;
+      return;
+    } else {
+      fstream outfile(Path::getPath() + "/user.csv", ios::app);
+
+      if (!outfile) {
+        outfile.close();
+        cerr << "Error opening file" << endl;
+      } else {
+        outfile << this->uid << "," << this->role << "," << this->username << "," << this->password << endl;
+        outfile.close();
+        cout << "User created successfully" << endl;
+      }
+    }
   }
 
   /**
