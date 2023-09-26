@@ -1,10 +1,11 @@
 #include <fstream>
-#include "../handler/menu.hpp"
+#include <iostream>
+#include "../const/app.hpp"
 
 using namespace std;
 
-#ifndef FILE_HPP
-#define FILE_HPP
+#ifndef STORAGE_FILE_HPP
+#define STORAGE_FILE_HPP
 
 class File {
   public:
@@ -15,7 +16,7 @@ class File {
      * 
      * @return void
      */
-    void static create(string filename) {
+    static void create(string filename) {
       fstream outfile(filename, ios::app);
 
       if (!outfile) {
@@ -24,8 +25,6 @@ class File {
         if (App::APP_DEBUG) {
           cerr << "Error opening file" << endl;
         }
-
-        Menu::main_menu();
       }
     }
 
@@ -36,21 +35,22 @@ class File {
      * 
      * @return string 
      */
-    string static read(string filename) {
+    static string read(string filename) {
       string line;
       string content = "";
-
       ifstream file(filename);
 
-      if (file.is_open()) {
-        while (getline(file, line)) {
-          content += line + "\n";
-        }
-
+      if (!file) {
         file.close();
-      } else {
         create(filename);
+        return content;
       }
+
+      while (getline(file, line)) {
+        content += line + "\n";
+      }
+
+      file.close();
 
       return content;
     }
@@ -63,15 +63,47 @@ class File {
      * 
      * @return void
      */
-    void static write(string filename, string content) {
+    static void write(string filename, string content) {
       ofstream file(filename);
 
-      if (file.is_open()) {
-        file << content;
+      if (!file) {
         file.close();
-      } else {
-        create(filename);
+        return create(filename);
       }
+
+      file << content;
+      file.close();
+    }
+
+    /**
+     * @brief Delete file
+     * 
+     * @param filename string
+     * 
+     * @return void
+     */
+    static void delete_file(string filename) {
+      remove(filename.c_str());
+    }
+
+    /**
+     * @brief Check if file exists
+     * 
+     * @param filename string
+     * 
+     * @return bool
+     */
+    static bool exists(string filename) {
+      ifstream file(filename);
+
+      if (!file) {
+        file.close();
+        return false;
+      }
+
+      file.close();
+
+      return true;
     }
 };
 
