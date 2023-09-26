@@ -3,8 +3,8 @@
 
 using namespace std;
 
-#ifndef MENU_LIST_HPP
-#define MENU_LIST_HPP
+#ifndef CONST_MENU_LIST_HPP
+#define CONST_MENU_LIST_HPP
 
 /**
  * @brief Menu list for the user

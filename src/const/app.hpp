@@ -3,8 +3,8 @@
 
 using namespace std;
 
-#ifndef APP_HPP
-#define APP_HPP
+#ifndef CONST_APP_HPP
+#define CONST_APP_HPP
 
 /**
  * @brief Application constant
