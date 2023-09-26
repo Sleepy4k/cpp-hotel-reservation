@@ -1,9 +1,12 @@
-#include "../model/user.hpp"
+#include "../handler/hash.hpp"
+#include "../dashboard/user.hpp"
+#include "../dashboard/admin.hpp"
+#include "../handler/validation.hpp"
 
 using namespace std;
 
-#ifndef LOGIN_HPP
-#define LOGIN_HPP
+#ifndef AUTH_LOGIN_HPP
+#define AUTH_LOGIN_HPP
 
 /**
  * @brief Login class to login the user
@@ -13,6 +16,7 @@ using namespace std;
 class Login {
   private:
     User user;
+
   public:
     /**
      * @brief Construct a new Login object
@@ -48,11 +52,37 @@ class Login {
      * 
      * @return void
      */
-    void static login(bool is_admin) {
-      if (is_admin) {
-        cout << "Admin Login" << endl;
+    static void login(bool is_admin) {
+      cout << "\n\n--------------------------------------------------------------------" << endl;
+      cout << "               " << App::APP_NAME << "                  " << endl;
+      cout << "--------------------------------------------------------------------" << endl;
+      cout << "Login Your Account" << endl;
+
+      string username = Validation::string_validation("username");
+      string password = Validation::string_validation("password");
+
+      User user = user.get_user(username, password);
+
+      if (user.get_username() == "") {
+        cout << "Username not found" << endl;
+        login(is_admin);
       } else {
-        cout << "User Login" << endl;
+        Hash hash;
+        bool isAdmin = (user.get_role() == "admin");
+
+        if (hash.verify(password, user.get_password())) {
+          if (is_admin && isAdmin) {
+            AdminDashboard::dashboard(user);
+          } else if (!is_admin && !isAdmin) {
+            UserDashboard::dashboard(user);
+          } else {
+            cout << "You are not admin" << endl;
+            login(is_admin);
+          }
+        } else {
+          cout << "Password is wrong" << endl;
+          login(is_admin);
+        }
       }
     }
 };
