@@ -16,6 +16,7 @@ namespace MenuList {
     "Admin Dashboard",
     "User Dashboard",
     "Registration User",
+    "Forgot Password",
     "Exit"
   };
 }
