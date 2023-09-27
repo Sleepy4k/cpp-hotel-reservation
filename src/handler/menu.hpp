@@ -22,16 +22,19 @@ class Menu {
      * @return void
      */
     static void main_menu() {
+      vector<string> menu_list = MenuList::MAIN_MENU;
+
       while (true) {
         cout << "\n\n--------------------------------------------------------------------" << endl;
         cout << "               " << App::APP_NAME << "                  " << endl;
         cout << "--------------------------------------------------------------------" << endl;
         cout << "Welcome To Home Page" << endl;
-        for (int i = 0; i < MenuList::MAIN_MENU.size(); i++) {
-          cout << "Press " << i + 1 << " --> " << MenuList::MAIN_MENU[i] << endl;
+
+        for (int i = 0; i < menu_list.size(); i++) {
+          cout << "Press " << i + 1 << " --> " << menu_list[i] << endl;
         }
 
-        int menu = Validation::integer_validation(1, 4);
+        int menu = Validation::integer_validation(1, menu_list.size());
 
         switch (menu) {
           case 1:
@@ -44,6 +47,9 @@ class Menu {
             Register::register_user();
             break;
           case 4:
+            Login::forgot_password();
+            break;
+          case 5:
             cout << "Thank You For Using " << App::APP_NAME << endl;
             exit(0);
             break;
