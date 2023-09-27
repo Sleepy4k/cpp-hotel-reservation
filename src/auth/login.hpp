@@ -1,4 +1,3 @@
-#include "../handler/hash.hpp"
 #include "../dashboard/user.hpp"
 #include "../dashboard/admin.hpp"
 #include "../handler/validation.hpp"
@@ -14,35 +13,63 @@ using namespace std;
  * @class Login
  */
 class Login {
-  private:
-    User user;
-
   public:
     /**
-     * @brief Construct a new Login object
-     */
-    Login() {
-      this->user = User();
-    }
-
-    /**
-     * @brief Set the user object
-     * 
-     * @param user User
+     * @brief Forgot password
      * 
      * @return void
      */
-    void set_user(User user) {
-      this->user = user;
+    static void forgot_password() {
+      cout << "\n\n--------------------------------------------------------------------" << endl;
+      cout << "               " << App::APP_NAME << "                  " << endl;
+      cout << "--------------------------------------------------------------------" << endl;
+      cout << "Forgot Your Password" << endl;
+
+      string username = Validation::string_validation("username");
+      string password = Validation::string_validation("password");
+      string confirm_password = Validation::string_validation("password_confirmation");
+
+      if (password != confirm_password) {
+        cout << "Password and confirm password must be same" << endl;
+        return forgot_password();
+      } else {
+        User user = user.find(username);
+
+        if (user.get_username() == "") {
+          cout << "Username not found" << endl;
+          return forgot_password();
+        } else {
+          Hash hash;
+
+          if (hash.verify(password, user.get_password())) {
+            cout << "Password must be different from the old password" << endl;
+            return forgot_password();
+          } else {
+            user.update(username, user.get_password(), hash.encrypt(password));
+          }
+        }
+      }
     }
 
     /**
-     * @brief Get the user object
+     * @brief Confirm forgot password
      * 
-     * @return User
+     * @param is_admin bool
+     * 
+     * @return void
      */
-    User get_user() {
-      return this->user;
+    static void confirm(bool is_admin) {
+      cout << "Forgot your password? (y/n)" << endl;
+      string confirmation = Validation::string_validation("confirmation");
+
+      if (confirmation == "y") {
+        return forgot_password();
+      } else if (confirmation == "n") {
+        return login(is_admin);
+      } else {
+        cout << "Confirmation must be y or n" << endl;
+        return confirm(is_admin);
+      }
     }
 
     /**
@@ -61,7 +88,7 @@ class Login {
       string username = Validation::string_validation("username");
       string password = Validation::string_validation("password");
 
-      User user = user.get_user(username, password);
+      User user = user.find(username);
 
       if (user.get_username() == "") {
         cout << "Username not found" << endl;
@@ -79,6 +106,7 @@ class Login {
           }
         } else {
           cout << "Password is wrong" << endl;
+          return confirm(is_admin);
         }
       }
 

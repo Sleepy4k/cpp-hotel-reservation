@@ -1,6 +1,5 @@
 #include "../model/user.hpp"
 #include "../handler/uuid.hpp"
-#include "../handler/hash.hpp"
 #include "../handler/validation.hpp"
 
 using namespace std;
@@ -26,26 +25,6 @@ class Register {
     }
 
     /**
-     * @brief Set the user object
-     * 
-     * @param user User
-     * 
-     * @return void
-     */
-    void set_user(User user) {
-      this->user = user;
-    }
-
-    /**
-     * @brief Get the user object
-     * 
-     * @return User
-     */
-    User get_user() {
-      return this->user;
-    }
-
-    /**
      * @brief Register user
      * 
      * @return void
@@ -68,13 +47,11 @@ class Register {
       } else {
         Hash hash;
 
-        register_user.user.uid = UUID::generate_uuid();
-        register_user.user.role = "user";
-        register_user.user.username = username;
-        register_user.user.password = hash.encrypt(password);
+        register_user.user.set_uid(UUID::generate_uuid());
+        register_user.user.set_role("user");
+        register_user.user.set_username(username);
+        register_user.user.set_password(hash.encrypt(password));
         register_user.user.create();
-
-        cout << "Register success" << endl;
       }
     }
 };
