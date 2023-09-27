@@ -75,7 +75,6 @@ class Register {
         register_user.user.create();
 
         cout << "Register success" << endl;
-        Login::login(false);
       }
     }
 };

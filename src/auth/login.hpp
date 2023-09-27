@@ -65,25 +65,24 @@ class Login {
 
       if (user.get_username() == "") {
         cout << "Username not found" << endl;
-        login(is_admin);
       } else {
         Hash hash;
         bool isAdmin = (user.get_role() == "admin");
 
         if (hash.verify(password, user.get_password())) {
           if (is_admin && isAdmin) {
-            AdminDashboard::dashboard(user);
+            return AdminDashboard::dashboard(user);
           } else if (!is_admin && !isAdmin) {
-            UserDashboard::dashboard(user);
+            return UserDashboard::dashboard(user);
           } else {
             cout << "You are not admin" << endl;
-            login(is_admin);
           }
         } else {
           cout << "Password is wrong" << endl;
-          login(is_admin);
         }
       }
+
+      return login(is_admin);
     }
 };
 
