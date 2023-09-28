@@ -1,3 +1,4 @@
+#include "forgot.hpp"
 #include "../dashboard/user.hpp"
 #include "../dashboard/admin.hpp"
 #include "../handler/validation.hpp"
@@ -15,43 +16,6 @@ using namespace std;
 class Login {
   public:
     /**
-     * @brief Forgot password
-     * 
-     * @return void
-     */
-    static void forgot_password() {
-      cout << "\n\n--------------------------------------------------------------------" << endl;
-      cout << "               " << App::APP_NAME << "                  " << endl;
-      cout << "--------------------------------------------------------------------" << endl;
-      cout << "Forgot Your Password" << endl;
-
-      string username = Validation::string_validation("username");
-      string password = Validation::string_validation("password");
-      string confirm_password = Validation::string_validation("password_confirmation");
-
-      if (password != confirm_password) {
-        cout << "Password and confirm password must be same" << endl;
-        return forgot_password();
-      } else {
-        User user = user.find(username);
-
-        if (user.get_username() == "") {
-          cout << "Username not found" << endl;
-          return forgot_password();
-        } else {
-          Hash hash;
-
-          if (hash.verify(password, user.get_password())) {
-            cout << "Password must be different from the old password" << endl;
-            return forgot_password();
-          } else {
-            user.update(username, user.get_password(), hash.encrypt(password));
-          }
-        }
-      }
-    }
-
-    /**
      * @brief Confirm forgot password
      * 
      * @param is_admin bool
@@ -60,10 +24,10 @@ class Login {
      */
     static void confirm(bool is_admin) {
       cout << "Forgot your password? (y/n)" << endl;
-      string confirmation = Validation::string_validation("confirmation");
+      string confirmation = Validation::string_validation("Please Enter Your Confirmation: ", "confirmation");
 
       if (confirmation == "y") {
-        return forgot_password();
+        Forgot::forgot_password();
       } else if (confirmation == "n") {
         return login(is_admin);
       } else {
@@ -76,41 +40,41 @@ class Login {
      * @brief Login user
      * 
      * @param is_admin bool
+     * @param error int
      * 
      * @return void
      */
-    static void login(bool is_admin) {
+    static void login(bool is_admin, int error = 0) {
       cout << "\n\n--------------------------------------------------------------------" << endl;
       cout << "               " << App::APP_NAME << "                  " << endl;
       cout << "--------------------------------------------------------------------" << endl;
       cout << "Login Your Account" << endl;
 
-      string username = Validation::string_validation("username");
-      string password = Validation::string_validation("password");
+      string username = Validation::string_validation("Please Enter Your Username: ", "username");
+      string password = Validation::string_validation("Please Enter Your Password: ", "password");
 
+      Hash hash;
       User user = user.find(username);
+      bool isAdmin = (user.get_role() == "admin");
 
-      if (user.get_username() == "") {
-        cout << "Username not found" << endl;
-      } else {
-        Hash hash;
-        bool isAdmin = (user.get_role() == "admin");
-
-        if (hash.verify(password, user.get_password())) {
-          if (is_admin && isAdmin) {
-            return AdminDashboard::dashboard(user);
-          } else if (!is_admin && !isAdmin) {
-            return UserDashboard::dashboard(user);
-          } else {
-            cout << "You are not admin" << endl;
-          }
+      if (hash.verify(password, user.get_password())) {
+        if (is_admin && isAdmin) {
+          return AdminDashboard::dashboard(user);
+        } else if (!is_admin && !isAdmin) {
+          return UserDashboard::dashboard(user);
         } else {
-          cout << "Password is wrong" << endl;
+          cout << "You are not admin" << endl;
+          return login(is_admin);
+        }
+      } else {
+        cout << "Password is wrong" << endl;
+
+        if (error < 2) {
+          return login(is_admin, error + 1);
+        } else {
           return confirm(is_admin);
         }
       }
-
-      return login(is_admin);
     }
 };
 

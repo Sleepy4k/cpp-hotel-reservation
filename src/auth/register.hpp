@@ -14,6 +14,11 @@ using namespace std;
  */
 class Register {
   private:
+    /**
+     * @brief User
+     * 
+     * @var User
+     */
     User user;
 
   public:
@@ -37,9 +42,9 @@ class Register {
       cout << "--------------------------------------------------------------------" << endl;
       cout << "Register Your Account" << endl;
 
-      string username = Validation::string_validation("username");
-      string password = Validation::string_validation("password");
-      string confirm_password = Validation::string_validation("password_confirmation");
+      string username = Validation::string_validation("Please Enter Your Username: ", "username");
+      string password = Validation::string_validation("Please Enter Your Password: ", "password");
+      string confirm_password = Validation::string_validation("Please Enter Your Confirm Password: ", "password");
 
       if (password != confirm_password) {
         cout << "Password and confirm password must be same" << endl;
@@ -51,7 +56,7 @@ class Register {
         register_user.user.set_role("user");
         register_user.user.set_username(username);
         register_user.user.set_password(hash.encrypt(password));
-        register_user.user.create();
+        Forgot::create_forgot_question(register_user.user);
       }
     }
 };
