@@ -7,6 +7,11 @@ using namespace std;
 #ifndef STORAGE_FILE_HPP
 #define STORAGE_FILE_HPP
 
+/**
+ * @brief File class to handle file
+ * 
+ * @class File
+ */
 class File {
   public:
     /**
