@@ -12,8 +12,19 @@ using namespace std;
  * @namespace App
  */
 namespace App {
+  /**
+   * @brief Application name
+   * 
+   * @var string
+   */
   const string APP_NAME = "Hotel Reservation System";
+
+  /**
+   * @brief Application debug mode
+   * 
+   * @var bool
+   */
   const bool APP_DEBUG = true;
-}
+};
 
 #endif

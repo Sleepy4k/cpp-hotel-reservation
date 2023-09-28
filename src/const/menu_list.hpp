@@ -12,6 +12,11 @@ using namespace std;
  * @namespace MenuList
  */
 namespace MenuList {
+  /**
+   * @brief Main menu list
+   * 
+   * @var vector<string>
+   */
   const vector<string> MAIN_MENU = {
     "Admin Dashboard",
     "User Dashboard",
@@ -19,6 +24,18 @@ namespace MenuList {
     "Forgot Password",
     "Exit"
   };
-}
+
+  /**
+   * @brief Forgot menu list
+   * 
+   * @var vector<string>
+   */
+  const vector<string> FORGOT_MENU = {
+    "What was your favorite pet's name?",
+    "What is your favorite color?",
+    "What is your favorite food?",
+    "Who is your favorite person?"
+  };
+};
 
 #endif

@@ -39,6 +39,6 @@ namespace Path {
 
     basepath = path;
   }
-}
+};
 
 #endif
