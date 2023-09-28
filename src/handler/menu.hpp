@@ -47,7 +47,7 @@ class Menu {
             Register::register_user();
             break;
           case 4:
-            Login::forgot_password();
+            Forgot::forgot_password();
             break;
           case 5:
             cout << "Thank You For Using " << App::APP_NAME << endl;

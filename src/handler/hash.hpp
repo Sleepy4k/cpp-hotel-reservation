@@ -5,10 +5,32 @@ using namespace std;
 #ifndef HANDLER_HASH_HPP
 #define HANDLER_HASH_HPP
 
+/**
+ * @brief Hash class to encrypt and decrypt the password
+ * 
+ * @class Hash
+ */
 class Hash {
   private:
+    /**
+     * @brief Key to encrypt and decrypt the password
+     * 
+     * @var int
+     */
     int key = 3;
+
+    /**
+     * @brief Password
+     * 
+     * @var char
+     */
     char password[50];
+
+    /**
+     * @brief Encrypted password
+     * 
+     * @var char
+     */
     char encrypted_password[100];
 
   public:

@@ -1,5 +1,6 @@
 #include <regex>
 #include <string>
+#include <limits>
 #include <iostream>
 
 using namespace std;
@@ -81,116 +82,59 @@ class Validation {
     static int integer_validation(int min, int max) {
       int choice;
 
-      regex integer("[0-9]+");
-
       while (true) {
         cout << "Please Enter Your Choice : ";
-        cin >> choice;
 
-        if (cin.fail()) {
+        if (!(cin >> choice)) {
           cin.clear();
-          cin.ignore(512, '\n');
-          cout << "\nPlease enter a number!!" << endl;
-          continue;
-        }
-
-        if (choice >= min && choice <= max) {
-          if (regex_match(to_string(choice), integer)) {
-            cin.ignore(512, '\n');
-            break;
-          } else {
-            cin.ignore(512, '\n');
-            cout << "\nPlease enter a positif number!!" << endl;
-          }
-        } else {
-          cin.ignore(512, '\n');
+          cin.ignore(numeric_limits<streamsize>::max(), '\n');
+          cout << "\nPlease enter a valid number!!" << endl;
+        } else if (choice < min || choice > max) {
+          cin.ignore(numeric_limits<streamsize>::max(), '\n');
           cout << "\nPlease enter a number between " << min << " and " << max << "!!" << endl;
-          continue;
+        } else {
+          cin.ignore(numeric_limits<streamsize>::max(), '\n');
+          return choice;
         }
       }
-
-      return choice;
     }
 
     /**
      * @brief Validate the input data for string type
      * 
-     * @param type string
+     * @param prompt string
+     * @param validationType string
      * 
      * @return string 
      */
-    static string string_validation(string type) {
+    static string string_validation(const string& prompt, const string validationType) {
       string data;
+      regex validationRegex;
 
-      if (type == "username") {
-        regex username("^[a-zA-Z0-9]{5,}$");
-
-        while (true) {
-          cout << "Please Enter Your Username : ";
-          getline(cin, data);
-
-          if (regex_match(data, username)) {
-            break;
-          } else {
-            cout << "\nPlease enter a valid username!!" << endl;
-            continue;
-          }
-        }
-      } else if (type == "password") {
-        regex password("^[a-zA-Z0-9]{8,}$");
-
-        while (true) {
-          cout << "Please Enter Your Password : ";
-          getline(cin, data);
-
-          if (regex_match(data, password)) {
-            break;
-          } else {
-            cout << "\nPlease enter a valid password!!" << endl;
-            continue;
-          }
-        }
-      } else if (type == "password_confirmation") {
-        regex password("^[a-zA-Z0-9]{8,}$");
-
-        while (true) {
-          cout << "Please Enter Your Password Confirmation : ";
-          getline(cin, data);
-
-          if (regex_match(data, password)) {
-            break;
-          } else {
-            cout << "\nPlease enter a valid password confirmation!!" << endl;
-            continue;
-          }
-        }
-      } else if (type == "date") {
-        while (true) {
-          cout << "Please Enter Your Date (dd/mm/yyyy) : ";
-          getline(cin, data);
-
-          if (is_date_valid(data)) {
-            break;
-          } else {
-            cout << "\nPlease enter a valid date!!" << endl;
-            continue;
-          }
-        }
+      if (validationType == "username") {
+        validationRegex = "^[a-zA-Z0-9_]{5,}$";
+      } else if (validationType == "password") {
+        validationRegex = "^[a-zA-Z0-9_]{8,}$";
+      } else if (validationType == "confirmation") {
+        validationRegex = "^[yn]$";
+      } else if (validationType == "date") {
+        validationRegex = "^\\d{2}/\\d{2}/\\d{4}$";
+      } else if (validationType == "forgot_answer") {
+        validationRegex = "^[a-zA-Z0-9_]{6,}$";
       } else {
-        while (true) {
-          cout << "Please Enter Your " << type << " : ";
-          getline(cin, data);
-
-          if (data.length() > 0) {
-            break;
-          } else {
-            cout << "\nPlease enter a valid " << type << "!!" << endl;
-            continue;
-          }
-        }
+        validationRegex = "^[a-zA-Z0-9_]{1,}$";
       }
 
-      return data;
+      while (true) {
+        cout << prompt;
+        getline(cin, data);
+
+        if (regex_match(data, validationRegex)) {
+          return data;
+        } else {
+          cout << "\nPlease enter a valid input!!" << endl;
+        }
+      }
     }
 };
 
