@@ -15,13 +15,49 @@ using namespace std;
  */
 struct User {
   private:
+    /**
+     * @brief User id
+     * 
+     * @var string
+     */
     string uid;
+
+    /**
+     * @brief User role
+     * 
+     * @var string
+     */
     string role;
+
+    /**
+     * @brief Username
+     * 
+     * @var string
+     */
     string username;
+
+    /**
+     * @brief Password
+     * 
+     * @var string
+     */
     string password;
 
-  public:
+    /**
+     * @brief Forgot question id
+     * 
+     * @var int
+     */
+    int forgot_question_id;
 
+    /**
+     * @brief Forgot answer
+     * 
+     * @var string
+     */
+    string forgot_answer;
+
+  public:
     /**
      * @brief Construct a new User object
      * 
@@ -29,12 +65,18 @@ struct User {
      * @param role 
      * @param username 
      * @param password 
+     * @param forgot_question_id
+     * @param forgot_answer
+     * 
+     * @return void
      */
-    User(string uid, string role, string username, string password) {
+    User(string uid, string role, string username, string password, int forgot_question_id = 0, string forgot_answer = "") {
       this->uid = uid;
       this->role = role;
       this->username = username;
       this->password = password;
+      this->forgot_question_id = forgot_question_id;
+      this->forgot_answer = forgot_answer;
     }
 
     /**
@@ -45,6 +87,8 @@ struct User {
       this->role = "";
       this->username = "";
       this->password = "";
+      this->forgot_question_id = 0;
+      this->forgot_answer = "";
     }
 
     /**
@@ -92,6 +136,28 @@ struct User {
     }
 
     /**
+     * @brief Set the forgot question id object
+     * 
+     * @param forgot_question_id int
+     * 
+     * @return void
+     */
+    void set_forgot_question_id(int forgot_question_id) {
+      this->forgot_question_id = forgot_question_id;
+    }
+
+    /**
+     * @brief Set the forgot answer object
+     * 
+     * @param forgot_answer string
+     * 
+     * @return void
+     */
+    void set_forgot_answer(string forgot_answer) {
+      this->forgot_answer = forgot_answer;
+    }
+
+    /**
      * @brief Get the uid object
      * 
      * @return string 
@@ -128,6 +194,24 @@ struct User {
     }
 
     /**
+     * @brief Get the forgot question id object
+     * 
+     * @return int 
+     */
+    int get_forgot_question_id() {
+      return this->forgot_question_id;
+    }
+
+    /**
+     * @brief Get the forgot answer object
+     * 
+     * @return string 
+     */
+    string get_forgot_answer() {
+      return this->forgot_answer;
+    }
+
+    /**
      * @brief Get all the user
      * 
      * @return vector<string> 
@@ -148,7 +232,7 @@ struct User {
           row.push_back(word);
         }
 
-        data.push_back(User(row[0], row[1], row[2], row[3]));
+        data.push_back(User(row[0], row[1], row[2], row[3], stoi(row[4]), row[5]));
 
         row.clear();
       }
@@ -194,7 +278,7 @@ struct User {
           outfile.close();
           cerr << "Error opening file" << endl;
         } else {
-          outfile << this->uid << "," << this->role << "," << this->username << "," << this->password << endl;
+          outfile << this->uid << "," << this->role << "," << this->username << "," << this->password << "," << this->forgot_question_id << "," << this->forgot_answer << endl;
           outfile.close();
 
           if (allow_print) {
@@ -228,7 +312,7 @@ struct User {
         }
 
         if (row[2] == username) {
-          user = User(row[0], row[1], row[2], row[3]);
+          user = User(row[0], row[1], row[2], row[3], stoi(row[4]), row[5]);
         }
 
         row.clear();
@@ -354,9 +438,10 @@ struct User {
       return "UID: " + this->uid + "\n"
             + "Role: " + this->role + "\n"
             + "Username: " + this->username + "\n"
-            + "Password: " + this->password;
+            + "Password: " + this->password + "\n"
+            + "Forgot Question ID: " + to_string(this->forgot_question_id) + "\n"
+            + "Forgot Answer: " + this->forgot_answer + "\n";
     }
 };
-
 
 #endif
