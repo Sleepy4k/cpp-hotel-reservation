@@ -269,20 +269,23 @@ struct User {
       }
 
       if (is_exist) {
-        cout << "Username already exist" << endl;
+        cout << get_translated_string("model_user_already_exist") << endl;
         return;
       } else {
         fstream outfile(Path::getPath() + "/user.csv", ios::app);
 
         if (!outfile) {
           outfile.close();
-          cerr << "Error opening file" << endl;
+
+          if (App::APP_DEBUG) {
+            cerr << "Error opening file" << endl;
+          }
         } else {
           outfile << this->uid << "," << this->role << "," << this->username << "," << this->password << "," << this->forgot_question_id << "," << this->forgot_answer << endl;
           outfile.close();
 
           if (allow_print) {
-            cout << "User created successfully" << endl;
+            cout << Sprintf::format(get_translated_string("model_user_all_success"), {get_translated_string("model_user_created")}) << endl;
           }
         }
       }
@@ -356,7 +359,10 @@ struct User {
 
         if (!outfile) {
           outfile.close();
-          cerr << "Error opening file" << endl;
+
+          if (App::APP_DEBUG) {
+            cerr << "Error opening file" << endl;
+          }
         } else {
           outfile << "";
           outfile.close();
@@ -369,10 +375,10 @@ struct User {
             users[i].create(false);
           }
 
-          cout << "User updated successfully" << endl;
+          cout << Sprintf::format(get_translated_string("model_user_all_success"), {get_translated_string("model_user_updated")}) << endl;
         }
       } else {
-        cout << "User not found" << endl;
+        cout << get_translated_string("model_user_notfound") << endl;
       }
     }
 
@@ -411,7 +417,10 @@ struct User {
 
         if (!outfile) {
           outfile.close();
-          cerr << "Error opening file" << endl;
+
+          if (App::APP_DEBUG) {
+            cerr << "Error opening file" << endl;
+          }
         } else {
           outfile << "";
           outfile.close();
@@ -422,10 +431,10 @@ struct User {
             }
           }
 
-          cout << "User deleted successfully" << endl;
+          cout << Sprintf::format(get_translated_string("model_user_all_success"), {get_translated_string("model_user_deleted")}) << endl;
         }
       } else {
-        cout << "User not found" << endl;
+        cout << get_translated_string("model_user_notfound") << endl;
       }
     }
 
