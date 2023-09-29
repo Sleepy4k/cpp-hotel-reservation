@@ -32,7 +32,7 @@ namespace App {
    * 
    * @var string
    */
-  const string APP_LANGUAGE = set_language(Language::INDONESIA);
+  const string APP_LANGUAGE = set_language(Language::ENGLISH);
 };
 
 #endif

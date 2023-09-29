@@ -35,7 +35,7 @@ namespace MenuList {
     get_translated_string("menu_list_forgot_pet"),
     get_translated_string("menu_list_forgot_color"),
     get_translated_string("menu_list_forgot_food"),
-    get_translated_string("menu_list_forgot_person"),
+    get_translated_string("menu_list_forgot_person")
   };
 
   /**
@@ -44,13 +44,13 @@ namespace MenuList {
    * @var vector<string>
    */
   const vector<string> ADMIN_DASHBOARD_MENU = {
-    "Manage Room",
-    "Manage User",
-    "Manage Booking",
-    "Manage Admin",
-    "Report and Statistic",
-    "Manage System",
-    "Logout"
+    get_translated_string("menu_list_admin_manage_room"),
+    get_translated_string("menu_list_admin_manage_user"),
+    get_translated_string("menu_list_admin_manage_booking"),
+    get_translated_string("menu_list_admin_manage_admin"),
+    get_translated_string("menu_list_admin_report_and_statistic"),
+    get_translated_string("menu_list_admin_manage_system"),
+    get_translated_string("menu_list_admin_logout")
   };
 
   /**
@@ -59,11 +59,11 @@ namespace MenuList {
    * @var vector<string>
    */
   const vector<string> USER_DASHBOARD_MENU = {
-    "Search Room",
-    "Booking Room",
-    "History Booking",
-    "Profile",
-    "Logout"
+    get_translated_string("menu_list_user_search_room"),
+    get_translated_string("menu_list_user_booking_room"),
+    get_translated_string("menu_list_user_booking_history"),
+    get_translated_string("menu_list_user_profile"),
+    get_translated_string("menu_list_user_logout"),
   };
 };
 
