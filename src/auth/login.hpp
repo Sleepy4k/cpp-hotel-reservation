@@ -23,15 +23,15 @@ class Login {
      * @return void
      */
     static void confirm(bool is_admin) {
-      cout << "Forgot your password? (y/n)" << endl;
-      string confirmation = Validation::string_validation("Please Enter Your Confirmation: ", "confirmation");
+      cout << get_translated_string("login_confirm_question") << endl;
+      string confirmation = Validation::string_validation(get_translated_string("login_confirm_input_confirm"), "confirmation");
 
       if (confirmation == "y") {
         Forgot::forgot_password();
       } else if (confirmation == "n") {
         return login(is_admin);
       } else {
-        cout << "Confirmation must be y or n" << endl;
+        cout << get_translated_string("login_confirm_input_invalid") << endl;
         return confirm(is_admin);
       }
     }
@@ -46,12 +46,12 @@ class Login {
      */
     static void login(bool is_admin, int error = 0) {
       cout << "\n\n--------------------------------------------------------------------" << endl;
-      cout << "               " << App::APP_NAME << "                  " << endl;
+      cout << "               " << get_translated_string(App::APP_NAME) << "                  " << endl;
       cout << "--------------------------------------------------------------------" << endl;
-      cout << "Login Your Account" << endl;
+      cout << get_translated_string("login_title") << endl;
 
-      string username = Validation::string_validation("Please Enter Your Username: ", "username");
-      string password = Validation::string_validation("Please Enter Your Password: ", "password");
+      string username = Validation::string_validation(get_translated_string("login_input_username"), "username");
+      string password = Validation::string_validation(get_translated_string("login_input_password"), "password");
 
       Hash hash;
       User user = user.find(username);
@@ -63,11 +63,11 @@ class Login {
         } else if (!is_admin && !isAdmin) {
           return UserDashboard::dashboard(user);
         } else {
-          cout << "You are not admin" << endl;
+          cout << get_translated_string("login_not_admin") << endl;
           return login(is_admin);
         }
       } else {
-        cout << "Password is wrong" << endl;
+        cout << get_translated_string("login_invalid_password") << endl;
 
         if (error < 2) {
           return login(is_admin, error + 1);

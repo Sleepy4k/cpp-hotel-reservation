@@ -26,17 +26,17 @@ class Forgot {
       vector<string> menu_list = MenuList::FORGOT_MENU;
 
       cout << "\n\n--------------------------------------------------------------------" << endl;
-      cout << "               " << App::APP_NAME << "                  " << endl;
+      cout << "               " << get_translated_string(App::APP_NAME) << "                  " << endl;
       cout << "--------------------------------------------------------------------" << endl;
-      cout << "Create Forgot Question" << endl;
+      cout << get_translated_string("forgot_create_title") << endl;
 
       for (int i = 0; i < menu_list.size(); i++) {
-        cout << "Press " << i + 1 << " --> " << menu_list[i] << endl;
+        cout << get_translated_string("forgot_create_press") << " " << i + 1 << " --> " << menu_list[i] << endl;
       }
 
       Hash hash;
       int menu = Validation::integer_validation(1, menu_list.size());
-      string answer = Validation::string_validation("Please Enter Your Answer: ", "forgot_answer");
+      string answer = Validation::string_validation(get_translated_string("forgot_create_input_answer"), "forgot_answer");
       answer = hash.encrypt(answer);
 
       switch (menu) {
@@ -57,54 +57,61 @@ class Forgot {
           user.set_forgot_answer(answer);
           break;
         default:
-          cout << "Invalid menu" << endl;
+          cout << get_translated_string("forgot_create_invalid_menu") << endl;
           break;
       }
 
       user.create();
     }
 
+    /**
+     * @brief Validate forgot question
+     * 
+     * @param user User
+     * 
+     * @return void
+     */
     static void validate_forgot_question(User user) {
       cout << "\n\n--------------------------------------------------------------------" << endl;
-      cout << "               " << App::APP_NAME << "                  " << endl;
+      cout << "               " << get_translated_string(App::APP_NAME) << "                  " << endl;
       cout << "--------------------------------------------------------------------" << endl;
-      cout << "Validate Forgot Question" << endl;
+      cout << get_translated_string("forgot_validate_title") << endl;
 
       switch (user.get_forgot_question_id()) {
         case 1:
-          cout << "What was your favorite pet's name?" << endl;
+          cout << get_translated_string("menu_list_forgot_pet") << endl;
           break;
         case 2:
-          cout << "What is your favorite color?" << endl;
+          cout << get_translated_string("menu_list_forgot_color") << endl;
           break;
         case 3:
-          cout << "What is your favorite food?" << endl;
+          cout << get_translated_string("menu_list_forgot_food") << endl;
           break;
         case 4:
-          cout << "Who is your favorite person?" << endl;
+          cout << get_translated_string("menu_list_forgot_person") << endl;
           break;
       } 
 
       Hash hash;
-      string answer = Validation::string_validation("Please Enter Your Answer: ", "forgot_answer");
+      string answer = Validation::string_validation(get_translated_string("forgot_validate_input_answer"), "forgot_answer");
 
       if (hash.decrypt(user.get_forgot_answer()) == answer) {
-        string password = Validation::string_validation("Please Enter Your New Password: ", "password");
-        string confirm_password = Validation::string_validation("Please Enter Your Confirm New Password: ", "password");
+        string password = Validation::string_validation(get_translated_string("forgot_validate_input_password"), "password");
+        string confirm_password = Validation::string_validation(get_translated_string("forgot_validate_input_confirm_password"), "password");
 
         if (password != confirm_password) {
-          cout << "Password and confirm password must be same" << endl;
+          cout << get_translated_string("forgot_validate_input_password_not_same") << endl;
           return validate_forgot_question(user);
         } else {
           if (hash.verify(password, user.get_password())) {
-            cout << "Password must be different from the old password" << endl;
+            cout << get_translated_string("forgot_validate_input_password_must_be_different") << endl;
             return validate_forgot_question(user);
           } else {
             user.update(user.get_username(), user.get_password(), hash.encrypt(password));
           }
         }
       } else {
-        cout << "Answer is wrong" << endl;
+        cout << get_translated_string("forgot_validate_input_password_invalid") << endl;
         return validate_forgot_question(user);
       }
     }
@@ -116,11 +123,11 @@ class Forgot {
      */
     static void forgot_password() {
       cout << "\n\n--------------------------------------------------------------------" << endl;
-      cout << "               " << App::APP_NAME << "                  " << endl;
+      cout << "               " << get_translated_string(App::APP_NAME) << "                  " << endl;
       cout << "--------------------------------------------------------------------" << endl;
-      cout << "Forgot Your Password" << endl;
+      cout << get_translated_string("forgot_title") << endl;
 
-      string username = Validation::string_validation("Please Enter Your Username: ", "username");
+      string username = Validation::string_validation(get_translated_string("forgot_input_username"), "username");
 
       User user = user.find(username);
       validate_forgot_question(user);
