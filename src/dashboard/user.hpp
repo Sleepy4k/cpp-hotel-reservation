@@ -1,6 +1,5 @@
-#include <string>
-#include <iostream>
 #include "../model/user.hpp"
+#include "../const/menu_list.hpp"
 
 using namespace std;
 
@@ -22,8 +21,41 @@ class UserDashboard {
      * @return void
      */
     static void dashboard(User user) {
-      cout << "User Dashboard" << endl;
-      cout << "Welcome " << user.get_username() << endl;
+      vector<string> menu_list = MenuList::USER_DASHBOARD_MENU;
+
+      cout << "\n\n--------------------------------------------------------------------" << endl;
+      cout << "               " << get_translated_string(App::APP_NAME) << "                  " << endl;
+      cout << "--------------------------------------------------------------------" << endl;
+      cout << Sprintf::format(get_translated_string("menu_list_user_title"), {user.get_username()}) << endl;
+
+      for (int i = 0; i < menu_list.size(); i++) {
+        cout << get_translated_string("menu_list_user_press") << " " << i + 1 << " --> " << menu_list[i] << endl;
+      }
+
+      int menu = Validation::integer_validation(1, menu_list.size());
+
+      switch (menu) {
+        case 1:
+          cout << get_translated_string("menu_list_user_search_room") << endl;
+          break;
+        case 2:
+          cout << get_translated_string("menu_list_user_booking_room") << endl;
+          break;
+        case 3:
+          cout << get_translated_string("menu_list_user_booking_history") << endl;
+          break;
+        case 4:
+          cout << get_translated_string("menu_list_user_profile") << endl;
+          break;
+        case 5:
+          return;
+          break;
+        default:
+          cout << get_translated_string("menu_list_user_invalid") << endl;
+          break;
+      }
+
+      dashboard(user);
     }
 };
 
