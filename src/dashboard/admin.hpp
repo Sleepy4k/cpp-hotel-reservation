@@ -1,5 +1,4 @@
-#include "../model/user.hpp"
-#include "../const/menu_list.hpp"
+#include "admin_system.hpp"
 
 using namespace std;
 
@@ -51,7 +50,7 @@ class AdminDashboard {
           cout << get_translated_string("menu_list_admin_report_and_statistic") << endl;
           break;
         case 6:
-          cout << get_translated_string("menu_list_admin_manage_system") << endl;
+          AdminSystemDashboard::dashboard(user);
           break;
         case 7:
           return;
