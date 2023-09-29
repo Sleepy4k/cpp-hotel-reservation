@@ -26,12 +26,12 @@ class Menu {
 
       while (true) {
         cout << "\n\n--------------------------------------------------------------------" << endl;
-        cout << "               " << App::APP_NAME << "                  " << endl;
+        cout << "               " << get_translated_string(App::APP_NAME) << "                  " << endl;
         cout << "--------------------------------------------------------------------" << endl;
-        cout << "Welcome To Home Page" << endl;
+        cout << get_translated_string("menu_list_main_welcome") << endl;
 
         for (int i = 0; i < menu_list.size(); i++) {
-          cout << "Press " << i + 1 << " --> " << menu_list[i] << endl;
+          cout << get_translated_string("menu_list_main_press") << " " << i + 1 << " --> " << menu_list[i] << endl;
         }
 
         int menu = Validation::integer_validation(1, menu_list.size());
@@ -50,11 +50,11 @@ class Menu {
             Forgot::forgot_password();
             break;
           case 5:
-            cout << "Thank You For Using " << App::APP_NAME << endl;
+            cout << get_translated_string("menu_list_main_thanks") << " " << get_translated_string(App::APP_NAME) << endl;
             exit(0);
             break;
           default:
-            cout << "Invalid menu" << endl;
+            cout << get_translated_string("menu_list_main_invalid") << endl;
             break;
         }
       }

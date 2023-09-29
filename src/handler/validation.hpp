@@ -1,7 +1,8 @@
 #include <regex>
-#include <string>
 #include <limits>
 #include <iostream>
+#include "../handler/i18n.hpp"
+#include "../helper/sprintf.hpp"
 
 using namespace std;
 
@@ -83,15 +84,15 @@ class Validation {
       int choice;
 
       while (true) {
-        cout << "Please Enter Your Choice : ";
+        cout << get_translated_string("validation_integer_input");
 
         if (!(cin >> choice)) {
           cin.clear();
           cin.ignore(numeric_limits<streamsize>::max(), '\n');
-          cout << "\nPlease enter a valid number!!" << endl;
+          cout << "\n" << get_translated_string("validation_integer_invalid") << endl;
         } else if (choice < min || choice > max) {
           cin.ignore(numeric_limits<streamsize>::max(), '\n');
-          cout << "\nPlease enter a number between " << min << " and " << max << "!!" << endl;
+          cout << "\n" << Sprintf::format(get_translated_string("validation_integer_between"), {to_string(min), to_string(max)}) << endl;
         } else {
           cin.ignore(numeric_limits<streamsize>::max(), '\n');
           return choice;
@@ -114,13 +115,13 @@ class Validation {
       if (validationType == "username") {
         validationRegex = "^[a-zA-Z0-9_]{5,}$";
       } else if (validationType == "password") {
-        validationRegex = "^[a-zA-Z0-9_]{8,}$";
+        validationRegex = "^[a-zA-Z0-9_]{8,10}$";
       } else if (validationType == "confirmation") {
         validationRegex = "^[yn]$";
       } else if (validationType == "date") {
         validationRegex = "^\\d{2}/\\d{2}/\\d{4}$";
       } else if (validationType == "forgot_answer") {
-        validationRegex = "^[a-zA-Z0-9_]{6,}$";
+        validationRegex = "^[a-zA-Z0-9_]8,10}$";
       } else {
         validationRegex = "^[a-zA-Z0-9_]{1,}$";
       }
@@ -132,7 +133,7 @@ class Validation {
         if (regex_match(data, validationRegex)) {
           return data;
         } else {
-          cout << "\nPlease enter a valid input!!" << endl;
+          cout << "\n" << get_translated_string("validation_string_invalid") << endl;
         }
       }
     }
