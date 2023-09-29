@@ -49,6 +49,13 @@ map<string, string> english_translations = {
   {"menu_list_user_logout", "Logout"},
   {"menu_list_user_invalid", "Invalid menu"},
 
+  {"menu_list_admin_system_title", "Hai %, welcome to system admin dashboard"},
+  {"menu_list_admin_system_language", "Manage Language"},
+  {"menu_list_admin_system_debug", "Manage Debug"},
+  {"menu_list_admin_system_back", "Back"},
+  {"menu_list_admin_system_press", "Press"},
+  {"menu_list_admin_system_invalid", "Invalid menu"},
+
   {"validation_integer_input", "Please enter your Choice: "},
   {"validation_integer_invalid", "Please enter a valid number!!"},
   {"validation_integer_between", "Please enter a number between % and %!!"},
@@ -93,6 +100,11 @@ map<string, string> english_translations = {
   {"forgot_create_press", "Press"},
   {"forgot_create_input_answer", "Please Enter Your Answer: "},
   {"forgot_create_invalid_menu", "Invalid menu"},
+
+  {"admin_system_input_language", "Please enter the language code (en, id): "},
+  {"admin_system_invalid_language", "language must be en or id"},
+  {"admin_system_input_debug", "Please enter the debug mode (true, false): "},
+  {"admin_system_invalid_debug", "debug must be true or false"},
 };
 
 #endif

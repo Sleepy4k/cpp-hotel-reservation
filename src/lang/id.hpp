@@ -49,6 +49,13 @@ map<string, string> indonesian_translations = {
   {"menu_list_user_logout", "Keluar"},
   {"menu_list_user_invalid", "Menu tidak valid"},
 
+  {"menu_list_admin_system_title", "Hai %, selamat datang di dasbor admin sistem"},
+  {"menu_list_admin_system_language", "Kelola Bahasa"},
+  {"menu_list_admin_system_debug", "Kelola Debug"},
+  {"menu_list_admin_system_back", "Kembali"},
+  {"menu_list_admin_system_press", "Tekan"},
+  {"menu_list_admin_system_invalid", "Menu tidak valid"},
+
   {"validation_integer_input", "Silakan masukkan pilihan anda: "},
   {"validation_integer_invalid", "Silakan masukkan nomor yang valid!!"},
   {"validation_integer_between", "Silakan masukkan angka antara % dan %!!"},
@@ -93,6 +100,11 @@ map<string, string> indonesian_translations = {
   {"forgot_create_press", "Tekan"},
   {"forgot_create_input_answer", "Tolong masukan jawaban anda: "},
   {"forgot_create_invalid_menu", "Menu tidak valid"},
+
+  {"admin_system_input_language", "Silakan masukkan kode bahasa (en, id): "},
+  {"admin_system_invalid_language", "bahasa harus en atau id"},
+  {"admin_system_input_debug", "Silakan masuk ke mode debug (true, false): "},
+  {"admin_system_invalid_debug", "debug harus true atau false"},
 };
 
 #endif
