@@ -63,7 +63,18 @@ namespace MenuList {
     get_translated_string("menu_list_user_booking_room"),
     get_translated_string("menu_list_user_booking_history"),
     get_translated_string("menu_list_user_profile"),
-    get_translated_string("menu_list_user_logout"),
+    get_translated_string("menu_list_user_logout")
+  };
+
+  /**
+   * @brief Admin system dashboard menu list
+   * 
+   * @var vector<string>
+   */
+  const vector<string> ADMIN_SYSTEM_DASHBOARD_MENU = {
+    get_translated_string("menu_list_admin_system_language"),
+    get_translated_string("menu_list_admin_system_debug"),
+    get_translated_string("menu_list_admin_system_back")
   };
 };
 

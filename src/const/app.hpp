@@ -8,6 +8,13 @@ using namespace std;
 #define CONST_APP_HPP
 
 /**
+ * @brief Language constant
+ * 
+ * @namespace Language
+ */
+bool debug = true;
+
+/**
  * @brief Application constant
  * 
  * @namespace App
@@ -25,7 +32,7 @@ namespace App {
    * 
    * @var bool
    */
-  const bool APP_DEBUG = true;
+  const bool APP_DEBUG = debug;
 
   /**
    * @brief Application language
@@ -33,6 +40,15 @@ namespace App {
    * @var string
    */
   const string APP_LANGUAGE = set_language(Language::ENGLISH);
+
+  /**
+   * @brief Application language
+   * 
+   * @var string
+   */
+  const void set_debug(bool value) {
+    debug = value;
+  }
 };
 
 #endif

@@ -6,6 +6,11 @@ using namespace std;
 #ifndef CONST_PATH_HPP
 #define CONST_PATH_HPP
 
+/**
+ * @brief Base path for the application
+ * 
+ * @var string
+ */
 string basepath = __FILE__;
 
 /**
