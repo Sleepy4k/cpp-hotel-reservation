@@ -1,6 +1,5 @@
 #include <string>
 #include <iostream>
-#include "../handler/i18n.hpp"
 
 using namespace std;
 
@@ -33,13 +32,6 @@ namespace App {
    * @var bool
    */
   const bool APP_DEBUG = debug;
-
-  /**
-   * @brief Application language
-   * 
-   * @var string
-   */
-  const string APP_LANGUAGE = set_language(Language::ENGLISH);
 
   /**
    * @brief Application language

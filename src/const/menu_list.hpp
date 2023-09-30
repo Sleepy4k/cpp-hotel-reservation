@@ -1,6 +1,5 @@
 #include <vector>
 #include <iostream>
-#include "../handler/i18n.hpp"
 
 using namespace std;
 
@@ -19,11 +18,11 @@ namespace MenuList {
    * @var vector<string>
    */
   const vector<string> MAIN_MENU = {
-    get_translated_string("menu_list_main_admin"),
-    get_translated_string("menu_list_main_user"),
-    get_translated_string("menu_list_main_register"),
-    get_translated_string("menu_list_main_forgot"),
-    get_translated_string("menu_list_main_exit")
+    "menu_list_main_admin",
+    "menu_list_main_user",
+    "menu_list_main_register",
+    "menu_list_main_forgot",
+    "menu_list_main_exit"
   };
 
   /**
@@ -32,10 +31,10 @@ namespace MenuList {
    * @var vector<string>
    */
   const vector<string> FORGOT_MENU = {
-    get_translated_string("menu_list_forgot_pet"),
-    get_translated_string("menu_list_forgot_color"),
-    get_translated_string("menu_list_forgot_food"),
-    get_translated_string("menu_list_forgot_person")
+    "menu_list_forgot_pet",
+    "menu_list_forgot_color",
+    "menu_list_forgot_food",
+    "menu_list_forgot_person"
   };
 
   /**
@@ -44,13 +43,13 @@ namespace MenuList {
    * @var vector<string>
    */
   const vector<string> ADMIN_DASHBOARD_MENU = {
-    get_translated_string("menu_list_admin_manage_room"),
-    get_translated_string("menu_list_admin_manage_user"),
-    get_translated_string("menu_list_admin_manage_booking"),
-    get_translated_string("menu_list_admin_manage_admin"),
-    get_translated_string("menu_list_admin_report_and_statistic"),
-    get_translated_string("menu_list_admin_manage_system"),
-    get_translated_string("menu_list_admin_logout")
+    "menu_list_admin_manage_room",
+    "menu_list_admin_manage_user",
+    "menu_list_admin_manage_booking",
+    "menu_list_admin_manage_admin",
+    "menu_list_admin_report_and_statistic",
+    "menu_list_admin_manage_system",
+    "menu_list_admin_logout"
   };
 
   /**
@@ -59,11 +58,11 @@ namespace MenuList {
    * @var vector<string>
    */
   const vector<string> USER_DASHBOARD_MENU = {
-    get_translated_string("menu_list_user_search_room"),
-    get_translated_string("menu_list_user_booking_room"),
-    get_translated_string("menu_list_user_booking_history"),
-    get_translated_string("menu_list_user_profile"),
-    get_translated_string("menu_list_user_logout")
+    "menu_list_user_search_room",
+    "menu_list_user_booking_room",
+    "menu_list_user_booking_history",
+    "menu_list_user_profile",
+    "menu_list_user_logout"
   };
 
   /**
@@ -72,9 +71,9 @@ namespace MenuList {
    * @var vector<string>
    */
   const vector<string> ADMIN_SYSTEM_DASHBOARD_MENU = {
-    get_translated_string("menu_list_admin_system_language"),
-    get_translated_string("menu_list_admin_system_debug"),
-    get_translated_string("menu_list_admin_system_back")
+    "menu_list_admin_system_language",
+    "menu_list_admin_system_debug",
+    "menu_list_admin_system_back"
   };
 };
 
