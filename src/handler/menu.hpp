@@ -31,7 +31,7 @@ class Menu {
         cout << get_translated_string("menu_list_main_welcome") << endl;
 
         for (int i = 0; i < menu_list.size(); i++) {
-          cout << get_translated_string("menu_list_main_press") << " " << i + 1 << " --> " << menu_list[i] << endl;
+          cout << get_translated_string("menu_list_main_press") << " " << i + 1 << " --> " << get_translated_string(menu_list[i]) << endl;
         }
 
         int menu = Validation::integer_validation(1, menu_list.size());

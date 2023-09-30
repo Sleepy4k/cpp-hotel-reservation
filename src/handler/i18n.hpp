@@ -3,6 +3,8 @@
 #include <stdexcept>
 #include "../lang/en.hpp"
 #include "../lang/id.hpp"
+#include "../storage/file.hpp"
+#include "../enum/language.hpp"
 
 using namespace std;
 
@@ -10,21 +12,11 @@ using namespace std;
 #define HANDLER_I18N_HPP
 
 /**
- * @brief Language enum class
- * 
- * @enum Language
- */
-enum class Language {
-  ENGLISH,
-  INDONESIA
-};
-
-/**
  * @brief Supported language
  * 
  * @var Language
  */
-Language supported_language = Language::ENGLISH;
+Language supported_language;
 
 /**
  * @brief Get the translated string
@@ -45,6 +37,15 @@ string get_translated_string(const string& key) {
 };
 
 /**
+ * @brief Change the language
+ * 
+ * @return void
+ */
+void change_language() {
+  File::write(Path::getPath() + "/language.txt", (supported_language == Language::ENGLISH) ? "ENGLISH" : "INDONESIA");
+}
+
+/**
  * @brief Set the language
  * 
  * @param language Language
@@ -53,7 +54,28 @@ string get_translated_string(const string& key) {
  */
 string set_language(Language language) {
   supported_language = language;
+  change_language();
   return language == Language::ENGLISH ? "ENGLISH" : "INDONESIA";
 };
+
+/**
+ * @brief Get the language
+ * 
+ * @return Language
+ */
+void init_language() {
+  string language = File::read(Path::getPath() + "/language.txt");
+  language = language.substr(0, language.length() - 1);
+
+  if (language == "ENGLISH") {
+    supported_language = Language::ENGLISH;
+  } else if (language == "INDONESIA") {
+    supported_language = Language::INDONESIA;
+  } else {
+    supported_language = Language::ENGLISH;
+  }
+
+  change_language();
+}
 
 #endif
