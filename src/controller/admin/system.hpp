@@ -1,12 +1,12 @@
-#include "../const/app.hpp"
-#include "../model/user.hpp"
-#include "../const/menu_list.hpp"
-#include "../handler/validation.hpp"
+#include "../../const/app.hpp"
+#include "../../model/user.hpp"
+#include "../../const/menu_list.hpp"
+#include "../../handler/validation.hpp"
 
 using namespace std;
 
-#ifndef DASHBOARD_ADMIN_SYSTEM_HPP
-#define DASHBOARD_ADMIN_SYSTEM_HPP
+#ifndef CONTROLLER_ADMIN_SYSTEM_HPP
+#define CONTROLLER_ADMIN_SYSTEM_HPP
 
 /**
  * @brief AdminSystemDashboard class to handle admin system dashboard
@@ -69,7 +69,7 @@ class AdminSystemDashboard {
       cout << Sprintf::format(get_translated_string("menu_list_admin_system_title"), {user.get_username()}) << endl;
 
       for (int i = 0; i < menu_list.size(); i++) {
-        cout << get_translated_string("menu_list_admin_system_press") << " " << i + 1 << " --> " << menu_list[i] << endl;
+        cout << get_translated_string("menu_list_admin_system_press") << " " << i + 1 << " --> " << get_translated_string(menu_list[i]) << endl;
       }
 
       int menu = Validation::integer_validation(1, menu_list.size());
