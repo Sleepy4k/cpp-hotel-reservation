@@ -1,3 +1,4 @@
+#include <cstdio>
 #include <fstream>
 #include <iostream>
 #include "../const/app.hpp"
@@ -87,8 +88,16 @@ class File {
      * 
      * @return void
      */
-    static void delete_file(string filename) {
-      remove(filename.c_str());
+    static void delete_file(const string filename) {
+      int result = remove(filename.c_str());
+
+      if (App::APP_DEBUG) {
+        if (result != 0) {
+          cerr << "Error deleting file" << endl;
+        } else {
+          cout << "File successfully deleted" << endl;
+        }
+      }
     }
 
     /**
