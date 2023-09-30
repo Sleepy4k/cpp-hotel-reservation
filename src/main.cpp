@@ -6,6 +6,7 @@
 //=================================================================================
 
 #include "./const/path.hpp"
+#include "./handler/i18n.hpp"
 #include "./handler/menu.hpp"
 
 using namespace std;
@@ -17,6 +18,7 @@ using namespace std;
  */
 int main(int argc, char* argv[]) {
   Path::setPath(argv[0]);
+  init_language();
   Menu::main_menu();
 
   return 0;
