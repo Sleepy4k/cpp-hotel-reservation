@@ -1,4 +1,4 @@
-#include "admin_system.hpp"
+#include "../controller/admin/system.hpp"
 
 using namespace std;
 
@@ -28,7 +28,7 @@ class AdminDashboard {
       cout << Sprintf::format(get_translated_string("menu_list_admin_title"), {user.get_username()}) << endl;
 
       for (int i = 0; i < menu_list.size(); i++) {
-        cout << get_translated_string("menu_list_admin_press") << " " << i + 1 << " --> " << menu_list[i] << endl;
+        cout << get_translated_string("menu_list_admin_press") << " " << i + 1 << " --> " << get_translated_string(menu_list[i]) << endl;
       }
 
       int menu = Validation::integer_validation(1, menu_list.size());
