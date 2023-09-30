@@ -61,12 +61,12 @@ struct User {
     /**
      * @brief Construct a new User object
      * 
-     * @param uid 
-     * @param role 
-     * @param username 
-     * @param password 
-     * @param forgot_question_id
-     * @param forgot_answer
+     * @param uid string
+     * @param role string
+     * @param username string
+     * @param password string
+     * @param forgot_question_id int
+     * @param forgot_answer string
      * 
      * @return void
      */
