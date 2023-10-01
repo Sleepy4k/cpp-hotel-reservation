@@ -56,6 +56,12 @@ map<string, string> indonesian_translations = {
   {"menu_list_admin_system_press", "Tekan"},
   {"menu_list_admin_system_invalid", "Menu tidak valid"},
 
+  {"menu_list_user_profile_title", "Hai %, selamat datang di dasbor user profil"},
+  {"menu_list_user_profile_forgot", "Ubah Kata Sandi"},
+  {"menu_list_user_profile_back", "Kembali"},
+  {"menu_list_user_profile_press", "Tekan"},
+  {"menu_list_user_profile_invalid", "Menu tidak valid"},
+
   {"validation_integer_input", "Silakan masukkan pilihan anda: "},
   {"validation_integer_invalid", "Silakan masukkan nomor yang valid!!"},
   {"validation_integer_between", "Silakan masukkan angka antara % dan %!!"},

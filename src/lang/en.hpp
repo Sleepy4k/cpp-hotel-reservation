@@ -56,6 +56,12 @@ map<string, string> english_translations = {
   {"menu_list_admin_system_press", "Press"},
   {"menu_list_admin_system_invalid", "Invalid menu"},
 
+  {"menu_list_user_profile_title", "Hai %, welcome to profile user dashboard"},
+  {"menu_list_user_profile_forgot", "Change Password"},
+  {"menu_list_user_profile_back", "Back"},
+  {"menu_list_user_profile_press", "Press"},
+  {"menu_list_user_profile_invalid", "Invalid menu"},
+
   {"validation_integer_input", "Please enter your Choice: "},
   {"validation_integer_invalid", "Please enter a valid number!!"},
   {"validation_integer_between", "Please enter a number between % and %!!"},
