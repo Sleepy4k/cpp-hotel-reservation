@@ -11,28 +11,6 @@ using namespace std;
  * @class Hash
  */
 class Hash {
-  private:
-    /**
-     * @brief Key to encrypt and decrypt the password
-     * 
-     * @var int
-     */
-    int key = 3;
-
-    /**
-     * @brief Password
-     * 
-     * @var char
-     */
-    char password[50];
-
-    /**
-     * @brief Encrypted password
-     * 
-     * @var char
-     */
-    char encrypted_password[100];
-
   public:
     /**
      * @brief Encrypt the password
@@ -41,31 +19,14 @@ class Hash {
      * 
      * @return string 
      */
-    string encrypt(string user_password) {
-      strcpy(password, user_password.c_str());
+    static string encrypt(string user_password) {
+      unsigned int hash = 0;
 
-      for (int i = 0; (i < 100 && password[i] != '\0'); i++) {
-        encrypted_password[i] = password[i] + key;
+      for (int i = 0; i < user_password.length(); i++) {
+        hash ^= (hash << 5) + (hash >> 2) + user_password[i];
       }
 
-      return encrypted_password;
-    }
-
-    /**
-     * @brief Decrypt the password
-     * 
-     * @param hash_password string
-     * 
-     * @return string 
-     */
-    string decrypt(string hash_password) {
-      strcpy(encrypted_password, hash_password.c_str());
-
-      for (int i = 0; (i < 100 && encrypted_password[i] != '\0'); i++) {
-        password[i] = encrypted_password[i] - key;
-      }
-
-      return password;
+      return to_string(hash);
     }
 
     /**
@@ -77,8 +38,8 @@ class Hash {
      * @return true 
      * @return false 
      */
-    bool verify(string password, string hash) {
-      return (hash == encrypt(password));
+    static bool verify(string password, string hash) {
+      return hash == encrypt(password);
     }
 };
 

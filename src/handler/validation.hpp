@@ -115,13 +115,13 @@ class Validation {
       if (validationType == "username") {
         validationRegex = "^[a-zA-Z0-9_]{5,}$";
       } else if (validationType == "password") {
-        validationRegex = "^[a-zA-Z0-9_]{8,10}$";
+        validationRegex = "^[a-zA-Z0-9_]{6,}$";
       } else if (validationType == "confirmation") {
         validationRegex = "^[yn]$";
       } else if (validationType == "date") {
         validationRegex = "^\\d{2}/\\d{2}/\\d{4}$";
       } else if (validationType == "forgot_answer") {
-        validationRegex = "^[a-zA-Z0-9_]{8,10}$";
+        validationRegex = "^[a-zA-Z0-9_]{1,}$";
       } else {
         validationRegex = "^[a-zA-Z0-9_]{1,}$";
       }
