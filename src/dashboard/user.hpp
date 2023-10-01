@@ -1,5 +1,4 @@
-#include "../model/user.hpp"
-#include "../const/menu_list.hpp"
+#include "../controller/user/profile.hpp"
 
 using namespace std;
 
@@ -45,7 +44,7 @@ class UserDashboard {
           cout << get_translated_string("menu_list_user_booking_history") << endl;
           break;
         case 4:
-          cout << get_translated_string("menu_list_user_profile") << endl;
+          UserProfileDashboard::dashboard(user);
           break;
         case 5:
           return;
