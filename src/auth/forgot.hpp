@@ -34,10 +34,9 @@ class Forgot {
         cout << get_translated_string("forgot_create_press") << " " << i + 1 << " --> " << get_translated_string(menu_list[i]) << endl;
       }
 
-      Hash hash;
       int menu = Validation::integer_validation(1, menu_list.size());
       string answer = Validation::string_validation(get_translated_string("forgot_create_input_answer"), "forgot_answer");
-      answer = hash.encrypt(answer);
+      answer = Hash::encrypt(answer);
 
       switch (menu) {
         case 1:
@@ -92,10 +91,9 @@ class Forgot {
           break;
       } 
 
-      Hash hash;
       string answer = Validation::string_validation(get_translated_string("forgot_validate_input_answer"), "forgot_answer");
 
-      if (hash.decrypt(user.get_forgot_answer()) == answer) {
+      if (Hash::verify(answer, user.get_forgot_answer())) {
         string password = Validation::string_validation(get_translated_string("forgot_validate_input_password"), "password");
         string confirm_password = Validation::string_validation(get_translated_string("forgot_validate_input_confirm_password"), "password");
 
@@ -103,11 +101,11 @@ class Forgot {
           cout << get_translated_string("forgot_validate_input_password_not_same") << endl;
           return validate_forgot_question(user);
         } else {
-          if (hash.verify(password, user.get_password())) {
+          if (Hash::verify(password, user.get_password())) {
             cout << get_translated_string("forgot_validate_input_password_must_be_different") << endl;
             return validate_forgot_question(user);
           } else {
-            user.update(user.get_username(), user.get_password(), hash.encrypt(password));
+            user.update(user.get_username(), user.get_password(), Hash::encrypt(password));
           }
         }
       } else {
@@ -128,8 +126,8 @@ class Forgot {
       cout << get_translated_string("forgot_title") << endl;
 
       string username = Validation::string_validation(get_translated_string("forgot_input_username"), "username");
-
       User user = user.find(username);
+
       validate_forgot_question(user);
     }
 };

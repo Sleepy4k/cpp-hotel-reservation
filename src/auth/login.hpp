@@ -53,11 +53,10 @@ class Login {
       string username = Validation::string_validation(get_translated_string("login_input_username"), "username");
       string password = Validation::string_validation(get_translated_string("login_input_password"), "password");
 
-      Hash hash;
       User user = user.find(username);
       bool isAdmin = (user.get_role() == "admin");
 
-      if (hash.verify(password, user.get_password())) {
+      if (Hash::verify(password, user.get_password())) {
         if (is_admin && isAdmin) {
           return AdminDashboard::dashboard(user);
         } else if (!is_admin && !isAdmin) {

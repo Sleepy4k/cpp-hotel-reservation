@@ -52,12 +52,11 @@ class Register {
         cout << get_translated_string("register_input_password_not_same") << endl;
         register_user.register_user();
       } else {
-        Hash hash;
-
         register_user.user.set_uid(UUID::generate_uuid());
         register_user.user.set_role(role);
         register_user.user.set_username(username);
-        register_user.user.set_password(hash.encrypt(password));
+        register_user.user.set_password(Hash::encrypt(password));
+
         Forgot::create_forgot_question(register_user.user);
       }
     }
