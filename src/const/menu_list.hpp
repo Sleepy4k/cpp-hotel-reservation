@@ -75,6 +75,16 @@ namespace MenuList {
     "menu_list_admin_system_debug",
     "menu_list_admin_system_back"
   };
+
+  /**
+   * @brief User profile dashboard menu list
+   * 
+   * @var vector<string>
+   */
+  const vector<string> USER_PROFILE_DASHBOARD_MENU = {
+    "menu_list_user_profile_forgot",
+    "menu_list_user_profile_back"
+  };
 };
 
 #endif
