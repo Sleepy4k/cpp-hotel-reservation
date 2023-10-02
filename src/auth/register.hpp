@@ -13,22 +13,7 @@ using namespace std;
  * @class Register
  */
 class Register {
-  private:
-    /**
-     * @brief User
-     * 
-     * @var User
-     */
-    User user;
-
   public:
-    /**
-     * @brief Construct a new Register object
-     */
-    Register() {
-      this->user = User();
-    }
-
     /**
      * @brief Register user
      * 
@@ -37,8 +22,6 @@ class Register {
      * @return void
      */
     static void register_user(string role = "user") {
-      Register register_user = Register();
-
       cout << "\n\n--------------------------------------------------------------------" << endl;
       cout << "               " << get_translated_string(App::APP_NAME) << "                  " << endl;
       cout << "--------------------------------------------------------------------" << endl;
@@ -50,16 +33,17 @@ class Register {
 
       if (password != confirm_password) {
         cout << get_translated_string("register_input_password_not_same") << endl;
-        register_user.register_user();
+        register_user();
       } else {
-        register_user.user.set_uid(UUID::generate_uuid());
-        register_user.user.set_role(role);
-        register_user.user.set_username(username);
-        register_user.user.set_password(Hash::encrypt(password));
+        User user;
+        user.set_uid(UUID::generate_uuid());
+        user.set_role(role);
+        user.set_username(username);
+        user.set_password(Hash::encrypt(password));
 
-        Forgot::create_forgot_question(register_user.user);
+        Forgot::create_forgot_question(user);
       }
-    }
+    };
 };
 
 #endif
