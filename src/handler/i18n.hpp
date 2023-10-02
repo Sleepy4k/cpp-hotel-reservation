@@ -19,43 +19,12 @@ using namespace std;
 Language supported_language;
 
 /**
- * @brief Get the translated string
- * 
- * @param key string
- * 
- * @return string
- */
-string get_translated_string(const string& key) {
-  switch (supported_language) {
-    case Language::ENGLISH:
-      return (english_translations.find(key) != english_translations.end()) ? english_translations.at(key) : key;
-    case Language::INDONESIA:
-      return (indonesian_translations.find(key) != indonesian_translations.end()) ? indonesian_translations.at(key) : key;
-    default:
-      throw runtime_error("Unsupported language");
-  }
-};
-
-/**
  * @brief Change the language
  * 
  * @return void
  */
 void change_language() {
   File::write(Path::getPath() + "/language.txt", (supported_language == Language::ENGLISH) ? "ENGLISH" : "INDONESIA");
-}
-
-/**
- * @brief Set the language
- * 
- * @param language Language
- * 
- * @return string
- */
-string set_language(Language language) {
-  supported_language = language;
-  change_language();
-  return language == Language::ENGLISH ? "ENGLISH" : "INDONESIA";
 };
 
 /**
@@ -76,6 +45,37 @@ void init_language() {
   }
 
   change_language();
-}
+};
+
+/**
+ * @brief Set the language
+ * 
+ * @param language Language
+ * 
+ * @return string
+ */
+string set_language(Language language) {
+  supported_language = language;
+  change_language();
+  return language == Language::ENGLISH ? "ENGLISH" : "INDONESIA";
+};
+
+/**
+ * @brief Get the translated string
+ * 
+ * @param key string
+ * 
+ * @return string
+ */
+string get_translated_string(const string& key) {
+  switch (supported_language) {
+    case Language::ENGLISH:
+      return (english_translations.find(key) != english_translations.end()) ? english_translations.at(key) : key;
+    case Language::INDONESIA:
+      return (indonesian_translations.find(key) != indonesian_translations.end()) ? indonesian_translations.at(key) : key;
+    default:
+      throw runtime_error("Unsupported language");
+  }
+};
 
 #endif
