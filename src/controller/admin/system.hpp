@@ -32,7 +32,7 @@ class AdminSystemDashboard {
       } else {
         cout << get_translated_string("admin_system_invalid_language") << endl;
       }
-    }
+    };
 
     /**
      * @brief Set the debug
@@ -51,7 +51,7 @@ class AdminSystemDashboard {
       } else {
         cout << get_translated_string("admin_system_invalid_debug") << endl;
       }
-    }
+    };
 
     /**
      * @brief Show the admin system dashboard
@@ -90,7 +90,7 @@ class AdminSystemDashboard {
       }
 
       dashboard(user);
-    }
+    };
 };
 
 #endif

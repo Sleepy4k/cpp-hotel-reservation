@@ -38,7 +38,7 @@ class Sprintf {
       }
 
       return result;
-    }
+    };
 };
 
 #endif

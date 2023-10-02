@@ -22,4 +22,4 @@ int main(int argc, char* argv[]) {
   Menu::main_menu();
 
   return 0;
-}
+};

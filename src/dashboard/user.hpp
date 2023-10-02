@@ -55,7 +55,7 @@ class UserDashboard {
       }
 
       dashboard(user);
-    }
+    };
 };
 
 #endif

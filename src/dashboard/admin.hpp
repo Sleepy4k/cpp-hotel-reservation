@@ -61,7 +61,7 @@ class AdminDashboard {
       }
 
       dashboard(user);
-    }
+    };
 };
 
 #endif

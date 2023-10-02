@@ -32,7 +32,7 @@ class File {
           cerr << "Error opening file" << endl;
         }
       }
-    }
+    };
 
     /**
      * @brief Read file
@@ -59,7 +59,7 @@ class File {
       file.close();
 
       return content;
-    }
+    };
 
     /**
      * @brief Write file
@@ -79,7 +79,7 @@ class File {
 
       file << content;
       file.close();
-    }
+    };
 
     /**
      * @brief Delete file
@@ -98,7 +98,7 @@ class File {
           cout << "File successfully deleted" << endl;
         }
       }
-    }
+    };
 
     /**
      * @brief Check if file exists
@@ -118,7 +118,7 @@ class File {
       file.close();
 
       return true;
-    }
+    };
 };
 
 #endif

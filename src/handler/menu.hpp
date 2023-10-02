@@ -58,7 +58,7 @@ class Menu {
             break;
         }
       }
-    }
+    };
 };
 
 #endif

@@ -34,7 +34,7 @@ class Login {
         cout << get_translated_string("login_confirm_input_invalid") << endl;
         return confirm(is_admin);
       }
-    }
+    };
 
     /**
      * @brief Login user
@@ -74,7 +74,7 @@ class Login {
           return confirm(is_admin);
         }
       }
-    }
+    };
 };
 
 #endif

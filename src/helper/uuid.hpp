@@ -30,7 +30,7 @@ class UUID {
       }
 
       return uuid;
-    }
+    };
 };
 
 #endif

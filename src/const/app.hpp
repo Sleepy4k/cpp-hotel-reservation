@@ -40,7 +40,7 @@ namespace App {
    */
   const void set_debug(bool value) {
     debug = value;
-  }
+  };
 };
 
 #endif

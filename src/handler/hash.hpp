@@ -27,7 +27,7 @@ class Hash {
       }
 
       return to_string(hash);
-    }
+    };
 
     /**
      * @brief Verify the password
@@ -40,7 +40,7 @@ class Hash {
      */
     static bool verify(string password, string hash) {
       return hash == encrypt(password);
-    }
+    };
 };
 
 #endif

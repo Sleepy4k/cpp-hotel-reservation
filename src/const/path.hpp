@@ -26,7 +26,7 @@ namespace Path {
    */
   const string getPath() {
     return basepath;
-  }
+  };
 
   /**
    * @brief Set the Path object
@@ -43,7 +43,7 @@ namespace Path {
     }
 
     basepath = path;
-  }
+  };
 };
 
 #endif

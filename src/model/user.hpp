@@ -77,7 +77,7 @@ struct User {
       this->password = password;
       this->forgot_question_id = forgot_question_id;
       this->forgot_answer = forgot_answer;
-    }
+    };
 
     /**
      * @brief Construct a new User object
@@ -89,7 +89,7 @@ struct User {
       this->password = "";
       this->forgot_question_id = 0;
       this->forgot_answer = "";
-    }
+    };
 
     /**
      * @brief Set the uid object
@@ -100,7 +100,7 @@ struct User {
      */
     void set_uid(string uid) {
       this->uid = uid;
-    }
+    };
 
     /**
      * @brief Set the role object
@@ -111,7 +111,7 @@ struct User {
      */
     void set_role(string role) {
       this->role = role;
-    }
+    };
 
     /**
      * @brief Set the username object
@@ -122,7 +122,7 @@ struct User {
      */
     void set_username(string username) {
       this->username = username;
-    }
+    };
 
     /**
      * @brief Set the password object
@@ -133,7 +133,7 @@ struct User {
      */
     void set_password(string password) {
       this->password = password;
-    }
+    };
 
     /**
      * @brief Set the forgot question id object
@@ -155,7 +155,7 @@ struct User {
      */
     void set_forgot_answer(string forgot_answer) {
       this->forgot_answer = forgot_answer;
-    }
+    };
 
     /**
      * @brief Get the uid object
@@ -164,7 +164,7 @@ struct User {
      */
     string get_uid() {
       return this->uid;
-    }
+    };
 
     /**
      * @brief Get the role object
@@ -173,7 +173,7 @@ struct User {
      */
     string get_role() {
       return this->role;
-    }
+    };
 
     /**
      * @brief Get the username object
@@ -182,7 +182,7 @@ struct User {
      */
     string get_username() {
       return this->username;
-    }
+    };
 
     /**
      * @brief Get the password object
@@ -191,7 +191,7 @@ struct User {
      */
     string get_password() {
       return this->password;
-    }
+    };
 
     /**
      * @brief Get the forgot question id object
@@ -200,7 +200,7 @@ struct User {
      */
     int get_forgot_question_id() {
       return this->forgot_question_id;
-    }
+    };
 
     /**
      * @brief Get the forgot answer object
@@ -209,7 +209,7 @@ struct User {
      */
     string get_forgot_answer() {
       return this->forgot_answer;
-    }
+    };
 
     /**
      * @brief Get all the user
@@ -238,7 +238,7 @@ struct User {
       }
 
       return data;
-    }
+    };
 
     /**
      * @brief Create the user
@@ -289,7 +289,7 @@ struct User {
           }
         }
       }
-    }
+    };
 
     /**
      * @brief Get the user object
@@ -322,7 +322,7 @@ struct User {
       }
 
       return user;
-    }
+    };
 
     /**
      * @brief Update the user
@@ -380,7 +380,7 @@ struct User {
       } else {
         cout << get_translated_string("model_user_notfound") << endl;
       }
-    }
+    };
 
     /**
      * @brief Delete the user
@@ -436,7 +436,7 @@ struct User {
       } else {
         cout << get_translated_string("model_user_notfound") << endl;
       }
-    }
+    };
 
     /**
      * @brief Get the string object
@@ -450,7 +450,7 @@ struct User {
             + "Password: " + this->password + "\n"
             + "Forgot Question ID: " + to_string(this->forgot_question_id) + "\n"
             + "Forgot Answer: " + this->forgot_answer + "\n";
-    }
+    };
 };
 
 #endif

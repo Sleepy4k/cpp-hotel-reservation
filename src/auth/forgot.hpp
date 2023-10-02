@@ -61,7 +61,7 @@ class Forgot {
       }
 
       user.create();
-    }
+    };
 
     /**
      * @brief Validate forgot question
@@ -112,7 +112,7 @@ class Forgot {
         cout << get_translated_string("forgot_validate_input_password_invalid") << endl;
         return validate_forgot_question(user);
       }
-    }
+    };
 
     /**
      * @brief Forgot password
@@ -129,7 +129,7 @@ class Forgot {
       User user = user.find(username);
 
       validate_forgot_question(user);
-    }
+    };
 };
 
 #endif

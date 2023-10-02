@@ -41,7 +41,7 @@ class Validation {
       }
 
       return true;
-    }
+    };
 
     /**
      * @brief Check if the date is valid or not
@@ -70,7 +70,7 @@ class Validation {
       }
 
       return true;
-    }
+    };
 
     /**
      * @brief Validate the input data for integer type
@@ -98,7 +98,7 @@ class Validation {
           return choice;
         }
       }
-    }
+    };
 
     /**
      * @brief Validate the input data for string type
@@ -136,7 +136,7 @@ class Validation {
           cout << "\n" << get_translated_string("validation_string_invalid") << endl;
         }
       }
-    }
+    };
 };
 
 #endif
