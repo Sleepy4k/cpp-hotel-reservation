@@ -1,10 +1,12 @@
+#pragma once
+
+#ifndef LANG_ID_HPP
+#define LANG_ID_HPP
+
 #include <map>
 #include <string>
 
 using namespace std;
-
-#ifndef LANG_ID_HPP
-#define LANG_ID_HPP
 
 /**
  * @brief Indonesian translations
@@ -75,6 +77,20 @@ map<string, string> indonesian_translations = {
   {"model_user_all_success", "Pengguna berhasil %"},
   {"model_user_already_exist", "Nama pengguna sudah ada"},
 
+  {"model_room_created", "dibuat"},
+  {"model_room_updated", "diperbarui"},
+  {"model_room_deleted", "dihapus"},
+  {"model_room_notfound", "Kamar tidak ditemukan"},
+  {"model_room_all_success", "Kamar berhasil %"},
+  {"model_room_already_exist", "Kamar sudah ada"},
+
+  {"model_booking_created", "dibuat"},
+  {"model_booking_updated", "diperbarui"},
+  {"model_booking_deleted", "dihapus"},
+  {"model_booking_notfound", "Pesanan tidak ditemukan"},
+  {"model_booking_all_success", "Pesanan berhasil %"},
+  {"model_booking_already_exist", "Pesanan sudah ada"},
+
   {"register_title", "Daftarkan akun anda"},
   {"register_input_username", "Silakan Masukkan Nama Pengguna Anda: "},
   {"register_input_password", "Silakan Masukkan Kata Sandi Anda: "},
@@ -113,4 +129,4 @@ map<string, string> indonesian_translations = {
   {"admin_system_invalid_debug", "debug harus true atau false"},
 };
 
-#endif
+#endif // LANG_ID_HPP

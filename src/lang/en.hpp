@@ -1,10 +1,12 @@
+#pragma once
+
+#ifndef LANG_EN_HPP
+#define LANG_EN_HPP
+
 #include <map>
 #include <string>
 
 using namespace std;
-
-#ifndef LANG_EN_HPP
-#define LANG_EN_HPP
 
 /**
  * @brief English translations
@@ -75,6 +77,20 @@ map<string, string> english_translations = {
   {"model_user_all_success", "User % successfully"},
   {"model_user_already_exist", "Username already exist"},
 
+  {"model_room_created", "created"},
+  {"model_room_updated", "updated"},
+  {"model_room_deleted", "deleted"},
+  {"model_room_notfound", "Room not found"},
+  {"model_room_all_success", "Room % successfully"},
+  {"model_room_already_exist", "Room already exist"},
+
+  {"model_booking_created", "created"},
+  {"model_booking_updated", "updated"},
+  {"model_booking_deleted", "deleted"},
+  {"model_booking_notfound", "Booking not found"},
+  {"model_booking_all_success", "Booking % successfully"},
+  {"model_booking_already_exist", "Booking already exist"},
+
   {"register_title", "Register Your Account"},
   {"register_input_username", "Please Enter Your Username: "},
   {"register_input_password", "Please Enter Your Password: "},
@@ -113,4 +129,4 @@ map<string, string> english_translations = {
   {"admin_system_invalid_debug", "debug must be true or false"},
 };
 
-#endif
+#endif // LANG_EN_HPP
