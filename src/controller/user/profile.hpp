@@ -1,13 +1,13 @@
+#pragma once
+
+#ifndef CONTROLLER_USER_PROFILE_HPP
+#define CONTROLLER_USER_PROFILE_HPP
+
 #include "../../const/app.hpp"
 #include "../../model/user.hpp"
 #include "../../auth/forgot.hpp"
 #include "../../const/menu_list.hpp"
 #include "../../handler/validation.hpp"
-
-using namespace std;
-
-#ifndef CONTROLLER_USER_PROFILE_HPP
-#define CONTROLLER_USER_PROFILE_HPP
 
 /**
  * @brief UserProfileDashboard class to handle user profile dashboard
@@ -49,4 +49,4 @@ class UserProfileDashboard {
     };
 };
 
-#endif
+#endif // CONTROLLER_USER_PROFILE_HPP

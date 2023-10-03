@@ -1,12 +1,12 @@
+#pragma once
+
+#ifndef CONTROLLER_ADMIN_SYSTEM_HPP
+#define CONTROLLER_ADMIN_SYSTEM_HPP
+
 #include "../../const/app.hpp"
 #include "../../model/user.hpp"
 #include "../../const/menu_list.hpp"
 #include "../../handler/validation.hpp"
-
-using namespace std;
-
-#ifndef CONTROLLER_ADMIN_SYSTEM_HPP
-#define CONTROLLER_ADMIN_SYSTEM_HPP
 
 /**
  * @brief AdminSystemDashboard class to handle admin system dashboard
@@ -93,4 +93,4 @@ class AdminSystemDashboard {
     };
 };
 
-#endif
+#endif // CONTROLLER_ADMIN_SYSTEM_HPP
