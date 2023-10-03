@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef ENUM_LANGUAGE_HPP
 #define ENUM_LANGUAGE_HPP
 
