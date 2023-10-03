@@ -1,12 +1,12 @@
+#pragma once
+
+#ifndef AUTH_FORGOT_HPP
+#define AUTH_FORGOT_HPP
+
 #include "../model/user.hpp"
 #include "../helper/uuid.hpp"
 #include "../const/menu_list.hpp"
 #include "../handler/validation.hpp"
-
-using namespace std;
-
-#ifndef AUTH_FORGOT_HPP
-#define AUTH_FORGOT_HPP
 
 /**
  * @brief Forgot class to forgot the password
@@ -132,4 +132,4 @@ class Forgot {
     };
 };
 
-#endif
+#endif // AUTH_FORGOT_HPP

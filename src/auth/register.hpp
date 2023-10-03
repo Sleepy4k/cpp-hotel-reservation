@@ -1,11 +1,11 @@
-#include "../model/user.hpp"
-#include "../helper/uuid.hpp"
-#include "../handler/validation.hpp"
-
-using namespace std;
+#pragma once
 
 #ifndef AUTH_REGISTER_HPP
 #define AUTH_REGISTER_HPP
+
+#include "../model/user.hpp"
+#include "../helper/uuid.hpp"
+#include "../handler/validation.hpp"
 
 /**
  * @brief Register class to register the user
@@ -46,4 +46,4 @@ class Register {
     };
 };
 
-#endif
+#endif // AUTH_REGISTER_HPP

@@ -1,12 +1,12 @@
+#pragma once
+
+#ifndef AUTH_LOGIN_HPP
+#define AUTH_LOGIN_HPP
+
 #include "forgot.hpp"
 #include "../dashboard/user.hpp"
 #include "../dashboard/admin.hpp"
 #include "../handler/validation.hpp"
-
-using namespace std;
-
-#ifndef AUTH_LOGIN_HPP
-#define AUTH_LOGIN_HPP
 
 /**
  * @brief Login class to login the user
@@ -77,4 +77,4 @@ class Login {
     };
 };
 
-#endif
+#endif // AUTH_LOGIN_HPP
