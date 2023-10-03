@@ -1,12 +1,12 @@
+#pragma once
+
+#ifndef STORAGE_FILE_HPP
+#define STORAGE_FILE_HPP
+
 #include <cstdio>
 #include <fstream>
 #include <iostream>
 #include "../const/app.hpp"
-
-using namespace std;
-
-#ifndef STORAGE_FILE_HPP
-#define STORAGE_FILE_HPP
 
 /**
  * @brief File class to handle file
@@ -57,7 +57,6 @@ class File {
       }
 
       file.close();
-
       return content;
     };
 
@@ -74,7 +73,8 @@ class File {
 
       if (!file) {
         file.close();
-        return create(filename);
+        create(filename);
+        return;
       }
 
       file << content;
@@ -116,7 +116,6 @@ class File {
       }
 
       file.close();
-
       return true;
     };
 };
