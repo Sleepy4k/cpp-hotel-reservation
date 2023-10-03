@@ -1,13 +1,13 @@
+#pragma once
+
+#ifndef HANDLER_MENU_HPP
+#define HANDLER_MENU_HPP
+
 #include "validation.hpp"
 #include "../const/app.hpp"
 #include "../auth/login.hpp"
 #include "../auth/register.hpp"
 #include "../const/menu_list.hpp"
-
-using namespace std;
-
-#ifndef HANDLER_MENU_HPP
-#define HANDLER_MENU_HPP
 
 /**
  * @brief Menu class to show the menu list to the user
@@ -21,7 +21,7 @@ class Menu {
      * 
      * @return void
      */
-    static void main_menu() {
+    static void init() {
       vector<string> menu_list = MenuList::MAIN_MENU;
 
       while (true) {
@@ -61,4 +61,4 @@ class Menu {
     };
 };
 
-#endif
+#endif // HANDLER_MENU_HPP

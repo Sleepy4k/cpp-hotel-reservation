@@ -1,15 +1,13 @@
 #pragma once
 
+#ifndef HANDLER_I18N_HPP
+#define HANDLER_I18N_HPP
+
 #include <stdexcept>
 #include "../lang/en.hpp"
 #include "../lang/id.hpp"
 #include "../storage/file.hpp"
 #include "../enum/language.hpp"
-
-using namespace std;
-
-#ifndef HANDLER_I18N_HPP
-#define HANDLER_I18N_HPP
 
 /**
  * @brief Supported language
@@ -78,4 +76,4 @@ string get_translated_string(const string& key) {
   }
 };
 
-#endif
+#endif // HANDLER_I18N_HPP

@@ -1,9 +1,11 @@
-#include <string>
-
-using namespace std;
+#pragma once
 
 #ifndef HANDLER_HASH_HPP
 #define HANDLER_HASH_HPP
+
+#include <string>
+
+using namespace std;
 
 /**
  * @brief Hash class to encrypt and decrypt the password
@@ -43,4 +45,4 @@ class Hash {
     };
 };
 
-#endif
+#endif // HANDLER_HASH_HPP

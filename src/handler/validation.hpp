@@ -1,13 +1,13 @@
+#pragma once
+
+#ifndef HANDLER_VALIDATION_HPP
+#define HANDLER_VALIDATION_HPP
+
 #include <regex>
 #include <limits>
 #include <iostream>
 #include "../handler/i18n.hpp"
 #include "../helper/sprintf.hpp"
-
-using namespace std;
-
-#ifndef HANDLER_VALIDATION_HPP
-#define HANDLER_VALIDATION_HPP
 
 /**
  * @brief Validation class to validate the data
@@ -38,35 +38,6 @@ class Validation {
             return false;
           }
         }
-      }
-
-      return true;
-    };
-
-    /**
-     * @brief Check if the date is valid or not
-     * 
-     * @param date string
-     * 
-     * @return true 
-     * @return false 
-     */
-    static bool is_date_valid(string date) {
-      regex datePattern("^\\d{2}/\\d{2}/\\d{4}$");
-
-      if (!regex_match(date, datePattern)) {
-        return false;
-      }
-
-      smatch match;
-      regex_search(date, match, datePattern);
-
-      int day = stoi(match.str(1));
-      int month = stoi(match.str(2));
-      int year = stoi(match.str(3));
-
-      if (day < 1 || day > 31 || month < 1 || month > 12 || year < 1000 || year > 9999) {
-        return false;
       }
 
       return true;
@@ -139,4 +110,4 @@ class Validation {
     };
 };
 
-#endif
+#endif // HANDLER_VALIDATION_HPP
