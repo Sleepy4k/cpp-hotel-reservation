@@ -1,9 +1,9 @@
-#include "../controller/user/profile.hpp"
-
-using namespace std;
+#pragma once
 
 #ifndef DASHBOARD_USER_HPP
 #define DASHBOARD_USER_HPP
+
+#include "../controller/user/profile.hpp"
 
 /**
  * @brief UserDashboard class to handle user dashboard
@@ -58,4 +58,4 @@ class UserDashboard {
     };
 };
 
-#endif
+#endif // DASHBOARD_USER_HPP

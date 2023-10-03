@@ -1,9 +1,9 @@
-#include "../controller/admin/system.hpp"
-
-using namespace std;
+#pragma once
 
 #ifndef DASHBOARD_ADMIN_HPP
 #define DASHBOARD_ADMIN_HPP
+
+#include "../controller/admin/system.hpp"
 
 /**
  * @brief AdminDashboard class to handle admin dashboard
@@ -64,4 +64,4 @@ class AdminDashboard {
     };
 };
 
-#endif
+#endif // DASHBOARD_ADMIN_HPP
