@@ -1,10 +1,12 @@
+#pragma once
+
+#ifndef HANDLER_SPRINTF_HPP
+#define HANDLER_SPRINTF_HPP
+
 #include <string>
 #include <vector>
 
 using namespace std;
-
-#ifndef HANDLER_SPRINTF_HPP
-#define HANDLER_SPRINTF_HPP
 
 /**
  * @brief Sprintf class to format the string
@@ -28,8 +30,12 @@ class Sprintf {
 
       while (i < format.length()) {
         if (format[i] == '%') {
-          result += args[j];
-          j++;
+          if (j < args.size()) {
+            result += args[j];
+            j++;
+          } else {
+            result += "";
+          }
         } else {
           result += format[i];
         }
@@ -41,4 +47,4 @@ class Sprintf {
     };
 };
 
-#endif
+#endif // HANDLER_SPRINTF_HPP

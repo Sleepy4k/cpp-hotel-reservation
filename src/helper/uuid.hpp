@@ -1,10 +1,14 @@
-#include <ctime>
-#include <string>
-
-using namespace std;
+#pragma once
 
 #ifndef HANDLER_UUID_HPP
 #define HANDLER_UUID_HPP
+
+#include <set>
+#include <ctime>
+#include <random>
+#include <string>
+
+using namespace std;
 
 /**
  * @brief UUID class to generate UUID
@@ -19,18 +23,26 @@ class UUID {
      * @return string
      */
     static string generate_uuid() {
-      string uuid = "";
-      srand(time(NULL));
       string characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+      mt19937 gen(time(nullptr));
+      uniform_int_distribution<> dis(0, characters.length() - 1);
 
-      int randomize = 2 + (std::rand() % (5 - 2 + 1));
+      set<string> generatedUUIDs;
+      
+      while (true) {
+        string uuid;
+        int randomize = 2 + (dis(gen) % (5 - 2 + 1));
 
-      for (int i = 0; i < 6 + randomize; i++) {
-        uuid += characters[rand() % characters.length()];
+        for (int i = 0; i < 6 + randomize; i++) {
+          uuid += characters[dis(gen)];
+        }
+
+        if (generatedUUIDs.find(uuid) == generatedUUIDs.end()) {
+          generatedUUIDs.insert(uuid);
+          return uuid;
+        }
       }
-
-      return uuid;
     };
 };
 
-#endif
+#endif // HANDLER_UUID_HPP
