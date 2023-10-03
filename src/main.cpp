@@ -9,8 +9,6 @@
 #include "./handler/i18n.hpp"
 #include "./handler/menu.hpp"
 
-using namespace std;
-
 /**
  * @brief Main function of the program
  * 
@@ -19,7 +17,7 @@ using namespace std;
 int main(int argc, char* argv[]) {
   Path::setPath(argv[0]);
   init_language();
-  Menu::main_menu();
+  Menu::init();
 
   return 0;
 };
