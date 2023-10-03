@@ -1,10 +1,12 @@
+#pragma once
+
+#ifndef CONST_MENU_LIST_HPP
+#define CONST_MENU_LIST_HPP
+
 #include <vector>
 #include <iostream>
 
 using namespace std;
-
-#ifndef CONST_MENU_LIST_HPP
-#define CONST_MENU_LIST_HPP
 
 /**
  * @brief Menu list for the user
@@ -87,4 +89,4 @@ namespace MenuList {
   };
 };
 
-#endif
+#endif // CONST_MENU_LIST_HPP

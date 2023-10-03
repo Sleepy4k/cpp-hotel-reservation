@@ -1,10 +1,12 @@
+#pragma once
+
+#ifndef CONST_APP_HPP
+#define CONST_APP_HPP
+
 #include <string>
 #include <iostream>
 
 using namespace std;
-
-#ifndef CONST_APP_HPP
-#define CONST_APP_HPP
 
 /**
  * @brief Language constant
@@ -43,4 +45,4 @@ namespace App {
   };
 };
 
-#endif
+#endif // CONST_APP_HPP
