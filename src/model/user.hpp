@@ -1,12 +1,12 @@
+#pragma once
+
+#ifndef MODEL_USER_HPP
+#define MODEL_USER_HPP
+
 #include <sstream>
 #include "../const/path.hpp"
 #include "../handler/hash.hpp"
 #include "../storage/file.hpp"
-
-using namespace std;
-
-#ifndef MODEL_USER_HPP
-#define MODEL_USER_HPP
 
 /**
  * @brief User struct to store the user data
@@ -81,6 +81,8 @@ struct User {
 
     /**
      * @brief Construct a new User object
+     * 
+     * @return void
      */
     User() {
       this->uid = "";
@@ -453,4 +455,4 @@ struct User {
     };
 };
 
-#endif
+#endif // MODEL_USER_HPP
