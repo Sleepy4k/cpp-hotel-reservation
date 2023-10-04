@@ -27,13 +27,13 @@ class Validation {
      */
     static bool is_data_numeric(string data, bool is_ws) {
       if (is_ws) {
-        for (int i = 0; i < data.length(); i++) {
+        for (unsigned int i = 0; i < data.length(); i++) {
           if (!isdigit(data[i]) && !isspace(data[i])) {
             return false;
           }
         }
       } else {
-        for (int i = 0; i < data.length(); i++) {
+        for (unsigned int i = 0; i < data.length(); i++) {
           if (!isdigit(data[i])) {
             return false;
           }

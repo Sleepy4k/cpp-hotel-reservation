@@ -22,9 +22,9 @@ class Hash {
      * @return string 
      */
     static string encrypt(string user_password) {
-      unsigned int hash = 0;
+      int hash = 0;
 
-      for (int i = 0; i < user_password.length(); i++) {
+      for (unsigned int i = 0; i < user_password.length(); i++) {
         hash ^= (hash << 5) + (hash >> 2) + user_password[i];
       }
 

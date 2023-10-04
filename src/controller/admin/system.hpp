@@ -68,7 +68,7 @@ class AdminSystemDashboard {
       cout << "--------------------------------------------------------------------" << endl;
       cout << Sprintf::format(get_translated_string("menu_list_admin_system_title"), {user.get_username()}) << endl;
 
-      for (int i = 0; i < menu_list.size(); i++) {
+      for (unsigned int i = 0; i < menu_list.size(); i++) {
         cout << get_translated_string("menu_list_admin_system_press") << " " << i + 1 << " --> " << get_translated_string(menu_list[i]) << endl;
       }
 

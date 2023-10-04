@@ -30,7 +30,7 @@ class Forgot {
       cout << "--------------------------------------------------------------------" << endl;
       cout << get_translated_string("forgot_create_title") << endl;
 
-      for (int i = 0; i < menu_list.size(); i++) {
+      for (unsigned int i = 0; i < menu_list.size(); i++) {
         cout << get_translated_string("forgot_create_press") << " " << i + 1 << " --> " << get_translated_string(menu_list[i]) << endl;
       }
 

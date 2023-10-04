@@ -24,8 +24,8 @@ class Sprintf {
      * @return string
      */
     static string format(const string& format, const vector<string>& args) {
-      int i = 0;
-      int j = 0;
+      unsigned int i = 0;
+      unsigned int j = 0;
       string result = "";
 
       while (i < format.length()) {

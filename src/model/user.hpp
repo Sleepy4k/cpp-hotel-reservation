@@ -369,7 +369,7 @@ struct User {
           outfile << "";
           outfile.close();
 
-          for (int i = 0; i < users.size(); i++) {
+          for (unsigned int i = 0; i < users.size(); i++) {
             if (users[i].get_username() == username) {
               users[i].set_password(new_password);
             }
@@ -427,7 +427,7 @@ struct User {
           outfile << "";
           outfile.close();
 
-          for (int i = 0; i < users.size(); i++) {
+          for (unsigned int i = 0; i < users.size(); i++) {
             if (users[i].get_username() != username) {
               users[i].create(false);
             }
