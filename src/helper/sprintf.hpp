@@ -3,10 +3,8 @@
 #ifndef HANDLER_SPRINTF_HPP
 #define HANDLER_SPRINTF_HPP
 
-#include <string>
-#include <vector>
-
-using namespace std;
+using std::string;
+using std::vector;
 
 /**
  * @brief Sprintf class to format the string

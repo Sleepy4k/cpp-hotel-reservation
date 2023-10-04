@@ -4,11 +4,13 @@
 #define HANDLER_UUID_HPP
 
 #include <set>
-#include <ctime>
 #include <random>
-#include <string>
 
-using namespace std;
+using std::set;
+using std::ctime;
+using std::string;
+using std::mt19937;
+using std::uniform_int_distribution;
 
 /**
  * @brief UUID class to generate UUID
