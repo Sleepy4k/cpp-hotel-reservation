@@ -55,7 +55,15 @@ void init_language() {
 string set_language(Language language) {
   supported_language = language;
   change_language();
-  return language == Language::ENGLISH ? "ENGLISH" : "INDONESIA";
+
+  switch (language) {
+    case Language::ENGLISH:
+      return "ENGLISH";
+    case Language::INDONESIA:
+      return "INDONESIA";
+    default:
+      return "ENGLISH";
+  }
 };
 
 /**
@@ -72,7 +80,7 @@ string get_translated_string(const string& key) {
     case Language::INDONESIA:
       return (indonesian_translations.find(key) != indonesian_translations.end()) ? indonesian_translations.at(key) : key;
     default:
-      throw runtime_error("Unsupported language");
+      return key;
   }
 };
 
