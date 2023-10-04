@@ -9,6 +9,15 @@
 #include "../handler/i18n.hpp"
 #include "../helper/sprintf.hpp"
 
+using std::cin;
+using std::cout;
+using std::endl;
+using std::regex;
+using std::getline;
+using std::to_string;
+using std::streamsize;
+using std::numeric_limits;
+
 /**
  * @brief Validation class to validate the data
  * 
@@ -81,8 +90,8 @@ class Validation {
      */
     static string string_validation(const string& prompt, const string validationType) {
       string data;
-      regex validationRegex;
 
+      regex validationRegex;
       if (validationType == "username") {
         validationRegex = "^[a-zA-Z0-9_]{5,}$";
       } else if (validationType == "password") {

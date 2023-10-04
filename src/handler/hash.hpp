@@ -3,9 +3,8 @@
 #ifndef HANDLER_HASH_HPP
 #define HANDLER_HASH_HPP
 
-#include <string>
-
-using namespace std;
+using std::string;
+using std::to_string;
 
 /**
  * @brief Hash class to encrypt and decrypt the password
