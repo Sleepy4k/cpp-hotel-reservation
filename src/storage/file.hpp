@@ -3,10 +3,17 @@
 #ifndef STORAGE_FILE_HPP
 #define STORAGE_FILE_HPP
 
-#include <cstdio>
 #include <fstream>
 #include <iostream>
 #include "../const/app.hpp"
+
+using std::ios;
+using std::cerr;
+using std::cout;
+using std::endl;
+using std::fstream;
+using std::ifstream;
+using std::ofstream;
 
 /**
  * @brief File class to handle file
