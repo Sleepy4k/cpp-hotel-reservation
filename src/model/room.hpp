@@ -3,10 +3,18 @@
 #ifndef MODEL_ROOM_HPP
 #define MODEL_ROOM_HPP
 
+#include <vector>
 #include <sstream>
+#include <iostream>
 #include "../const/path.hpp"
 #include "../handler/i18n.hpp"
 #include "../helper/sprintf.hpp"
+
+using std::cerr;
+using std::cout;
+using std::vector;
+using std::to_string;
+using std::stringstream;
 
 /**
  * @brief Room class to handle room

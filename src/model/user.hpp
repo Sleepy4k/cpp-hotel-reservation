@@ -3,10 +3,20 @@
 #ifndef MODEL_USER_HPP
 #define MODEL_USER_HPP
 
+#include <vector>
 #include <sstream>
 #include "../const/path.hpp"
 #include "../handler/hash.hpp"
 #include "../storage/file.hpp"
+
+using std::ios;
+using std::cerr;
+using std::cout;
+using std::endl;
+using std::vector;
+using std::fstream;
+using std::getline;
+using std::stringstream;
 
 /**
  * @brief User struct to store the user data
