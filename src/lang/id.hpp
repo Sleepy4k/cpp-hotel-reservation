@@ -4,9 +4,9 @@
 #define LANG_ID_HPP
 
 #include <map>
-#include <string>
 
-using namespace std;
+using std::map;
+using std::string;
 
 /**
  * @brief Indonesian translations
