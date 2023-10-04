@@ -3,10 +3,8 @@
 #ifndef CONST_MENU_LIST_HPP
 #define CONST_MENU_LIST_HPP
 
-#include <vector>
-#include <iostream>
-
-using namespace std;
+using std::string;
+using std::vector;
 
 /**
  * @brief Menu list for the user

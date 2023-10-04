@@ -4,9 +4,8 @@
 #define CONST_PATH_HPP
 
 #include <string>
-#include <iostream>
 
-using namespace std;
+using std::string;
 
 /**
  * @brief Base path for the application

@@ -4,9 +4,8 @@
 #define CONST_APP_HPP
 
 #include <string>
-#include <iostream>
 
-using namespace std;
+using std::string;
 
 /**
  * @brief Language constant
