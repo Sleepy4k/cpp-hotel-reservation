@@ -257,7 +257,7 @@ struct User {
      * 
      * @return void
      */
-    void create(bool allow_print = true) {
+    void create(const bool allow_print = true) {
       string content = File::read(Path::getPath() + "/user.csv");
 
       string line;
@@ -310,7 +310,7 @@ struct User {
      * 
      * @return User
      */
-    User find(string username) {
+    User find(const string username) {
       string content = File::read(Path::getPath() + "/user.csv");
 
       User user;
@@ -341,7 +341,7 @@ struct User {
      * 
      * @return void
      */
-    void update(string username, string old_password, string new_password) {
+    void update(const string username, const string old_password, const string new_password) {
       string content = File::read(Path::getPath() + "/user.csv");
 
       string line;
@@ -399,7 +399,7 @@ struct User {
      * 
      * @return void
      */
-    void delete_user(string username, string password) {
+    void delete_user(const string username, const string password) {
       string content = File::read(Path::getPath() + "/user.csv");
 
       string line;

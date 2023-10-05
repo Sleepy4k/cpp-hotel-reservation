@@ -34,7 +34,7 @@ class Validation {
      * @return true 
      * @return false 
      */
-    static bool is_data_numeric(string data, bool is_ws) {
+    static bool is_data_numeric(const string data, const bool is_ws) {
       if (is_ws) {
         for (unsigned int i = 0; i < data.length(); i++) {
           if (!isdigit(data[i]) && !isspace(data[i])) {
@@ -60,7 +60,7 @@ class Validation {
      * 
      * @return int 
      */
-    static int integer_validation(int min, int max) {
+    static int integer_validation(const int min, const int max) {
       int choice;
 
       while (true) {
@@ -88,7 +88,7 @@ class Validation {
      * 
      * @return string 
      */
-    static string string_validation(const string& prompt, const string validationType) {
+    static string string_validation(const string prompt, const string validationType) {
       string data;
 
       regex validationRegex;

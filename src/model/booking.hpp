@@ -247,7 +247,7 @@ class Booking {
      * 
      * @return void
      */
-    void create(bool allow_print = true) {
+    void create(const bool allow_print = true) {
       string content = File::read(Path::getPath() + "/booking.csv");
 
       string line;
@@ -299,7 +299,7 @@ class Booking {
      * 
      * @return Booking 
      */
-    Booking find(string uid) {
+    Booking find(const string uid) {
       string content = File::read(Path::getPath() + "/booking.csv");
 
       Booking booking;
@@ -332,7 +332,7 @@ class Booking {
      * 
      * @return void
      */
-    void update(string uid) {
+    void update(const string uid) {
       string content = File::read(Path::getPath() + "/booking.csv");
 
       string line;
@@ -396,7 +396,7 @@ class Booking {
      * 
      * @return void
      */
-    void delete_booking(string uid) {
+    void delete_booking(const string uid) {
       string content = File::read(Path::getPath() + "/booking.csv");
 
       string line;

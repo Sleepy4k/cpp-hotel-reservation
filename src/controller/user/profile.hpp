@@ -30,7 +30,7 @@ class UserProfileDashboard {
       cout << Sprintf::format(get_translated_string("menu_list_user_profile_title"), {user.get_username()}) << endl;
     
       for (unsigned int i = 0; i < menu_list.size(); i++) {
-        cout << get_translated_string("menu_list_user_profile_press") << " " << i + 1 << " --> " << get_translated_string(menu_list[i]) << endl;
+        cout << get_translated_string("menu_list_user_profile_press") << " " << i + 1 << " --> " << get_translated_string(menu_list[i]) << '\n';
       }
 
       int menu = Validation::integer_validation(1, menu_list.size());

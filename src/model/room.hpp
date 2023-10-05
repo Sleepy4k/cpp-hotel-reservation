@@ -257,7 +257,7 @@ class Room {
      * 
      * @return void
      */
-    void create(bool allow_print = true) {
+    void create(const bool allow_print = true) {
       string content = File::read(Path::getPath() + "/room.csv");
 
       string line;
@@ -310,7 +310,7 @@ class Room {
      * 
      * @return Room
      */
-    Room find(string uid) {
+    Room find(const string uid) {
       string content = File::read(Path::getPath() + "/room.csv");
 
       Room room;
@@ -343,7 +343,7 @@ class Room {
      * 
      * @return void
      */
-    void update(string uid) {
+    void update(const string uid) {
       string content = File::read(Path::getPath() + "/room.csv");
 
       string line;
@@ -407,7 +407,7 @@ class Room {
      * 
      * @return void
      */
-    void delete_room(string uid) {
+    void delete_room(const string uid) {
       string content = File::read(Path::getPath() + "/room.csv");
 
       string line;

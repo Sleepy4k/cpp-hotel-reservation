@@ -52,7 +52,7 @@ void init_language() {
  * 
  * @return string
  */
-string set_language(Language language) {
+string set_language(const Language language) {
   supported_language = language;
   change_language();
 
@@ -73,7 +73,7 @@ string set_language(Language language) {
  * 
  * @return string
  */
-string get_translated_string(const string& key) {
+string get_translated_string(const string key) {
   switch (supported_language) {
     case Language::ENGLISH:
       return (english_translations.find(key) != english_translations.end()) ? english_translations.at(key) : key;

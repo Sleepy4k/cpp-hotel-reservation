@@ -20,7 +20,7 @@ class Hash {
      * 
      * @return string 
      */
-    static string encrypt(string user_password) {
+    static string encrypt(const string user_password) {
       int hash = 0;
 
       for (unsigned int i = 0; i < user_password.length(); i++) {
@@ -39,7 +39,7 @@ class Hash {
      * @return true 
      * @return false 
      */
-    static bool verify(string password, string hash) {
+    static bool verify(const string password, const string hash) {
       return hash == encrypt(password);
     };
 };

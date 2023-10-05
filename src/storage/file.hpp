@@ -29,7 +29,7 @@ class File {
      * 
      * @return void
      */
-    static void create(string filename) {
+    static void create(const string filename) {
       fstream outfile(filename, ios::app);
 
       if (!outfile) {
@@ -48,7 +48,7 @@ class File {
      * 
      * @return string 
      */
-    static string read(string filename) {
+    static string read(const string filename) {
       string line;
       string content = "";
       ifstream file(filename);
@@ -75,7 +75,7 @@ class File {
      * 
      * @return void
      */
-    static void write(string filename, string content) {
+    static void write(const string filename, const string content) {
       ofstream file(filename);
 
       if (!file) {
@@ -95,10 +95,10 @@ class File {
      * 
      * @return void
      */
-    static void delete_file(const string filename) {
+    static void delete_file(const string filename, const bool allow_print = true) {
       int result = remove(filename.c_str());
 
-      if (App::APP_DEBUG) {
+      if (App::APP_DEBUG && allow_print) {
         if (result != 0) {
           cerr << "Error deleting file" << endl;
         } else {
@@ -114,7 +114,7 @@ class File {
      * 
      * @return bool
      */
-    static bool exists(string filename) {
+    static bool exists(const string filename) {
       ifstream file(filename);
 
       if (!file) {

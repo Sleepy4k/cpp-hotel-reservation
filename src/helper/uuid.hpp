@@ -4,6 +4,7 @@
 #define HANDLER_UUID_HPP
 
 #include <set>
+#include <ctime>
 #include <random>
 
 using std::set;

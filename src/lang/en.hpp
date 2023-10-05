@@ -13,7 +13,7 @@ using std::string;
  * 
  * @var map<string, string>
  */
-map<string, string> english_translations = {
+const map<string, string> english_translations = {
   {"app_name", "Hotel Reservation System"},
 
   {"menu_list_main_welcome", "Welcome To Home Page"},

@@ -21,7 +21,7 @@ class Sprintf {
      * 
      * @return string
      */
-    static string format(const string& format, const vector<string>& args) {
+    static string format(const string format, const vector<string> args = {}) {
       unsigned int i = 0;
       unsigned int j = 0;
       string result = "";

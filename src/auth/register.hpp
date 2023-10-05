@@ -21,7 +21,7 @@ class Register {
      * 
      * @return void
      */
-    static void register_user(string role = "user") {
+    static void register_user(const string role = "user") {
       cout << "\n\n--------------------------------------------------------------------" << endl;
       cout << "               " << get_translated_string(App::APP_NAME) << "                  " << endl;
       cout << "--------------------------------------------------------------------" << endl;

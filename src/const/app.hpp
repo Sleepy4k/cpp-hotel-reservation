@@ -39,7 +39,7 @@ namespace App {
    * 
    * @var string
    */
-  const void set_debug(bool value) {
+  const void set_debug(const bool value) {
     debug = value;
   };
 };

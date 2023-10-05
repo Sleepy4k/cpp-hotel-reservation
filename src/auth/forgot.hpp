@@ -31,7 +31,7 @@ class Forgot {
       cout << get_translated_string("forgot_create_title") << endl;
 
       for (unsigned int i = 0; i < menu_list.size(); i++) {
-        cout << get_translated_string("forgot_create_press") << " " << i + 1 << " --> " << get_translated_string(menu_list[i]) << endl;
+        cout << get_translated_string("forgot_create_press") << " " << i + 1 << " --> " << get_translated_string(menu_list[i]) << '\n';
       }
 
       int menu = Validation::integer_validation(1, menu_list.size());

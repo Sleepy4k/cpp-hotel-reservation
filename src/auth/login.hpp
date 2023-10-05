@@ -22,7 +22,7 @@ class Login {
      * 
      * @return void
      */
-    static void confirm(bool is_admin) {
+    static void confirm(const bool is_admin) {
       cout << get_translated_string("login_confirm_question") << endl;
       string confirmation = Validation::string_validation(get_translated_string("login_confirm_input_confirm"), "confirmation");
 
@@ -44,7 +44,7 @@ class Login {
      * 
      * @return void
      */
-    static void login(bool is_admin, int error = 0) {
+    static void login(const bool is_admin, const int error = 0) {
       cout << "\n\n--------------------------------------------------------------------" << endl;
       cout << "               " << get_translated_string(App::APP_NAME) << "                  " << endl;
       cout << "--------------------------------------------------------------------" << endl;
