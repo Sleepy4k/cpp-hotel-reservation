@@ -12,6 +12,9 @@
 /**
  * @brief Main function of the program
  * 
+ * @param argc int
+ * @param argv char
+ * 
  * @return int 
  */
 int main(int argc, char* argv[]) {
