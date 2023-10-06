@@ -90,6 +90,15 @@ namespace MenuList {
     "menu_list_admin_room_back"
   };
 
+  const vector<string> ADMIN_USER_DASHBOARD_MENU = {
+    "menu_list_admin_user_list",
+    "menu_list_admin_user_add",
+    "menu_list_admin_user_search",
+    "menu_list_admin_user_edit",
+    "menu_list_admin_user_delete".
+    "menu_list_admin_user_back"
+  };
+
   /**
    * @brief User profile dashboard menu list
    * 
