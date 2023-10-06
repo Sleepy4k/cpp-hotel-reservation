@@ -58,6 +58,16 @@ const map<string, string> english_translations = {
   {"menu_list_admin_system_press", "Press"},
   {"menu_list_admin_system_invalid", "Invalid menu"},
 
+  {"menu_list_admin_room_title", "Hai %, welcome to room admin dashboard"},
+  {"menu_list_admin_room_list", "Show All Room"},
+  {"menu_list_admin_room_add", "Add Room"},
+  {"menu_list_admin_room_search", "Search Room"},
+  {"menu_list_admin_room_edit", "Edit Room"},
+  {"menu_list_admin_room_delete", "Delete Room"},
+  {"menu_list_admin_room_back", "Back"},
+  {"menu_list_admin_room_press", "Press"},
+  {"menu_list_admin_room_invalid", "Invalid menu"},
+
   {"menu_list_user_profile_title", "Hai %, welcome to profile user dashboard"},
   {"menu_list_user_profile_forgot", "Change Password"},
   {"menu_list_user_profile_back", "Back"},
@@ -127,6 +137,32 @@ const map<string, string> english_translations = {
   {"admin_system_invalid_language", "language must be en or id"},
   {"admin_system_input_debug", "Please enter the debug mode (true, false): "},
   {"admin_system_invalid_debug", "debug must be true or false"},
+
+  {"admin_room_list_title", "List of all room"},
+  {"admin_room_list_header", "Found % total data"},
+  {"admin_room_list_data_uid", "UUID : %"},
+  {"admin_room_list_data_name", "Name : %"},
+  {"admin_room_list_data_type", "Type : %"},
+  {"admin_room_list_data_price", "Price : %"},
+  {"admin_room_list_data_capacity", "Capacity : %"},
+  {"admin_room_list_data_status", "Status : %"},
+  {"admin_room_list_empty", "No Data Found"},
+
+  {"admin_room_add_title", "Create new room"},
+  {"admin_room_input_name", "Please Enter Room Name: "},
+  {"admin_room_input_type", "Please Enter Room Type: "},
+  {"admin_room_input_price", "Please Enter Room Price: "},
+  {"admin_room_input_capacity", "Please Enter Room Capacity: "},
+  {"admin_room_input_status", "Please Enter Room Status (available/booked): "},
+
+  {"admin_room_search_title", "Search a room"},
+  {"admin_room_input_uid", "Please Enter Room UID: "},
+  {"admin_room_search_not_found", "Sorry room with uid % not found in our database"},
+
+  {"admin_room_edit_title", "Edit room data"},
+  {"admin_room_edit_not_found", "Sorry room with uid % not found in our database"},
+
+  {"admin_room_delete_title", "Delete room data"},
 };
 
 #endif // LANG_EN_HPP

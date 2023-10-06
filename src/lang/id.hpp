@@ -44,7 +44,7 @@ const map<string, string> indonesian_translations = {
 
   {"menu_list_user_title", "Selamat datang, % ke pengguna dasbor"},
   {"menu_list_user_search_room", "Ruang Pencarian"},
-  {"menu_list_user_booking_room", "Booking Room"},
+  {"menu_list_user_booking_room", "Ruang Pemesanan"},
   {"menu_list_user_booking_history", "Sejarah Pemesanan"},
   {"menu_list_user_profile", "Profil"},
   {"menu_list_user_press", "Tekan"},
@@ -57,6 +57,16 @@ const map<string, string> indonesian_translations = {
   {"menu_list_admin_system_back", "Kembali"},
   {"menu_list_admin_system_press", "Tekan"},
   {"menu_list_admin_system_invalid", "Menu tidak valid"},
+
+  {"menu_list_admin_room_title", "Hai %, selamat datang di dasbor admin ruangan"},
+  {"menu_list_admin_room_list", "Tampilkan Semua Ruangan"},
+  {"menu_list_admin_room_add", "Tambahkan Ruangan"},
+  {"menu_list_admin_room_search", "Ruang Pencarian"},
+  {"menu_list_admin_room_edit", "Ubah Ruangan"},
+  {"menu_list_admin_room_delete", "Hapus Kamar"},
+  {"menu_list_admin_room_back", "Kembali"},
+  {"menu_list_admin_room_press", "Tekan"},
+  {"menu_list_admin_room_invalid", "Menu tidak valid"},
 
   {"menu_list_user_profile_title", "Hai %, selamat datang di dasbor user profil"},
   {"menu_list_user_profile_forgot", "Ubah Kata Sandi"},
@@ -103,9 +113,9 @@ const map<string, string> indonesian_translations = {
   {"login_not_admin", "Anda bukan admin"},
   {"login_invalid_password", "Kata sandi salah"},
 
-  {"login_confirm_question", "lupa kata sandi Anda? (y/n)"},
+  {"login_confirm_question", "lupa kata sandi Anda? (y/t)"},
   {"login_confirm_input_confirm", "Silakan Masukkan Konfirmasi Anda: "},
-  {"login_confirm_input_invalid", "Konfirmasi harus y atau n"},
+  {"login_confirm_input_invalid", "Konfirmasi harus y atau t"},
 
   {"forgot_title", "Lupa kata sandi Anda"},
   {"forgot_input_username", "Silakan Masukkan Nama Pengguna Anda: "},
@@ -125,8 +135,34 @@ const map<string, string> indonesian_translations = {
 
   {"admin_system_input_language", "Silakan masukkan kode bahasa (en, id): "},
   {"admin_system_invalid_language", "bahasa harus en atau id"},
-  {"admin_system_input_debug", "Silakan masuk ke mode debug (true, false): "},
-  {"admin_system_invalid_debug", "debug harus true atau false"},
+  {"admin_system_input_debug", "Silakan masuk ke mode debug (ya, tidak): "},
+  {"admin_system_invalid_debug", "debug harus ya atau tidak"},
+
+  {"admin_room_list_title", "Daftar seluruh ruangan"},
+  {"admin_room_list_header", "Ditemukan % total data"},
+  {"admin_room_list_data_uid", "UUID : %"},
+  {"admin_room_list_data_name", "Nama : %"},
+  {"admin_room_list_data_type", "Tipe : %"},
+  {"admin_room_list_data_price", "Harga : %"},
+  {"admin_room_list_data_capacity", "Kapasitas : %"},
+  {"admin_room_list_data_status", "Status : %"},
+  {"admin_room_list_empty", "Tidak ada data ditemukan"},
+
+  {"admin_room_add_title", "Buat ruangan baru"},
+  {"admin_room_input_name", "Silakan Masukkan Nama Kamar: "},
+  {"admin_room_input_type", "Silakan Masukkan Jenis Kamar: "},
+  {"admin_room_input_price", "Silakan Masukkan Harga Kamar: "},
+  {"admin_room_input_capacity", "Silakan Masukkan Kapasitas Ruangan: "},
+  {"admin_room_input_status", "Silakan Masukkan Status Kamar (tersedia/dipesan): "},
+
+  {"admin_room_search_title", "Cari sebuah ruangan"},
+  {"admin_room_input_uid", "Silakan Masuk ke UID Kamar: "},
+  {"admin_room_search_not_found", "Maaf kamar dengan uid % tidak ditemukan di database kami"},
+
+  {"admin_room_edit_title", "Edit room data"},
+  {"admin_room_edit_not_found", "Maaf kamar dengan uid % tidak ditemukan di database kami"},
+
+  {"admin_room_delete_title", "Hapus data kamar"},
 };
 
 #endif // LANG_ID_HPP
