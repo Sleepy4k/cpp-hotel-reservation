@@ -44,9 +44,9 @@ class AdminSystemDashboard {
     static void manage_debug() {
       string debug = Validation::string_validation(get_translated_string("admin_system_input_debug"), "debug");
 
-      if (debug == "true") {
+      if (debug == "true" || debug == "ya") {
         App::set_debug(true);
-      } else if (debug == "false") {
+      } else if (debug == "false" || debug == "tidak") {
         App::set_debug(false);
       } else {
         cout << get_translated_string("admin_system_invalid_debug") << endl;
@@ -63,33 +63,33 @@ class AdminSystemDashboard {
     static void dashboard(User user) {
       vector<string> menu_list = MenuList::ADMIN_SYSTEM_DASHBOARD_MENU;
 
-      cout << "\n\n--------------------------------------------------------------------" << endl;
-      cout << "               " << get_translated_string(App::APP_NAME) << "                  " << endl;
-      cout << "--------------------------------------------------------------------" << endl;
-      cout << Sprintf::format(get_translated_string("menu_list_admin_system_title"), {user.get_username()}) << endl;
+      while (true) {
+        cout << "\n\n--------------------------------------------------------------------" << endl;
+        cout << "               " << get_translated_string(App::APP_NAME) << "                  " << endl;
+        cout << "--------------------------------------------------------------------" << endl;
+        cout << Sprintf::format(get_translated_string("menu_list_admin_system_title"), {user.get_username()}) << endl;
 
-      for (unsigned int i = 0; i < menu_list.size(); i++) {
-        cout << get_translated_string("menu_list_admin_system_press") << " " << i + 1 << " --> " << get_translated_string(menu_list[i]) << '\n';
+        for (unsigned int i = 0; i < menu_list.size(); i++) {
+          cout << get_translated_string("menu_list_admin_system_press") << " " << i + 1 << " --> " << get_translated_string(menu_list[i]) << '\n';
+        }
+
+        int menu = Validation::integer_validation(1, menu_list.size());
+
+        switch (menu) {
+          case 1:
+            manage_language();
+            break;
+          case 2:
+            manage_debug();
+            break;
+          case 3:
+            return;
+            break;
+          default:
+            cout << get_translated_string("menu_list_admin_system_invalid") << endl;
+            break;
+        }
       }
-
-      int menu = Validation::integer_validation(1, menu_list.size());
-
-      switch (menu) {
-        case 1:
-          manage_language();
-          break;
-        case 2:
-          manage_debug();
-          break;
-        case 3:
-          return;
-          break;
-        default:
-          cout << get_translated_string("menu_list_admin_system_invalid") << endl;
-          break;
-      }
-
-      dashboard(user);
     };
 };
 

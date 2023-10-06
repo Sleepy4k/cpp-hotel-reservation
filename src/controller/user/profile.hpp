@@ -24,27 +24,29 @@ class UserProfileDashboard {
     static void dashboard(User user) {
       vector<string> menu_list = MenuList::USER_PROFILE_DASHBOARD_MENU;
 
-      cout << "\n\n--------------------------------------------------------------------" << endl;
-      cout << "               " << get_translated_string(App::APP_NAME) << "                  " << endl;
-      cout << "--------------------------------------------------------------------" << endl;
-      cout << Sprintf::format(get_translated_string("menu_list_user_profile_title"), {user.get_username()}) << endl;
-    
-      for (unsigned int i = 0; i < menu_list.size(); i++) {
-        cout << get_translated_string("menu_list_user_profile_press") << " " << i + 1 << " --> " << get_translated_string(menu_list[i]) << '\n';
-      }
+      while (true) {
+        cout << "\n\n--------------------------------------------------------------------" << endl;
+        cout << "               " << get_translated_string(App::APP_NAME) << "                  " << endl;
+        cout << "--------------------------------------------------------------------" << endl;
+        cout << Sprintf::format(get_translated_string("menu_list_user_profile_title"), {user.get_username()}) << endl;
+      
+        for (unsigned int i = 0; i < menu_list.size(); i++) {
+          cout << get_translated_string("menu_list_user_profile_press") << " " << i + 1 << " --> " << get_translated_string(menu_list[i]) << '\n';
+        }
 
-      int menu = Validation::integer_validation(1, menu_list.size());
+        int menu = Validation::integer_validation(1, menu_list.size());
 
-      switch (menu) {
-        case 1:
-          Forgot::validate_forgot_question(user);
-          break;
-        case 2:
-          return;
-          break;
-        default:
-          cout << get_translated_string("menu_list_user_profile_invalid") << endl;
-          break;
+        switch (menu) {
+          case 1:
+            Forgot::validate_forgot_question(user);
+            break;
+          case 2:
+            return;
+            break;
+          default:
+            cout << get_translated_string("menu_list_user_profile_invalid") << endl;
+            break;
+        }
       }
     };
 };
