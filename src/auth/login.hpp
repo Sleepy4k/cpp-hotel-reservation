@@ -28,7 +28,7 @@ class Login {
 
       if (confirmation == "y") {
         Forgot::forgot_password();
-      } else if (confirmation == "n") {
+      } else if (confirmation == "n" || confirmation == "t") {
         return login(is_admin);
       } else {
         cout << get_translated_string("login_confirm_input_invalid") << endl;
