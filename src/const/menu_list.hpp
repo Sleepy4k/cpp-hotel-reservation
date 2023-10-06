@@ -77,6 +77,20 @@ namespace MenuList {
   };
 
   /**
+   * @brief Admin room dashboard menu list
+   * 
+   * @var vector<string>
+   */
+  const vector<string> ADMIN_ROOM_DASHBOARD_MENU = {
+    "menu_list_admin_room_list",
+    "menu_list_admin_room_add",
+    "menu_list_admin_room_search",
+    "menu_list_admin_room_edit",
+    "menu_list_admin_room_delete",
+    "menu_list_admin_room_back"
+  };
+
+  /**
    * @brief User profile dashboard menu list
    * 
    * @var vector<string>
