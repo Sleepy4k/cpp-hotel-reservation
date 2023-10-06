@@ -90,18 +90,28 @@ class Validation {
      */
     static string string_validation(const string prompt, const string validationType) {
       string data;
-
       regex validationRegex;
+
       if (validationType == "username") {
         validationRegex = "^[a-zA-Z0-9_]{5,}$";
+      } else if (validationType == "name") {
+        validationRegex = "^[a-zA-Z0-9_ ]{1,}$";
+      } else if (validationType == "debug") {
+        validationRegex = "^(true|false|ya|tidak)$";
+      } else if (validationType == "language") {
+        validationRegex = "^(en|id)$";
       } else if (validationType == "password") {
         validationRegex = "^[a-zA-Z0-9_]{6,}$";
       } else if (validationType == "confirmation") {
-        validationRegex = "^[yn]$";
+        validationRegex = "^[y|n|t]$";
       } else if (validationType == "date") {
         validationRegex = "^\\d{2}/\\d{2}/\\d{4}$";
       } else if (validationType == "forgot_answer") {
         validationRegex = "^[a-zA-Z0-9_]{1,}$";
+      } else if (validationType == "number") {
+        validationRegex = "^[0-9]{1,}$";
+      } else if (validationType == "status") {
+        validationRegex = "^(available|booked|tersedia|dipesan)$";
       } else {
         validationRegex = "^[a-zA-Z0-9_]{1,}$";
       }
