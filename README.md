@@ -63,16 +63,8 @@ Start the unit test project
 Want to run just one command?
 run bat file in command for auto execute build command
 
-Change directory to utility folder
-
 ~~~bash  
-  cd utility/${unix/windows}
-~~~
-
-Execute shell script
-
-~~~bash  
-  ./build_${production/unit_test}.${bat/sh}
+  ./build_${project/unit_test}.sh
 ~~~
 
 ## Environment Variables  

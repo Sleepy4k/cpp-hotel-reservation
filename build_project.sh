@@ -4,10 +4,10 @@
 echo "Compiling C++ program with g++"
 
 # Source file name (change this to your C++ source file)
-source_file="../../tests/main_test.cpp"
+source_file="./src/main.cpp"
 
 # Output binary name (change this to your desired output name)
-output_binary="../../output/main_test"
+output_binary="./output/main"
 
 # Compile the C++ program
 g++ -std=c++11 -o "$output_binary" "$source_file"
@@ -16,7 +16,10 @@ g++ -std=c++11 -o "$output_binary" "$source_file"
 if [ $? -eq 0 ]; then
   # Run the compiled binary
   echo "Compilation successful. Running $output_binary..."
-  "./output/$output_binary"
+  "$output_binary"
 else
   echo "Compilation failed."
 fi
+
+# Pause to keep the terminal open (optional)
+read -p "Press Enter to exit..."
