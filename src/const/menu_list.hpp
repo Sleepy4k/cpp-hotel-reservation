@@ -95,7 +95,7 @@ namespace MenuList {
     "menu_list_admin_user_add",
     "menu_list_admin_user_search",
     "menu_list_admin_user_edit",
-    "menu_list_admin_user_delete".
+    "menu_list_admin_user_delete",
     "menu_list_admin_user_back"
   };
 

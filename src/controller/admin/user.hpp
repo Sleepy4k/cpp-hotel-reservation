@@ -50,6 +50,6 @@ class AdminUserDashboard {
         }
       }
     }
-}
+};
 
 #endif // CONTROLLER_ADMIN_USER_HPP
