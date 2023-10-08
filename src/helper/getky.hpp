@@ -23,26 +23,22 @@ class Getky {
      * @return void
     */
     static void pause() {
+      cout << '\n' << get_translated_string("press_any_key_to_continue") << endl;
+
       #ifdef _WIN32
         getch();
       #else
-        int ch;
         struct termios oldt, newt;
 
-        // Save terminal settings
         tcgetattr(STDIN_FILENO, &oldt);
-        newt = oldt;
 
-        // Disable canonical mode and echo
+        newt = oldt;
         newt.c_lflag &= ~(ICANON | ECHO);
 
-        // Apply new settings
         tcsetattr(STDIN_FILENO, TCSANOW, &newt);
 
-        // Read character
         getchar();
 
-        // Restore terminal settings
         tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
       #endif
 
