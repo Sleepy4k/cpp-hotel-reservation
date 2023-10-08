@@ -76,17 +76,13 @@ class AdminSystemDashboard {
         int menu = Validation::integer_validation(1, menu_list.size());
 
         switch (menu) {
-          case 1:
-            manage_language();
+          case 1: manage_language();
             break;
-          case 2:
-            manage_debug();
+          case 2: manage_debug();
             break;
-          case 3:
-            return;
+          case 3: return;
             break;
-          default:
-            cout << get_translated_string("menu_list_admin_system_invalid") << endl;
+          default: cout << get_translated_string("menu_list_admin_system_invalid") << endl;
             break;
         }
       }

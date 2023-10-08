@@ -35,23 +35,17 @@ class UserDashboard {
         int menu = Validation::integer_validation(1, menu_list.size());
 
         switch (menu) {
-          case 1:
-            cout << get_translated_string("menu_list_user_search_room") << endl;
+          case 1: cout << get_translated_string("menu_list_user_search_room") << endl;
             break;
-          case 2:
-            cout << get_translated_string("menu_list_user_booking_room") << endl;
+          case 2: cout << get_translated_string("menu_list_user_booking_room") << endl;
             break;
-          case 3:
-            cout << get_translated_string("menu_list_user_booking_history") << endl;
+          case 3: cout << get_translated_string("menu_list_user_booking_history") << endl;
             break;
-          case 4:
-            UserProfileDashboard::dashboard(user);
+          case 4: UserProfileDashboard::dashboard(user);
             break;
-          case 5:
-            return;
+          case 5: return;
             break;
-          default:
-            cout << get_translated_string("menu_list_user_invalid") << endl;
+          default: cout << get_translated_string("menu_list_user_invalid") << endl;
             break;
         }
       }

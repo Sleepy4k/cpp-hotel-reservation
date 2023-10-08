@@ -99,11 +99,7 @@ class File {
       int result = remove(filename.c_str());
 
       if (App::APP_DEBUG && allow_print) {
-        if (result != 0) {
-          cerr << "Error deleting file" << endl;
-        } else {
-          cout << "File successfully deleted" << endl;
-        }
+        (result != 0) ? cerr << "Error deleting file" << endl : cout << "File successfully deleted" << endl;
       }
     };
 

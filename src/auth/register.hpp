@@ -21,11 +21,14 @@ class Register {
      * 
      * @return void
      */
-    static void register_user(const string role = "user") {
+    static void register_user(const string role = "user", const bool allow_title = true) {
       cout << "\n\n--------------------------------------------------------------------" << endl;
       cout << "               " << get_translated_string(App::APP_NAME) << "                  " << endl;
       cout << "--------------------------------------------------------------------" << endl;
-      cout << get_translated_string("register_title") << endl;
+
+      if (allow_title) {
+        cout << get_translated_string("register_title") << endl;
+      }
 
       string username = Validation::string_validation(get_translated_string("register_input_username"), "username");
       string password = Validation::string_validation(get_translated_string("register_input_password"), "password");
@@ -41,7 +44,7 @@ class Register {
         user.set_username(username);
         user.set_password(Hash::encrypt(password));
 
-        Forgot::create_forgot_question(user);
+        Forgot::create_forgot_question(user, allow_title);
       }
     };
 };

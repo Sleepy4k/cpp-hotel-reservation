@@ -29,10 +29,10 @@ class Login {
       if (confirmation == "y") {
         Forgot::forgot_password();
       } else if (confirmation == "n" || confirmation == "t") {
-        return login(is_admin);
+        login(is_admin);
       } else {
         cout << get_translated_string("login_confirm_input_invalid") << endl;
-        return confirm(is_admin);
+        confirm(is_admin);
       }
     };
 
@@ -58,21 +58,17 @@ class Login {
 
       if (Hash::verify(password, user.get_password())) {
         if (is_admin && isAdmin) {
-          return AdminDashboard::dashboard(user);
+          AdminDashboard::dashboard(user);
         } else if (!is_admin && !isAdmin) {
-          return UserDashboard::dashboard(user);
+          UserDashboard::dashboard(user);
         } else {
           cout << get_translated_string("login_not_admin") << endl;
-          return login(is_admin);
+          login(is_admin);
         }
       } else {
         cout << get_translated_string("login_invalid_password") << endl;
 
-        if (error < 2) {
-          return login(is_admin, error + 1);
-        } else {
-          return confirm(is_admin);
-        }
+        (error < 2) ? login(is_admin, error + 1) : confirm(is_admin);
       }
     };
 };

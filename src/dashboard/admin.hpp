@@ -37,29 +37,21 @@ class AdminDashboard {
         int menu = Validation::integer_validation(1, menu_list.size());
 
         switch (menu) {
-          case 1:
-            AdminRoomDashboard::dashboard(user);
+          case 1: AdminRoomDashboard::dashboard(user);
             break;
-          case 2:
-            AdminUserDashboard::dashboard(user);
+          case 2: AdminUserDashboard::dashboard(user);
             break;
-          case 3:
-            cout << get_translated_string("menu_list_admin_manage_booking") << endl;
+          case 3: cout << get_translated_string("menu_list_admin_manage_booking") << endl;
             break;
-          case 4:
-            cout << get_translated_string("menu_list_admin_manage_admin") << endl;
+          case 4: cout << get_translated_string("menu_list_admin_manage_admin") << endl;
             break;
-          case 5:
-            cout << get_translated_string("menu_list_admin_report_and_statistic") << endl;
+          case 5: cout << get_translated_string("menu_list_admin_report_and_statistic") << endl;
             break;
-          case 6:
-            AdminSystemDashboard::dashboard(user);
+          case 6: AdminSystemDashboard::dashboard(user);
             break;
-          case 7:
-            return;
+          case 7: return;
             break;
-          default:
-            cout << get_translated_string("menu_list_admin_invalid") << endl;
+          default: cout << get_translated_string("menu_list_admin_invalid") << endl;
             break;
         }
       }

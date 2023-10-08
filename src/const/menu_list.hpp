@@ -90,6 +90,11 @@ namespace MenuList {
     "menu_list_admin_room_back"
   };
 
+  /**
+   * @brief Admin user dashboard menu list
+   * 
+   * @var vector<string>
+   */
   const vector<string> ADMIN_USER_DASHBOARD_MENU = {
     "menu_list_admin_user_list",
     "menu_list_admin_user_add",

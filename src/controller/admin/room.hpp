@@ -20,22 +20,20 @@ class AdminRoomDashboard {
     /**
      * @brief List all rooms
      * 
+     * @param room Room
+     * 
      * @return void
      */
-    static void list() {
-      Room room;
-      vector<Room> rooms = room.get();
-
+    static void list(Room room) {
       cout << "\n\n--------------------------------------------------------------------" << endl;
       cout << "               " << get_translated_string(App::APP_NAME) << "                  " << endl;
       cout << "--------------------------------------------------------------------" << endl;
       cout << get_translated_string("admin_room_list_title") << endl;
 
+      vector<Room> rooms = room.get();
       int totalRooms = rooms.size();
 
       if (totalRooms > 0) {
-        cout << Sprintf::format(get_translated_string("admin_room_list_header"), {to_string(totalRooms)}) << endl;
-
         for (unsigned int i = 0; i < totalRooms; i++) {
           cout << "\n--------------------------------------------------------" << '\n';
           cout << Sprintf::format(get_translated_string("admin_room_list_data_uid"), {rooms[i].get_uid()}) << '\n';
@@ -46,6 +44,8 @@ class AdminRoomDashboard {
           cout << Sprintf::format(get_translated_string("admin_room_list_data_status"), {rooms[i].get_status()}) << '\n';
           cout << "--------------------------------------------------------" << '\n';
         }
+
+        cout << '\n' << Sprintf::format(get_translated_string("admin_room_list_header"), {to_string(totalRooms)}) << endl;
       } else {
         cout << get_translated_string("admin_room_list_empty") << endl;
       }
@@ -56,9 +56,11 @@ class AdminRoomDashboard {
     /**
      * @brief Create new room
      * 
+     * @param room Room
+     * 
      * @return void
      */
-    static void create() {
+    static void create(Room room) {
       cout << "\n\n--------------------------------------------------------------------" << endl;
       cout << "               " << get_translated_string(App::APP_NAME) << "                  " << endl;
       cout << "--------------------------------------------------------------------" << endl;
@@ -70,13 +72,8 @@ class AdminRoomDashboard {
       string capacity = Validation::string_validation(get_translated_string("admin_room_input_capacity"), "number");
       string status = Validation::string_validation(get_translated_string("admin_room_input_status"), "status");
 
-      if (status == "available" || status == "tersedia") {
-        status = "available";
-      } else {
-        status = "booked";
-      }
+      (status == "available" || status == "tersedia") ? status = "available" : status = "booked";
 
-      Room room;
       room.set_uid(UUID::generate_uuid());
       room.set_name(name);
       room.set_type(type);
@@ -89,21 +86,21 @@ class AdminRoomDashboard {
     /**
      * @brief Search room by uid
      * 
+     * @param room Room
+     * 
      * @return void
      */
-    static void search() {
+    static void search(Room room) {
       cout << "\n\n--------------------------------------------------------------------" << endl;
       cout << "               " << get_translated_string(App::APP_NAME) << "                  " << endl;
       cout << "--------------------------------------------------------------------" << endl;
       cout << get_translated_string("admin_room_search_title") << endl;
 
       string uid = Validation::string_validation(get_translated_string("admin_room_input_uid"), "uid");
-
-      Room room;
       Room data = room.find(uid);
 
       if (data.get_uid() == "") {
-        cout << Sprintf::format(get_translated_string("admin_room_search_not_found"), {uid}) << endl;
+        cout << Sprintf::format(get_translated_string("admin_room_not_found"), {uid}) << endl;
         return;
       }
 
@@ -115,27 +112,28 @@ class AdminRoomDashboard {
       cout << Sprintf::format(get_translated_string("admin_room_list_data_capacity"), {to_string(data.get_capacity())}) << '\n';
       cout << Sprintf::format(get_translated_string("admin_room_list_data_status"), {data.get_status()}) << '\n';
       cout << "--------------------------------------------------------" << '\n';
+
+      Getky::pause();
     };
 
     /**
      * @brief Edit room by uid
      * 
+     * @param room Room
+     * 
      * @return void
      */
-    static void edit() {
+    static void edit(Room room) {
       cout << "\n\n--------------------------------------------------------------------" << endl;
       cout << "               " << get_translated_string(App::APP_NAME) << "                  " << endl;
       cout << "--------------------------------------------------------------------" << endl;
       cout << get_translated_string("admin_room_edit_title") << endl;
 
-            cout << get_translated_string("menu_list_admin_user_list");
       string uid = Validation::string_validation(get_translated_string("admin_room_input_uid"), "uid");
-
-      Room room;
       Room data = room.find(uid);
 
       if (data.get_uid() == "") {
-        cout << get_translated_string("admin_room_edit_not_found") << endl;
+        cout << get_translated_string("admin_room_not_found") << endl;
         return;
       }
 
@@ -154,28 +152,28 @@ class AdminRoomDashboard {
       string capacity = Validation::string_validation(get_translated_string("admin_room_input_capacity"), "number");
       string status = Validation::string_validation(get_translated_string("admin_room_input_status"), "status");
 
-      room.set_name(name);
-      room.set_type(type);
-      room.set_price(stoi(price));
-      room.set_capacity(stoi(capacity));
-      room.set_status(status);
-      room.update(uid);
+      data.set_name(name);
+      data.set_type(type);
+      data.set_price(stoi(price));
+      data.set_capacity(stoi(capacity));
+      data.set_status(status);
+      data.update(uid);
     };
 
     /**
      * @brief Delete room by uid
      * 
+     * @param room Room
+     * 
      * @return void
      */
-    static void destroy() {
+    static void destroy(Room room) {
       cout << "\n\n--------------------------------------------------------------------" << endl;
       cout << "               " << get_translated_string(App::APP_NAME) << "                  " << endl;
       cout << "--------------------------------------------------------------------" << endl;
       cout << get_translated_string("admin_room_delete_title") << endl;
 
       string uid = Validation::string_validation(get_translated_string("admin_room_input_uid"), "uid");
-
-      Room room;
       room.delete_room(uid);
     }
 
@@ -187,6 +185,7 @@ class AdminRoomDashboard {
      * @return void
      */
     static void dashboard(User user) {
+      Room room;
       vector<string> menu_list = MenuList::ADMIN_ROOM_DASHBOARD_MENU;
 
       while (true) {
@@ -202,26 +201,19 @@ class AdminRoomDashboard {
         int menu = Validation::integer_validation(1, menu_list.size());
 
         switch (menu) {
-          case 1:
-            list();
+          case 1: list(room);
             break;
-          case 2:
-            create();
+          case 2: create(room);
             break;
-          case 3:
-            search();
+          case 3: search(room);
             break;
-          case 4:
-            edit();
+          case 4: edit(room);
             break;
-          case 5:
-            destroy();
+          case 5: destroy(room);
             break;
-          case 6:
-            return;
+          case 6: return;
             break;
-          default:
-            cout << get_translated_string("menu_list_admin_room_invalid") << endl;
+          default: cout << get_translated_string("menu_list_admin_room_invalid") << endl;
             break;
         }
       }

@@ -8,11 +8,11 @@
 using std::string;
 
 /**
- * @brief Language constant
+ * @brief Application debug mode
  * 
- * @namespace Language
+ * @var bool
  */
-bool debug = true;
+bool debug = false;
 
 /**
  * @brief Application constant
@@ -35,9 +35,11 @@ namespace App {
   const bool APP_DEBUG = debug;
 
   /**
-   * @brief Application language
+   * @brief Set application debug mode
    * 
-   * @var string
+   * @param value bool
+   * 
+   * @return void
    */
   const void set_debug(const bool value) {
     debug = value;

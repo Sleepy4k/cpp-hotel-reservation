@@ -37,24 +37,18 @@ class Menu {
         int menu = Validation::integer_validation(1, menu_list.size());
 
         switch (menu) {
-          case 1:
-            Login::login(true);
+          case 1: Login::login(true);
             break;
-          case 2:
-            Login::login(false);
+          case 2: Login::login(false);
             break;
-          case 3:
-            Register::register_user();
+          case 3: Register::register_user();
             break;
-          case 4:
-            Forgot::forgot_password();
+          case 4: Forgot::forgot_password();
             break;
-          case 5:
-            cout << get_translated_string("menu_list_main_thanks") << " " << get_translated_string(App::APP_NAME) << endl;
+          case 5: cout << get_translated_string("menu_list_main_thanks") << " " << get_translated_string(App::APP_NAME) << endl;
             exit(0);
             break;
-          default:
-            cout << get_translated_string("menu_list_main_invalid") << endl;
+          default: cout << get_translated_string("menu_list_main_invalid") << endl;
             break;
         }
       }

@@ -37,14 +37,11 @@ class UserProfileDashboard {
         int menu = Validation::integer_validation(1, menu_list.size());
 
         switch (menu) {
-          case 1:
-            Forgot::validate_forgot_question(user);
+          case 1: Forgot::validate_forgot_question(user);
             break;
-          case 2:
-            return;
+          case 2: return;
             break;
-          default:
-            cout << get_translated_string("menu_list_user_profile_invalid") << endl;
+          default: cout << get_translated_string("menu_list_user_profile_invalid") << endl;
             break;
         }
       }
