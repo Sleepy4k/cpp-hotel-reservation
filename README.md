@@ -39,29 +39,29 @@ Go to the project directory
 Build the cpp file
 
 ~~~bash  
-  g++ -std=c++11 ./src/main.cpp  -o ./output/main.exe
+  g++ -std=c++11 ./src/main.cpp  -o ./output/main
 ~~~
 
 Start the project
 
 ~~~bash  
-  ./output/main.exe
+  ./output/main
 ~~~
 
 If you want to run unit test, build main test file
 
 ~~~bash  
-  g++ -std=c++11 ./tests/main_test.cpp  -o ./output/main_test.exe
+  g++ -std=c++11 ./tests/main_test.cpp  -o ./output/main_test
 ~~~
 
 Start the unit test project
 
 ~~~bash  
-  ./output/main_test.exe
+  ./output/main_test
 ~~~
 
 Want to run just one command?
-run bat file in command for auto execute build command
+run shell script in command prompt for auto execute build command
 
 ~~~bash  
   ./build_${project/unit_test}.sh
@@ -72,8 +72,6 @@ run bat file in command for auto execute build command
 To run this project, you will need to add the following environment variables to your windows environment
 
 `g++`
-
-`gcc`
 
 ## Acknowledgements  
 
