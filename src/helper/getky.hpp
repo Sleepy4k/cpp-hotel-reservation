@@ -24,7 +24,7 @@ class Getky {
     */
     static void pause() {
       #ifdef _WIN32
-        return getch();
+        getch();
       #else
         int ch;
         struct termios oldt, newt;
@@ -40,13 +40,13 @@ class Getky {
         tcsetattr(STDIN_FILENO, TCSANOW, &newt);
 
         // Read character
-        ch = getchar();
+        getchar();
 
         // Restore terminal settings
         tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
-
-        return;
       #endif
+
+      return;
     };
 };
 
