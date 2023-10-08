@@ -128,6 +128,7 @@ class AdminRoomDashboard {
       cout << "--------------------------------------------------------------------" << endl;
       cout << get_translated_string("admin_room_edit_title") << endl;
 
+            cout << get_translated_string("menu_list_admin_user_list");
       string uid = Validation::string_validation(get_translated_string("admin_room_input_uid"), "uid");
 
       Room room;
