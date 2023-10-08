@@ -395,11 +395,14 @@ struct User {
     };
 
     /**
-     * @brief Delete the user
+     * @brief Update the user
+     * 
+     * @param username string
+     * @param role string
      * 
      * @return void
-     */
-    void delete_user(const string username, const string password) {
+    */
+    void update_role(const string username, const string role) {
       string content = File::read(Path::getPath() + "/user.csv");
 
       string line;
@@ -415,7 +418,65 @@ struct User {
           row.push_back(word);
         }
 
-        if (row[2] == username && row[3] == password) {
+        if (row[2] == username) {
+          is_exist = true;
+        }
+
+        row.clear();
+      }
+
+      if (is_exist) {
+        vector<User> users = this->get();
+
+        fstream outfile(Path::getPath() + "/user.csv", ios::out | ios::trunc);
+
+        if (!outfile) {
+          outfile.close();
+
+          if (App::APP_DEBUG) {
+            cerr << "Error opening file" << endl;
+          }
+        } else {
+          outfile << "";
+          outfile.close();
+
+          for (unsigned int i = 0; i < users.size(); i++) {
+            if (users[i].get_username() == username) {
+              users[i].set_role(role);
+            }
+
+            users[i].create(false);
+          }
+
+          cout << Sprintf::format(get_translated_string("model_user_all_success"), {get_translated_string("model_user_updated")}) << endl;
+        }
+      } else {
+        cout << get_translated_string("model_user_notfound") << endl;
+      }
+    };
+
+    /**
+     * @brief Delete the user
+     * 
+     * @return void
+     */
+    void delete_user(const string username) {
+      string content = File::read(Path::getPath() + "/user.csv");
+
+      string line;
+      vector<string> row;
+      bool is_exist = false;
+      stringstream ss(content);
+
+      while (getline(ss, line, '\n')) {
+        string word;
+        stringstream s(line);
+
+        while (getline(s, word, ',')) {
+          row.push_back(word);
+        }
+
+        if (row[2] == username) {
           is_exist = true;
         }
 
