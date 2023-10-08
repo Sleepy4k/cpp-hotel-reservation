@@ -3,13 +3,18 @@
 #ifndef CONTROLLER_ADMIN_ROOM_HPP
 #define CONTROLLER_ADMIN_ROOM_HPP
 
-#include <conio.h>
 #include "../../const/app.hpp"
 #include "../../model/user.hpp"
 #include "../../model/room.hpp"
+#include "../../helper/getky.hpp"
 #include "../../const/menu_list.hpp"
 #include "../../handler/validation.hpp"
 
+/**
+ * @brief AdminRoomDashboard class to handle admin room dashboard
+ * 
+ * @class AdminRoomDashboard
+ */
 class AdminRoomDashboard {
   public:
     /**
@@ -45,7 +50,7 @@ class AdminRoomDashboard {
         cout << get_translated_string("admin_room_list_empty") << endl;
       }
 
-      getch();
+      Getky::pause();
     };
 
     /**
