@@ -51,24 +51,29 @@ class Login {
       cout << get_translated_string("login_title") << endl;
 
       string username = Validation::string_validation(get_translated_string("login_input_username"), "username");
+      User user = user.find(username);
+
+      if (user.get_uid() == "") {
+        cout << get_translated_string("login_invalid_username") << endl;
+        return login(is_admin);
+      }
+
       string password = Validation::string_validation(get_translated_string("login_input_password"), "password");
 
-      User user = user.find(username);
+      if (!Hash::verify(password, user.get_password())) {
+        cout << get_translated_string("login_invalid_password") << endl;
+        return (error < 2) ? login(is_admin, error + 1) : confirm(is_admin);
+      }
+
       bool isAdmin = (user.get_role() == "admin");
 
-      if (Hash::verify(password, user.get_password())) {
-        if (is_admin && isAdmin) {
-          AdminDashboard::dashboard(user);
-        } else if (!is_admin && !isAdmin) {
-          UserDashboard::dashboard(user);
-        } else {
-          cout << get_translated_string("login_not_admin") << endl;
-          login(is_admin);
-        }
+      if (is_admin && isAdmin) {
+        AdminDashboard::dashboard(user);
+      } else if (!is_admin && !isAdmin) {
+        UserDashboard::dashboard(user);
       } else {
-        cout << get_translated_string("login_invalid_password") << endl;
-
-        (error < 2) ? login(is_admin, error + 1) : confirm(is_admin);
+        cout << get_translated_string("login_not_admin") << endl;
+        login(is_admin);
       }
     };
 };

@@ -29,9 +29,7 @@ class Forgot {
       cout << "               " << get_translated_string(App::APP_NAME) << "                  " << endl;
       cout << "--------------------------------------------------------------------" << endl;
 
-      if (allow_title) {
-        cout << get_translated_string("forgot_create_title") << endl;
-      }
+      if (allow_title) cout << get_translated_string("forgot_create_title") << endl;
 
       for (unsigned int i = 0; i < menu_list.size(); i++) {
         cout << get_translated_string("forgot_create_press") << " " << i + 1 << " --> " << get_translated_string(menu_list[i]) << '\n';
@@ -85,24 +83,24 @@ class Forgot {
 
       string answer = Validation::string_validation(get_translated_string("forgot_validate_input_answer"), "forgot_answer");
 
-      if (Hash::verify(answer, user.get_forgot_answer())) {
-        string password = Validation::string_validation(get_translated_string("forgot_validate_input_password"), "password");
-        string confirm_password = Validation::string_validation(get_translated_string("forgot_validate_input_confirm_password"), "password");
-
-        if (password != confirm_password) {
-          cout << get_translated_string("forgot_validate_input_password_not_same") << endl;
-          validate_forgot_question(user);
-        } else {
-          if (Hash::verify(password, user.get_password())) {
-            cout << get_translated_string("forgot_validate_input_password_must_be_different") << endl;
-            validate_forgot_question(user);
-          } else {
-            user.update(user.get_username(), user.get_password(), Hash::encrypt(password));
-          }
-        }
-      } else {
+      if (!Hash::verify(answer, user.get_forgot_answer())) {
         cout << get_translated_string("forgot_validate_input_password_invalid") << endl;
+        return validate_forgot_question(user);
+      }
+
+      string password = Validation::string_validation(get_translated_string("forgot_validate_input_password"), "password");
+      string confirm_password = Validation::string_validation(get_translated_string("forgot_validate_input_confirm_password"), "password");
+
+      if (password != confirm_password) {
+        cout << get_translated_string("forgot_validate_input_password_not_same") << endl;
+        return validate_forgot_question(user);
+      }
+
+      if (Hash::verify(password, user.get_password())) {
+        cout << get_translated_string("forgot_validate_input_password_must_be_different") << endl;
         validate_forgot_question(user);
+      } else {
+        user.update(user.get_username(), user.get_password(), Hash::encrypt(password));
       }
     };
 
@@ -119,7 +117,6 @@ class Forgot {
 
       string username = Validation::string_validation(get_translated_string("forgot_input_username"), "username");
       User user = user.find(username);
-
       validate_forgot_question(user);
     };
 };

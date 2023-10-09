@@ -26,9 +26,7 @@ class Register {
       cout << "               " << get_translated_string(App::APP_NAME) << "                  " << endl;
       cout << "--------------------------------------------------------------------" << endl;
 
-      if (allow_title) {
-        cout << get_translated_string("register_title") << endl;
-      }
+      if (allow_title) cout << get_translated_string("register_title") << endl;
 
       string username = Validation::string_validation(get_translated_string("register_input_username"), "username");
       string password = Validation::string_validation(get_translated_string("register_input_password"), "password");
@@ -36,16 +34,16 @@ class Register {
 
       if (password != confirm_password) {
         cout << get_translated_string("register_input_password_not_same") << endl;
-        register_user();
-      } else {
-        User user;
-        user.set_uid(UUID::generate_uuid());
-        user.set_role(role);
-        user.set_username(username);
-        user.set_password(Hash::encrypt(password));
-
-        Forgot::create_forgot_question(user, allow_title);
+        return register_user();
       }
+
+      User user;
+      user.set_uid(UUID::generate_uuid());
+      user.set_role(role);
+      user.set_username(username);
+      user.set_password(Hash::encrypt(password));
+
+      Forgot::create_forgot_question(user, allow_title);
     };
 };
 
