@@ -20,13 +20,15 @@ using std::exception;
  * @return void
  */
 void run_uuid_test() {
-  try {
-    string uuid = UUID::generate_uuid();
-    assert(uuid.length() >= 8);
-    assert(uuid.length() <= 13);
-    cout << "Test case passed: generate id " << uuid << endl;
-  } catch (const exception& e) {
-    cerr << "Test failed: " << e.what() << endl;
+  for (unsigned i = 0; i < 10; i++) {
+    try {
+      string uuid = UUID::generate_uuid();
+      assert(uuid.length() >= 8);
+      assert(uuid.length() <= 13);
+      cout << "Test case passed: generate id " << uuid << endl;
+    } catch (const exception& e) {
+      cerr << "Test failed: " << e.what() << endl;
+    }
   }
 }
 
