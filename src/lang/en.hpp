@@ -78,6 +78,16 @@ const map<string, string> english_translations = {
   {"menu_list_admin_user_press", "Press"},
   {"menu_list_admin_user_invalid", "Invalid menu"},
 
+  {"menu_list_admin_admin_title", "Hi %, welcome to admin dashboard"},
+  {"menu_list_admin_admin_list", "Show All Admin"},
+  {"menu_list_admin_admin_add", "Add New Admin"},
+  {"menu_list_admin_admin_search", "Seach Admin"},
+  {"menu_list_admin_admin_edit", "Edit Admin"},
+  {"menu_list_admin_admin_delete", "Delete Admin"},
+  {"menu_list_admin_admin_back", "Back"},
+  {"menu_list_admin_admin_press", "Press"},
+  {"menu_list_admin_admin_invalid", "Invalid menu"},
+
   {"menu_list_user_profile_title", "Hai %, welcome to profile user dashboard"},
   {"menu_list_user_profile_forgot", "Change Password"},
   {"menu_list_user_profile_back", "Back"},
@@ -121,6 +131,7 @@ const map<string, string> english_translations = {
   {"login_input_username", "Please Enter Your Username: "},
   {"login_input_password", "Please Enter Your Password: "},
   {"login_not_admin", "You are not admin"},
+  {"login_invalid_username", "Username not found"},
   {"login_invalid_password", "Password is wrong"},
 
   {"login_confirm_question", "Forgot your password? (y/n)"},
@@ -182,6 +193,20 @@ const map<string, string> english_translations = {
   {"admin_user_input_role", "Please Enter Role (admin/user) : "},
   {"admin_user_edit_invalid", "Invalid role"},
   {"admin_user_not_found", "Sorry user with username % not found in our database"},
+
+  {"admin_admin_list_title", "List of all admin"},
+  {"admin_admin_search_title", "Search a admin"},
+  {"admin_admin_edit_title", "Edit admin data"},
+  {"admin_admin_delete_title", "Remove admin data"},
+  {"admin_admin_list_header", "Found % total data"},
+  {"admin_admin_list_data_uid", "UUID : %"},
+  {"admin_admin_list_data_username", "Username : %"},
+  {"admin_admin_list_data_role", "Role : %"},
+  {"admin_admin_list_empty", "No Data Found"},
+  {"admin_admin_input_username", "Please Enter Username : "},
+  {"admin_admin_input_role", "Please Enter Role (admin/user) : "},
+  {"admin_admin_edit_invalid", "Invalid role"},
+  {"admin_admin_not_found", "Sorry admin with username % not found in our database"},
 
   {"press_any_key_to_continue", "Press any key to continue"},
 };

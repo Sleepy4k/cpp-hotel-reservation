@@ -70,13 +70,23 @@ const map<string, string> indonesian_translations = {
 
   {"menu_list_admin_user_title", "Hi %, selamat datang di dasbor admin pengguna"},
   {"menu_list_admin_user_list", "Tampilkan Semua Pengguna"},
-  {"menu_list_admin_user_add", "Tambahkan Ruangan Baru"},
+  {"menu_list_admin_user_add", "Tambahkan Pengguna Baru"},
   {"menu_list_admin_user_search", "Cari Pengguna"},
   {"menu_list_admin_user_edit", "Ubah Pengguna"},
   {"menu_list_admin_user_delete", "Hapus Pengguna"},
   {"menu_list_admin_user_back", "Kembali"},
   {"menu_list_admin_user_press", "Tekan"},
   {"menu_list_admin_user_invalid", "Menu tidak valid"},
+
+  {"menu_list_admin_admin_title", "Hi %, selamat datang di dasbor admin"},
+  {"menu_list_admin_admin_list", "Tampilkan Semua Admin"},
+  {"menu_list_admin_admin_add", "Tambahkan Admin Baru"},
+  {"menu_list_admin_admin_search", "Cari Admin"},
+  {"menu_list_admin_admin_edit", "Ubah Admin"},
+  {"menu_list_admin_admin_delete", "Hapus Admin"},
+  {"menu_list_admin_admin_back", "Kembali"},
+  {"menu_list_admin_admin_press", "Tekan"},
+  {"menu_list_admin_admin_invalid", "Menu tidak valid"},
 
   {"menu_list_user_profile_title", "Hai %, selamat datang di dasbor user profil"},
   {"menu_list_user_profile_forgot", "Ubah Kata Sandi"},
@@ -121,6 +131,7 @@ const map<string, string> indonesian_translations = {
   {"login_input_username", "Silakan Masukkan Nama Pengguna Anda: "},
   {"login_input_password", "Silakan Masukkan Kata Sandi Anda: "},
   {"login_not_admin", "Anda bukan admin"},
+  {"login_invalid_username", "Nama pengguna tidak ditemukan"},
   {"login_invalid_password", "Kata sandi salah"},
 
   {"login_confirm_question", "lupa kata sandi Anda? (y/t)"},
@@ -182,6 +193,20 @@ const map<string, string> indonesian_translations = {
   {"admin_user_input_role", "Silakan Masukkan Peran (admin/pengguna) : "},
   {"admin_user_edit_invalid", "Peran tidak valid"},
   {"admin_user_not_found", "Maaf pengguna dengan nama pengguna % tidak ditemukan di database kami"},
+
+  {"admin_admin_list_title", "Daftar semua Admin"},
+  {"admin_admin_search_title", "Cari admin"},
+  {"admin_admin_edit_title", "Edit data admin"},
+  {"admin_admin_delete_title", "Hapus data admin"},
+  {"admin_admin_list_header", "Ditemukan % total data"},
+  {"admin_admin_list_data_uid", "UUID : %"},
+  {"admin_admin_list_data_username", "Nama pengguna : %"},
+  {"admin_admin_list_data_role", "Peran : %"},
+  {"admin_admin_list_empty", "Tidak ada data ditemukan"},
+  {"admin_admin_input_username", "Silakan Masukkan Nama Pengguna : "},
+  {"admin_admin_input_role", "Silakan Masukkan Peran (admin/pengguna) : "},
+  {"admin_admin_edit_invalid", "Peran tidak valid"},
+  {"admin_admin_not_found", "Maaf admin dengan nama pengguna % tidak ditemukan di database kami"},
 
   {"press_any_key_to_continue", "Tekan tombol apa saja untuk melanjutkan"},
 };
