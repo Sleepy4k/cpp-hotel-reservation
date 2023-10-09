@@ -2,6 +2,7 @@
 #include "./helper/uuid_test.hpp"
 #include "./storage/file_test.hpp"
 #include "./handler/hash_test.hpp"
+#include "./handler/i18n_test.hpp"
 #include "./helper/sprintf_test.hpp"
 #include "./handler/validation_test.hpp"
 
@@ -19,6 +20,10 @@ int main(int argc, char* argv[]) {
   cout << "Running hash tests..." << endl;
   run_hash_test();
   cout << "Hash tests passed!" << endl;
+
+  cout << "Running i18n tests..." << endl;
+  run_i18n_test();
+  cout << "I18n tests passed!" << endl;
 
   cout << "Running validation tests..." << endl;
   run_validation_test();
