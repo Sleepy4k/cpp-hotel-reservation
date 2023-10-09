@@ -38,10 +38,7 @@ namespace Path {
    */
   const void setPath(string path) {
     size_t lastBackslashPos = path.find_last_of("\\/");
-
-    if (lastBackslashPos != std::string::npos) {
-      path = path.substr(0, lastBackslashPos);
-    }
+    if (lastBackslashPos != string::npos) path = path.substr(0, lastBackslashPos);
 
     basepath = path;
   };
