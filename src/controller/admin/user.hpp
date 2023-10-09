@@ -8,6 +8,11 @@
 #include "../../auth/register.hpp"
 #include "../../const/menu_list.hpp"
 
+/**
+ * @brief AdminUserDashboard class to handle admin user dashboard
+ * 
+ * @class AdminUserDashboard
+ */
 class AdminUserDashboard {
   public:
     /**
