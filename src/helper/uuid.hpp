@@ -3,14 +3,14 @@
 #ifndef HANDLER_UUID_HPP
 #define HANDLER_UUID_HPP
 
-#include <set>
 #include <ctime>
 #include <random>
+#include <unordered_set>
 
-using std::set;
 using std::ctime;
 using std::string;
 using std::mt19937;
+using std::unordered_set;
 using std::uniform_int_distribution;
 
 /**
@@ -19,6 +19,21 @@ using std::uniform_int_distribution;
  * @class UUID
  */
 class UUID {
+  private:
+    /**
+     * @brief Characters to generate UUID
+     * 
+     * @var char[]
+     */
+    static constexpr char characters[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+
+    /**
+     * @brief Length of characters
+     * 
+     * @var size_t
+     */
+    static constexpr size_t charArrayLength = sizeof(characters) - 1;
+
   public:
     /**
      * @brief Generate UUID
@@ -26,18 +41,17 @@ class UUID {
      * @return string
      */
     static string generate_uuid() {
-      string characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-      mt19937 gen(time(nullptr));
-      uniform_int_distribution<> dis(0, characters.length() - 1);
+      static mt19937 gen(time(nullptr));
+      static unordered_set<string> generatedUUIDs;
 
-      set<string> generatedUUIDs;
+      int maxAttempts = 10000;
       
-      while (true) {
+      while (maxAttempts--) {
         string uuid;
-        int randomize = 2 + (dis(gen) % (5 - 2 + 1));
+        int randomize = 2 + (gen() % (5 - 2 + 1));
 
         for (int i = 0; i < 6 + randomize; i++) {
-          uuid += characters[dis(gen)];
+          uuid += characters[gen() % charArrayLength];
         }
 
         if (generatedUUIDs.find(uuid) == generatedUUIDs.end()) {
@@ -45,7 +59,16 @@ class UUID {
           return uuid;
         }
       }
+
+      return "";
     };
 };
+
+/**
+ * @brief Characters to generate UUID
+ * 
+ * @var char[]
+ */
+constexpr char UUID::characters[];
 
 #endif // HANDLER_UUID_HPP
