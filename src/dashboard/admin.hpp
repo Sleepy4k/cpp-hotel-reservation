@@ -5,6 +5,7 @@
 
 #include "../controller/admin/room.hpp"
 #include "../controller/admin/user.hpp"
+#include "../controller/admin/admin.hpp"
 #include "../controller/admin/system.hpp"
 
 /**
@@ -43,7 +44,7 @@ class AdminDashboard {
             break;
           case 3: cout << get_translated_string("menu_list_admin_manage_booking") << endl;
             break;
-          case 4: cout << get_translated_string("menu_list_admin_manage_admin") << endl;
+          case 4: AdminAdminDashboard::dashboard(user);
             break;
           case 5: cout << get_translated_string("menu_list_admin_report_and_statistic") << endl;
             break;
