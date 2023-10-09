@@ -35,17 +35,11 @@ class Validation {
      * @return false 
      */
     static bool is_data_numeric(const string data, const bool is_ws) {
-      if (is_ws) {
-        for (unsigned int i = 0; i < data.length(); i++) {
-          if (!isdigit(data[i]) && !isspace(data[i])) {
-            return false;
-          }
-        }
-      } else {
-        for (unsigned int i = 0; i < data.length(); i++) {
-          if (!isdigit(data[i])) {
-            return false;
-          }
+      for (unsigned int i = 0; i < data.length(); i++) {
+        if (is_ws && (!isdigit(data[i]) && !isspace(data[i]))) {
+          return false;
+        } else if (!is_ws && !isdigit(data[i])) {
+          return false;
         }
       }
 
@@ -93,7 +87,7 @@ class Validation {
       regex validationRegex;
 
       if (validationType == "username") {
-        validationRegex = "^[a-zA-Z0-9_]{5,}$";
+        validationRegex = "^[a-zA-Z0-9_]{3,}$";
       } else if (validationType == "name") {
         validationRegex = "^[a-zA-Z0-9_ ]{1,}$";
       } else if (validationType == "debug") {
