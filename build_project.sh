@@ -10,7 +10,7 @@ source_file="./src/main.cpp"
 output_binary="./output/main"
 
 # Compile the C++ program
-g++ -std=c++11 -o "$output_binary" "$source_file"
+g++ -std=c++11 -Wall -Werror "$source_file" -o "$output_binary"
 
 # Check if compilation was successful
 if [ $? -eq 0 ]; then
