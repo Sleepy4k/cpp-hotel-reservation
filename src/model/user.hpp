@@ -81,12 +81,12 @@ struct User {
      * @return void
      */
     User(string uid, string role, string username, string password, int forgot_question_id = 0, string forgot_answer = "") {
-      this->uid = uid;
-      this->role = role;
-      this->username = username;
-      this->password = password;
-      this->forgot_question_id = forgot_question_id;
-      this->forgot_answer = forgot_answer;
+      set_uid(uid);
+      set_role(role);
+      set_username(username);
+      set_password(password);
+      set_forgot_question_id(forgot_question_id);
+      set_forgot_answer(forgot_answer);
     };
 
     /**
@@ -95,12 +95,12 @@ struct User {
      * @return void
      */
     User() {
-      this->uid = "";
-      this->role = "";
-      this->username = "";
-      this->password = "";
-      this->forgot_question_id = 0;
-      this->forgot_answer = "";
+      set_uid("");
+      set_role("");
+      set_username("");
+      set_password("");
+      set_forgot_question_id(0);
+      set_forgot_answer("");
     };
 
     /**
@@ -110,7 +110,7 @@ struct User {
      * 
      * @return void
      */
-    void set_uid(string uid) {
+    const void set_uid(const string uid) {
       this->uid = uid;
     };
 
@@ -121,7 +121,7 @@ struct User {
      * 
      * @return void
      */
-    void set_role(string role) {
+    const void set_role(const string role) {
       this->role = role;
     };
 
@@ -132,7 +132,7 @@ struct User {
      * 
      * @return void
      */
-    void set_username(string username) {
+    const void set_username(const string username) {
       this->username = username;
     };
 
@@ -143,7 +143,7 @@ struct User {
      * 
      * @return void
      */
-    void set_password(string password) {
+    const void set_password(const string password) {
       this->password = password;
     };
 
@@ -154,7 +154,7 @@ struct User {
      * 
      * @return void
      */
-    void set_forgot_question_id(int forgot_question_id) {
+    const void set_forgot_question_id(const int forgot_question_id) {
       this->forgot_question_id = forgot_question_id;
     }
 
@@ -165,7 +165,7 @@ struct User {
      * 
      * @return void
      */
-    void set_forgot_answer(string forgot_answer) {
+    const void set_forgot_answer(const string forgot_answer) {
       this->forgot_answer = forgot_answer;
     };
 
@@ -174,7 +174,7 @@ struct User {
      * 
      * @return string 
      */
-    string get_uid() {
+    const string get_uid() {
       return this->uid;
     };
 
@@ -183,7 +183,7 @@ struct User {
      * 
      * @return string 
      */
-    string get_role() {
+    const string get_role() {
       return this->role;
     };
 
@@ -192,7 +192,7 @@ struct User {
      * 
      * @return string 
      */
-    string get_username() {
+    const string get_username() {
       return this->username;
     };
 
@@ -201,7 +201,7 @@ struct User {
      * 
      * @return string 
      */
-    string get_password() {
+    const string get_password() {
       return this->password;
     };
 
@@ -210,7 +210,7 @@ struct User {
      * 
      * @return int 
      */
-    int get_forgot_question_id() {
+    const int get_forgot_question_id() {
       return this->forgot_question_id;
     };
 
@@ -219,7 +219,7 @@ struct User {
      * 
      * @return string 
      */
-    string get_forgot_answer() {
+    const string get_forgot_answer() {
       return this->forgot_answer;
     };
 
@@ -228,7 +228,7 @@ struct User {
      * 
      * @return vector<string> 
      */
-    vector<User> get() {
+    const vector<User> get() {
       string content = File::read(Path::getPath() + "/user.csv");
 
       string line;
@@ -257,7 +257,7 @@ struct User {
      * 
      * @return void
      */
-    void create(const bool allow_print = true) {
+    const void create(const bool allow_print = true) {
       string content = File::read(Path::getPath() + "/user.csv");
 
       string line;
@@ -310,7 +310,7 @@ struct User {
      * 
      * @return User
      */
-    User find(const string username) {
+    const User find(const string username) {
       string content = File::read(Path::getPath() + "/user.csv");
 
       User user;
@@ -341,7 +341,7 @@ struct User {
      * 
      * @return void
      */
-    void update(const string username, const string old_password, const string new_password) {
+    const void update(const string username, const string old_password, const string new_password) {
       string content = File::read(Path::getPath() + "/user.csv");
 
       string line;
@@ -402,7 +402,7 @@ struct User {
      * 
      * @return void
     */
-    void update_role(const string username, const string role) {
+    const void update_role(const string username, const string role) {
       string content = File::read(Path::getPath() + "/user.csv");
 
       string line;
@@ -460,7 +460,7 @@ struct User {
      * 
      * @return void
      */
-    void delete_user(const string username) {
+    const void delete_user(const string username) {
       string content = File::read(Path::getPath() + "/user.csv");
 
       string line;
@@ -516,7 +516,7 @@ struct User {
      * 
      * @return string 
      */
-    string toString() {
+    const string toString() {
       return "UID: " + this->uid + "\n"
             + "Role: " + this->role + "\n"
             + "Username: " + this->username + "\n"

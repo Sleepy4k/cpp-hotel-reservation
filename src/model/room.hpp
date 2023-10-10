@@ -79,12 +79,12 @@ class Room {
      * @return void
      */
     Room(string uid, string name, string type, int price, int capacity, string status) {
-      this->uid = uid;
-      this->name = name;
-      this->type = type;
-      this->price = price;
-      this->capacity = capacity;
-      this->status = status;
+      set_uid(uid);
+      set_name(name);
+      set_type(type);
+      set_price(price);
+      set_capacity(capacity);
+      set_status(status);
     };
 
     /**
@@ -93,12 +93,12 @@ class Room {
      * @return void
      */
     Room() {
-      this->uid = "";
-      this->name = "";
-      this->type = "";
-      this->price = 0;
-      this->capacity = 0;
-      this->status = "";
+      set_uid("");
+      set_name("");
+      set_type("");
+      set_price(0);
+      set_capacity(0);
+      set_status("");
     };
 
     /**
@@ -108,7 +108,7 @@ class Room {
      * 
      * @return void
      */
-    void set_uid(string uid) {
+    const void set_uid(const string uid) {
       this->uid = uid;
     };
 
@@ -119,7 +119,7 @@ class Room {
      * 
      * @return void
      */
-    void set_name(string name) {
+    const void set_name(const string name) {
       this->name = name;
     };
 
@@ -130,7 +130,7 @@ class Room {
      * 
      * @return void
      */
-    void set_type(string type) {
+    const void set_type(const string type) {
       this->type = type;
     };
 
@@ -141,7 +141,7 @@ class Room {
      * 
      * @return void
      */
-    void set_price(int price) {
+    const void set_price(const int price) {
       this->price = price;
     };
 
@@ -152,7 +152,7 @@ class Room {
      * 
      * @return void
      */
-    void set_capacity(int capacity) {
+    const void set_capacity(const int capacity) {
       this->capacity = capacity;
     };
 
@@ -163,7 +163,7 @@ class Room {
      * 
      * @return void
      */
-    void set_status(string status) {
+    const void set_status(const string status) {
       this->status = status;
     };
 
@@ -172,7 +172,7 @@ class Room {
      * 
      * @return string 
      */
-    string get_uid() {
+    const string get_uid() {
       return this->uid;
     };
 
@@ -181,7 +181,7 @@ class Room {
      * 
      * @return string 
      */
-    string get_name() {
+    const string get_name() {
       return this->name;
     };
 
@@ -190,7 +190,7 @@ class Room {
      * 
      * @return string 
      */
-    string get_type() {
+    const string get_type() {
       return this->type;
     };
 
@@ -199,7 +199,7 @@ class Room {
      * 
      * @return int 
      */
-    int get_price() {
+    const int get_price() {
       return this->price;
     };
 
@@ -208,7 +208,7 @@ class Room {
      * 
      * @return int 
      */
-    int get_capacity() {
+    const int get_capacity() {
       return this->capacity;
     };
 
@@ -217,7 +217,7 @@ class Room {
      * 
      * @return string 
      */
-    string get_status() {
+    const string get_status() {
       return this->status;
     };
 
@@ -226,7 +226,7 @@ class Room {
      * 
      * @return vector<Room> 
      */
-    vector<Room> get() {
+    const vector<Room> get() {
       string content = File::read(Path::getPath() + "/room.csv");
 
       string line;
@@ -257,7 +257,7 @@ class Room {
      * 
      * @return void
      */
-    void create(const bool allow_print = true) {
+    const void create(const bool allow_print = true) {
       string content = File::read(Path::getPath() + "/room.csv");
 
       string line;
@@ -273,7 +273,7 @@ class Room {
           row.push_back(word);
         }
 
-        if (row[1] == this->name & row[2] == this->type) {
+        if (row[1] == this->name && row[2] == this->type) {
           is_exist = true;
         }
 
@@ -310,7 +310,7 @@ class Room {
      * 
      * @return Room
      */
-    Room find(const string uid) {
+    const Room find(const string uid) {
       string content = File::read(Path::getPath() + "/room.csv");
 
       Room room;
@@ -343,7 +343,7 @@ class Room {
      * 
      * @return void
      */
-    void update(const string uid) {
+    const void update(const string uid) {
       string content = File::read(Path::getPath() + "/room.csv");
 
       string line;
@@ -383,7 +383,7 @@ class Room {
           outfile << "";
           outfile.close();
 
-          for (int i = 0; i < rooms.size(); i++) {
+          for (unsigned int i = 0; i < rooms.size(); i++) {
             if (rooms[i].get_uid() == uid) {
               rooms[i].set_name(this->name);
               rooms[i].set_type(this->type);
@@ -407,7 +407,7 @@ class Room {
      * 
      * @return void
      */
-    void delete_room(const string uid) {
+    const void delete_room(const string uid) {
       string content = File::read(Path::getPath() + "/room.csv");
 
       string line;
@@ -447,7 +447,7 @@ class Room {
           outfile << "";
           outfile.close();
 
-          for (int i = 0; i < rooms.size(); i++) {
+          for (unsigned int i = 0; i < rooms.size(); i++) {
             if (rooms[i].get_uid() != uid) {
               rooms[i].create(false);
             }
@@ -463,7 +463,7 @@ class Room {
      * 
      * @return string
      */
-    string toString() {
+    const string toString() {
       return "UID: " + this->uid + "\n"
             + "Name: " + this->name + "\n"
             + "Type: " + this->type + "\n"

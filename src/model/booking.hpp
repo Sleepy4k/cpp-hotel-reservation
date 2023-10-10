@@ -69,12 +69,12 @@ class Booking {
      * @return void
      */
     Booking(string uid, string user_id, string room_id, string check_in_date, string check_out_date, string status) {
-      this->uid = uid;
-      this->user_id = user_id;
-      this->room_id = room_id;
-      this->check_in_date = check_in_date;
-      this->check_out_date = check_out_date;
-      this->status = status;
+      set_uid(uid);
+      set_user_id(user_id);
+      set_room_id(room_id);
+      set_check_in_date(check_in_date);
+      set_check_out_date(check_out_date);
+      set_status(status);
     };
 
     /**
@@ -83,12 +83,12 @@ class Booking {
      * @return void
      */
     Booking() {
-      this->uid = "";
-      this->user_id = "";
-      this->room_id = "";
-      this->check_in_date = "";
-      this->check_out_date = "";
-      this->status = "";
+      set_uid("");
+      set_user_id("");
+      set_room_id("");
+      set_check_in_date("");
+      set_check_out_date("");
+      set_status("");
     };
 
     /**
@@ -98,7 +98,7 @@ class Booking {
      * 
      * @return void
      */
-    void set_uid(string uid) {
+    const void set_uid(const string uid) {
       this->uid = uid;
     };
 
@@ -109,7 +109,7 @@ class Booking {
      * 
      * @return void
      */
-    void set_user_id(string user_id) {
+    const void set_user_id(const string user_id) {
       this->user_id = user_id;
     };
 
@@ -120,7 +120,7 @@ class Booking {
      * 
      * @return void
      */
-    void set_room_id(string room_id) {
+    const void set_room_id(const string room_id) {
       this->room_id = room_id;
     };
 
@@ -131,7 +131,7 @@ class Booking {
      * 
      * @return void
      */
-    void set_check_in_date(string check_in_date) {
+    const void set_check_in_date(const string check_in_date) {
       this->check_in_date = check_in_date;
     };
 
@@ -142,7 +142,7 @@ class Booking {
      * 
      * @return void
      */
-    void set_check_out_date(string check_out_date) {
+    const void set_check_out_date(const string check_out_date) {
       this->check_out_date = check_out_date;
     };
 
@@ -153,7 +153,7 @@ class Booking {
      * 
      * @return void
      */
-    void set_status(string status) {
+    const void set_status(const string status) {
       this->status = status;
     };
 
@@ -162,7 +162,7 @@ class Booking {
      * 
      * @return string 
      */
-    string get_uid() {
+    const string get_uid() {
       return this->uid;
     };
 
@@ -171,7 +171,7 @@ class Booking {
      * 
      * @return string 
      */
-    string get_user_id() {
+    const string get_user_id() {
       return this->user_id;
     };
 
@@ -180,7 +180,7 @@ class Booking {
      * 
      * @return string 
      */
-    string get_room_id() {
+    const string get_room_id() {
       return this->room_id;
     };
 
@@ -189,7 +189,7 @@ class Booking {
      * 
      * @return string 
      */
-    string get_check_in_date() {
+    const string get_check_in_date() {
       return this->check_in_date;
     };
 
@@ -198,7 +198,7 @@ class Booking {
      * 
      * @return string 
      */
-    string get_check_out_date() {
+    const string get_check_out_date() {
       return this->check_out_date;
     };
 
@@ -207,7 +207,7 @@ class Booking {
      * 
      * @return string 
      */
-    string get_status() {
+    const string get_status() {
       return this->status;
     };
 
@@ -216,7 +216,7 @@ class Booking {
      * 
      * @return vector<Booking> 
      */
-    vector<Booking> get() {
+    const vector<Booking> get() {
       string content = File::read(Path::getPath() + "/booking.csv");
 
       string line;
@@ -247,7 +247,7 @@ class Booking {
      * 
      * @return void
      */
-    void create(const bool allow_print = true) {
+    const void create(const bool allow_print = true) {
       string content = File::read(Path::getPath() + "/booking.csv");
 
       string line;
@@ -299,7 +299,7 @@ class Booking {
      * 
      * @return Booking 
      */
-    Booking find(const string uid) {
+    const Booking find(const string uid) {
       string content = File::read(Path::getPath() + "/booking.csv");
 
       Booking booking;
@@ -332,7 +332,7 @@ class Booking {
      * 
      * @return void
      */
-    void update(const string uid) {
+    const void update(const string uid) {
       string content = File::read(Path::getPath() + "/booking.csv");
 
       string line;
@@ -396,7 +396,7 @@ class Booking {
      * 
      * @return void
      */
-    void delete_booking(const string uid) {
+    const void delete_booking(const string uid) {
       string content = File::read(Path::getPath() + "/booking.csv");
 
       string line;
@@ -452,7 +452,7 @@ class Booking {
      * 
      * @return vector<Booking> 
      */
-    string toString() {
+    const string toString() {
       return "UID: " + this->uid + "\n"
             + "User ID: " + this->user_id + "\n"
             + "Room ID: " + this->room_id + "\n"
