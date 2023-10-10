@@ -29,6 +29,15 @@ class Register {
       if (allow_title) cout << get_translated_string("register_title") << endl;
 
       string username = Validation::string_validation(get_translated_string("register_input_username"), "username");
+      
+      User user;
+      User data = user.find(username);
+
+      if (data.get_uid() != "") {
+        cout << get_translated_string("model_user_already_exist") << endl;
+        return register_user();
+      }
+      
       string password = Validation::string_validation(get_translated_string("register_input_password"), "password");
       string confirm_password = Validation::string_validation(get_translated_string("register_input_confirm_password"), "password");
 
@@ -37,13 +46,11 @@ class Register {
         return register_user();
       }
 
-      User user;
-      user.set_uid(UUID::generate_uuid());
-      user.set_role(role);
-      user.set_username(username);
-      user.set_password(Hash::encrypt(password));
-
-      Forgot::create_forgot_question(user, allow_title);
+      data.set_uid(UUID::generate_uuid());
+      data.set_role(role);
+      data.set_username(username);
+      data.set_password(Hash::encrypt(password));
+      Forgot::create_forgot_question(data, allow_title);
     };
 };
 
