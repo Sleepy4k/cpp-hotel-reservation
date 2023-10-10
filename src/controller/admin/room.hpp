@@ -34,7 +34,7 @@ class AdminRoomDashboard {
       int totalRooms = rooms.size();
 
       if (totalRooms > 0) {
-        for (unsigned int i = 0; i < totalRooms; i++) {
+        for (int i = 0; i < totalRooms; i++) {
           cout << "\n--------------------------------------------------------" << '\n';
           cout << Sprintf::format(get_translated_string("admin_room_list_data_uid"), {rooms[i].get_uid()}) << '\n';
           cout << Sprintf::format(get_translated_string("admin_room_list_data_name"), {rooms[i].get_name()}) << '\n';

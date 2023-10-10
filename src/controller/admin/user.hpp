@@ -35,7 +35,7 @@ class AdminUserDashboard {
       if (totalUsers > 0) {
         int totalAdmin = 0;
 
-        for (unsigned int i = 0; i < totalUsers; i++) {
+        for (int i = 0; i < totalUsers; i++) {
           if (users[i].get_role() == "admin") {
             totalAdmin++;
             continue;
