@@ -8,6 +8,7 @@
 #include "../const/path.hpp"
 #include "../handler/hash.hpp"
 #include "../storage/file.hpp"
+#include "../storage/cache.hpp"
 
 using std::ios;
 using std::cerr;
@@ -19,11 +20,11 @@ using std::getline;
 using std::stringstream;
 
 /**
- * @brief User struct to store the user data
+ * @brief User class to handle user
  * 
  * @struct User
  */
-struct User {
+class User {
   private:
     /**
      * @brief User id
@@ -67,6 +68,8 @@ struct User {
      */
     string forgot_answer;
 
+    LRUCache<string, string> userCache;
+
   public:
     /**
      * @brief Construct a new User object
@@ -80,7 +83,7 @@ struct User {
      * 
      * @return void
      */
-    User(string uid, string role, string username, string password, int forgot_question_id = 0, string forgot_answer = "") {
+    User(string uid, string role, string username, string password, int forgot_question_id = 0, string forgot_answer = "") : userCache(25) {
       set_uid(uid);
       set_role(role);
       set_username(username);
@@ -94,7 +97,7 @@ struct User {
      * 
      * @return void
      */
-    User() {
+    User() : userCache(25) {
       set_uid("");
       set_role("");
       set_username("");
@@ -175,6 +178,11 @@ struct User {
      * @return string 
      */
     const string get_uid() {
+      if (this->userCache.get("uid") != "-1") {
+        return this->userCache.get("uid");
+      }
+
+      this->userCache.put("uid", this->uid);
       return this->uid;
     };
 
