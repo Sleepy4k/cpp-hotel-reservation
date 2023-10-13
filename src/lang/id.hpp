@@ -37,7 +37,6 @@ const map<string, string> indonesian_translations = {
   {"menu_list_admin_manage_booking", "Kelola Pemesanan"},
   {"menu_list_admin_manage_admin", "Kelola Admin"},
   {"menu_list_admin_manage_system", "Kelola Sistem"},
-  {"menu_list_admin_report_and_statistic", "Laporan dan Statistik"},
   {"menu_list_admin_press", "Tekan"},
   {"menu_list_admin_logout", "Keluar"},
   {"menu_list_admin_invalid", "Menu tidak valid"},

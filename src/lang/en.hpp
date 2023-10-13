@@ -37,7 +37,6 @@ const map<string, string> english_translations = {
   {"menu_list_admin_manage_booking", "Manage Booking"},
   {"menu_list_admin_manage_admin", "Manage Admin"},
   {"menu_list_admin_manage_system", "Manage System"},
-  {"menu_list_admin_report_and_statistic", "Report and Statistic"},
   {"menu_list_admin_press", "Press"},
   {"menu_list_admin_logout", "Logout"},
   {"menu_list_admin_invalid", "Invalid menu"},
