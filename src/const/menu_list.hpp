@@ -47,7 +47,6 @@ namespace MenuList {
     "menu_list_admin_manage_user",
     "menu_list_admin_manage_booking",
     "menu_list_admin_manage_admin",
-    "menu_list_admin_report_and_statistic",
     "menu_list_admin_manage_system",
     "menu_list_admin_logout"
   };
@@ -119,6 +118,19 @@ namespace MenuList {
   };
 
   /**
+   * @brief Admin booking dashboard menu list
+   * 
+   * @var vector<string>
+   */
+  const vector<string> ADMIN_BOOKING_DASHBOARD_MENU = {
+    "menu_list_admin_booking_list",
+    "menu_list_admin_booking_search",
+    "menu_list_admin_booking_edit",
+    "menu_list_admin_booking_delete",
+    "menu_list_admin_booking_back"
+  };
+
+  /**
    * @brief User profile dashboard menu list
    * 
    * @var vector<string>
@@ -126,6 +138,17 @@ namespace MenuList {
   const vector<string> USER_PROFILE_DASHBOARD_MENU = {
     "menu_list_user_profile_forgot",
     "menu_list_user_profile_back"
+  };
+
+  /**
+   * @brief User room dashboard menu list
+   * 
+   * @var vector<string>
+   */
+  const vector<string> USER_ROOM_DASHBOARD_MENU = {
+    "menu_list_user_room_list",
+    "menu_list_user_room_search",
+    "menu_list_user_room_back"
   };
 };
 
