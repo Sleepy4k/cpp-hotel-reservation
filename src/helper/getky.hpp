@@ -15,35 +15,34 @@
  * 
  * @class Getky
  */
-class Getky {
-  public:
-    /**
-     * @brief Pause program until user press any key
-     * 
-     * @return void
-    */
-    static void pause() {
-      cout << '\n' << get_translated_string("press_any_key_to_continue") << endl;
+struct Getky {
+  /**
+   * @brief Pause program until user press any key
+   * 
+   * @return void
+  */
+  static void pause() {
+    cout << '\n' << get_translated_string("press_any_key_to_continue") << endl;
 
-      #ifdef _WIN32
-        getch();
-      #else
-        struct termios oldt, newt;
+    #ifdef _WIN32
+      getch();
+    #else
+      struct termios oldt, newt;
 
-        tcgetattr(STDIN_FILENO, &oldt);
+      tcgetattr(STDIN_FILENO, &oldt);
 
-        newt = oldt;
-        newt.c_lflag &= ~(ICANON | ECHO);
+      newt = oldt;
+      newt.c_lflag &= ~(ICANON | ECHO);
 
-        tcsetattr(STDIN_FILENO, TCSANOW, &newt);
+      tcsetattr(STDIN_FILENO, TCSANOW, &newt);
 
-        getchar();
+      getchar();
 
-        tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
-      #endif
+      tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
+    #endif
 
-      return;
-    };
+    return;
+  }
 };
 
 #endif // HANDLER_GETKY_HPP

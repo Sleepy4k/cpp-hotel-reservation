@@ -17,115 +17,114 @@ using std::endl;
  * 
  * @class File
  */
-class File {
-  public:
-    /**
-     * @brief Create file
-     * 
-     * @param filename string
-     * 
-     * @return void
-     */
-    const static void create(const string filename) {
-      using std::fstream;
+struct File {
+  /**
+   * @brief Create file
+   * 
+   * @param filename string
+   * 
+   * @return void
+   */
+  static void create(const string filename) {
+    using std::fstream;
 
-      fstream outfile(filename, ios::app);
+    fstream outfile(filename, ios::app);
 
-      if (!outfile) {
-        outfile.close();
+    if (!outfile) {
+      outfile.close();
 
-        if (App::APP_DEBUG) {
-          cerr << "Error opening file" << endl;
-        }
+      if (App::APP_DEBUG) {
+        cerr << "Error opening file" << endl;
       }
-    };
+    }
+  }
 
-    /**
-     * @brief Read file
-     * 
-     * @param filename string
-     * 
-     * @return string 
-     */
-    const static string read(const string filename) {
-      using std::ifstream;
+  /**
+   * @brief Read file
+   * 
+   * @param filename string
+   * 
+   * @return string 
+   */
+  static string read(const string filename) {
+    using std::ifstream;
 
-      string line;
-      string content = "";
-      ifstream file(filename);
+    string line;
+    string content = "";
+    ifstream file(filename);
 
-      if (!file) {
-        file.close();
-        create(filename);
-        return content;
-      }
-
-      while (getline(file, line)) {
-        content += line + "\n";
-      }
-
+    if (!file) {
       file.close();
+      create(filename);
       return content;
-    };
+    }
 
-    /**
-     * @brief Write file
-     * 
-     * @param filename string
-     * @param content string
-     * 
-     * @return void
-     */
-    const static void write(const string filename, const string content) {
-      using std::ofstream;
+    while (getline(file, line)) {
+      content += line + "\n";
+    }
 
-      ofstream file(filename);
+    file.close();
+    return content;
+  }
 
-      if (!file) {
-        file.close();
-        create(filename);
-        return;
-      }
+  /**
+   * @brief Write file
+   * 
+   * @param filename string
+   * @param content string
+   * 
+   * @return void
+   */
+  static void write(const string filename, const string content) {
+    using std::ofstream;
 
-      file << content;
+    ofstream file(filename);
+
+    if (!file) {
       file.close();
-    };
+      create(filename);
+      return;
+    }
 
-    /**
-     * @brief Delete file
-     * 
-     * @param filename string
-     * 
-     * @return void
-     */
-    const static void delete_file(const string filename, const bool allow_print = true) {
-      int result = remove(filename.c_str());
+    file << content;
+    file.close();
+  }
 
-      if (App::APP_DEBUG && allow_print) {
-        (result != 0) ? cerr << "Error deleting file" << endl : cout << "File successfully deleted" << endl;
-      }
-    };
+  /**
+   * @brief Delete file
+   * 
+   * @param filename string
+   * 
+   * @return void
+   */
+  static void delete_file(const string filename, const bool allow_print = true) {
+    int result = remove(filename.c_str());
 
-    /**
-     * @brief Check if file exists
-     * 
-     * @param filename string
-     * 
-     * @return bool
-     */
-    const static bool exists(const string filename) {
-      using std::ifstream;
+    if (App::APP_DEBUG && allow_print) {
+      (result != 0) ? cerr << "Error deleting file" << endl : cout << "File successfully deleted" << endl;
+    }
+  }
 
-      ifstream file(filename);
+  /**
+   * @brief Check if file exists
+   * 
+   * @param filename string
+   * 
+   * @return bool
+   */
+  static bool exists(const string filename) {
+    using std::ifstream;
 
-      if (!file) {
-        file.close();
-        return false;
-      }
+    ifstream file(filename);
 
+    if (!file) {
       file.close();
-      return true;
-    };
+      return false;
+    }
+
+    file.close();
+    return true;
+  }
 };
 
 #endif
