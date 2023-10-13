@@ -370,7 +370,7 @@ class Booking {
           outfile << "";
           outfile.close();
 
-          for (int i = 0; i < booking.size(); i++) {
+          for (unsigned int i = 0; i < booking.size(); i++) {
             if (booking[i].get_uid() == uid) {
               booking[i].set_user_id(this->user_id);
               booking[i].set_room_id(this->room_id);
@@ -436,7 +436,7 @@ class Booking {
           outfile << "";
           outfile.close();
 
-          for (int i = 0; i < booking.size(); i++) {
+          for (unsigned int i = 0; i < booking.size(); i++) {
             if (booking[i].get_uid() != uid) {
               booking[i].create(false);
             }
