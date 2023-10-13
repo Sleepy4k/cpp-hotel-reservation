@@ -3,6 +3,7 @@
 #ifndef DASHBOARD_USER_HPP
 #define DASHBOARD_USER_HPP
 
+#include "../controller/user/room.hpp"
 #include "../controller/user/profile.hpp"
 
 /**
@@ -23,9 +24,9 @@ class UserDashboard {
       vector<string> menu_list = MenuList::USER_DASHBOARD_MENU;
 
       while (true) {
-        cout << "\n\n--------------------------------------------------------------------" << endl;
-        cout << "               " << get_translated_string(App::APP_NAME) << "                  " << endl;
-        cout << "--------------------------------------------------------------------" << endl;
+        cout << "\n\n----------------------------------------" << endl;
+        cout << "\t" << get_translated_string(App::APP_NAME) << endl;
+        cout << "----------------------------------------" << endl;
         cout << Sprintf::format(get_translated_string("menu_list_user_title"), {user.get_username()}) << endl;
 
         for (unsigned int i = 0; i < menu_list.size(); i++) {
@@ -35,7 +36,7 @@ class UserDashboard {
         int menu = Validation::integer_validation(1, menu_list.size());
 
         switch (menu) {
-          case 1: cout << get_translated_string("menu_list_user_search_room") << endl;
+          case 1: UserRoomDashboard::dashboard(user);
             break;
           case 2: cout << get_translated_string("menu_list_user_booking_room") << endl;
             break;

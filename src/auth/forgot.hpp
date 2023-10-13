@@ -25,9 +25,9 @@ class Forgot {
     static void create_forgot_question(User user, const bool allow_title = true) {
       vector<string> menu_list = MenuList::FORGOT_MENU;
 
-      cout << "\n\n--------------------------------------------------------------------" << endl;
-      cout << "               " << get_translated_string(App::APP_NAME) << "                  " << endl;
-      cout << "--------------------------------------------------------------------" << endl;
+      cout << "\n\n----------------------------------------" << endl;
+      cout << "\t" << get_translated_string(App::APP_NAME) << endl;
+      cout << "----------------------------------------" << endl;
 
       if (allow_title) cout << get_translated_string("forgot_create_title") << endl;
 
@@ -65,9 +65,9 @@ class Forgot {
      * @return void
      */
     static void validate_forgot_question(User user) {
-      cout << "\n\n--------------------------------------------------------------------" << endl;
-      cout << "               " << get_translated_string(App::APP_NAME) << "                  " << endl;
-      cout << "--------------------------------------------------------------------" << endl;
+      cout << "\n\n----------------------------------------" << endl;
+      cout << "\t" << get_translated_string(App::APP_NAME) << endl;
+      cout << "----------------------------------------" << endl;
       cout << get_translated_string("forgot_validate_title") << endl;
 
       switch (user.get_forgot_question_id()) {
@@ -110,9 +110,9 @@ class Forgot {
      * @return void
      */
     static void forgot_password() {
-      cout << "\n\n--------------------------------------------------------------------" << endl;
-      cout << "               " << get_translated_string(App::APP_NAME) << "                  " << endl;
-      cout << "--------------------------------------------------------------------" << endl;
+      cout << "\n\n----------------------------------------" << endl;
+      cout << "\t" << get_translated_string(App::APP_NAME) << endl;
+      cout << "----------------------------------------" << endl;
       cout << get_translated_string("forgot_title") << endl;
 
       string username = Validation::string_validation(get_translated_string("forgot_input_username"), "username");

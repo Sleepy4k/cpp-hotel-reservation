@@ -25,9 +25,9 @@ class AdminAdminDashboard {
     static void list(User user) {
       vector<User> users = user.get();
 
-      cout << "\n\n--------------------------------------------------------------------" << endl;
-      cout << "               " << get_translated_string(App::APP_NAME) << "                  " << endl;
-      cout << "--------------------------------------------------------------------" << endl;
+      cout << "\n\n----------------------------------------" << endl;
+      cout << "\t" << get_translated_string(App::APP_NAME) << endl;
+      cout << "----------------------------------------" << endl;
       cout << get_translated_string("admin_admin_list_title") << endl;
 
       int totalAdmins = users.size();
@@ -64,9 +64,9 @@ class AdminAdminDashboard {
      * @return void
     */
     static void search(User user) {
-      cout << "\n\n--------------------------------------------------------------------" << endl;
-      cout << "               " << get_translated_string(App::APP_NAME) << "                  " << endl;
-      cout << "--------------------------------------------------------------------" << endl;
+      cout << "\n\n----------------------------------------" << endl;
+      cout << "\t" << get_translated_string(App::APP_NAME) << endl;
+      cout << "----------------------------------------" << endl;
       cout << get_translated_string("admin_admin_search_title") << endl;
 
       string username = Validation::string_validation(get_translated_string("admin_admin_input_username"), "username");
@@ -94,9 +94,9 @@ class AdminAdminDashboard {
      * @return void
     */
     static void edit(User user) {
-      cout << "\n\n--------------------------------------------------------------------" << endl;
-      cout << "               " << get_translated_string(App::APP_NAME) << "                  " << endl;
-      cout << "--------------------------------------------------------------------" << endl;
+      cout << "\n\n----------------------------------------" << endl;
+      cout << "\t" << get_translated_string(App::APP_NAME) << endl;
+      cout << "----------------------------------------" << endl;
       cout << get_translated_string("admin_admin_edit_title") << endl;
 
       string username = Validation::string_validation(get_translated_string("admin_admin_input_username"), "username");
@@ -131,9 +131,9 @@ class AdminAdminDashboard {
      * @return void
     */
     static void destroy(User user) {
-      cout << "\n\n--------------------------------------------------------------------" << endl;
-      cout << "               " << get_translated_string(App::APP_NAME) << "                  " << endl;
-      cout << "--------------------------------------------------------------------" << endl;
+      cout << "\n\n----------------------------------------" << endl;
+      cout << "\t" << get_translated_string(App::APP_NAME) << endl;
+      cout << "----------------------------------------" << endl;
       cout << get_translated_string("admin_admin_delete_title") << endl;
 
       string username = Validation::string_validation(get_translated_string("admin_admin_input_username"), "username");
@@ -158,9 +158,9 @@ class AdminAdminDashboard {
       vector<string> menu_list = MenuList::ADMIN_ADMIN_DASHBOARD_MENU;
 
       while (true) {
-        cout << "\n\n--------------------------------------------------------------------" << endl;
-        cout << "               " << get_translated_string(App::APP_NAME) << "                  " << endl;
-        cout << "--------------------------------------------------------------------" << endl;
+        cout << "\n\n----------------------------------------" << endl;
+        cout << "\t" << get_translated_string(App::APP_NAME) << endl;
+        cout << "----------------------------------------" << endl;
         cout << Sprintf::format(get_translated_string("menu_list_admin_admin_title"), {user.get_username()}) << endl;
 
         for (unsigned int i = 0; i < menu_list.size(); i++) {

@@ -22,9 +22,9 @@ class Register {
      * @return void
      */
     static void register_user(const string role = "user", const bool allow_title = true) {
-      cout << "\n\n--------------------------------------------------------------------" << endl;
-      cout << "               " << get_translated_string(App::APP_NAME) << "                  " << endl;
-      cout << "--------------------------------------------------------------------" << endl;
+      cout << "\n\n----------------------------------------" << endl;
+      cout << "\t" << get_translated_string(App::APP_NAME) << endl;
+      cout << "----------------------------------------" << endl;
 
       if (allow_title) cout << get_translated_string("register_title") << endl;
 

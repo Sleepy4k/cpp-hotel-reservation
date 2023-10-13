@@ -25,9 +25,9 @@ class AdminRoomDashboard {
      * @return void
      */
     static void list(Room room) {
-      cout << "\n\n--------------------------------------------------------------------" << endl;
-      cout << "               " << get_translated_string(App::APP_NAME) << "                  " << endl;
-      cout << "--------------------------------------------------------------------" << endl;
+      cout << "\n\n----------------------------------------" << endl;
+      cout << "\t" << get_translated_string(App::APP_NAME) << endl;
+      cout << "----------------------------------------" << endl;
       cout << get_translated_string("admin_room_list_title") << endl;
 
       vector<Room> rooms = room.get();
@@ -61,9 +61,9 @@ class AdminRoomDashboard {
      * @return void
      */
     static void create(Room room) {
-      cout << "\n\n--------------------------------------------------------------------" << endl;
-      cout << "               " << get_translated_string(App::APP_NAME) << "                  " << endl;
-      cout << "--------------------------------------------------------------------" << endl;
+      cout << "\n\n----------------------------------------" << endl;
+      cout << "\t" << get_translated_string(App::APP_NAME) << endl;
+      cout << "----------------------------------------" << endl;
       cout << get_translated_string("admin_room_add_title") << endl;
 
       string name = Validation::string_validation(get_translated_string("admin_room_input_name"), "name");
@@ -91,9 +91,9 @@ class AdminRoomDashboard {
      * @return void
      */
     static void search(Room room) {
-      cout << "\n\n--------------------------------------------------------------------" << endl;
-      cout << "               " << get_translated_string(App::APP_NAME) << "                  " << endl;
-      cout << "--------------------------------------------------------------------" << endl;
+      cout << "\n\n----------------------------------------" << endl;
+      cout << "\t" << get_translated_string(App::APP_NAME) << endl;
+      cout << "----------------------------------------" << endl;
       cout << get_translated_string("admin_room_search_title") << endl;
 
       string uid = Validation::string_validation(get_translated_string("admin_room_input_uid"), "uid");
@@ -124,9 +124,9 @@ class AdminRoomDashboard {
      * @return void
      */
     static void edit(Room room) {
-      cout << "\n\n--------------------------------------------------------------------" << endl;
-      cout << "               " << get_translated_string(App::APP_NAME) << "                  " << endl;
-      cout << "--------------------------------------------------------------------" << endl;
+      cout << "\n\n----------------------------------------" << endl;
+      cout << "\t" << get_translated_string(App::APP_NAME) << endl;
+      cout << "----------------------------------------" << endl;
       cout << get_translated_string("admin_room_edit_title") << endl;
 
       string uid = Validation::string_validation(get_translated_string("admin_room_input_uid"), "uid");
@@ -168,9 +168,9 @@ class AdminRoomDashboard {
      * @return void
      */
     static void destroy(Room room) {
-      cout << "\n\n--------------------------------------------------------------------" << endl;
-      cout << "               " << get_translated_string(App::APP_NAME) << "                  " << endl;
-      cout << "--------------------------------------------------------------------" << endl;
+      cout << "\n\n----------------------------------------" << endl;
+      cout << "\t" << get_translated_string(App::APP_NAME) << endl;
+      cout << "----------------------------------------" << endl;
       cout << get_translated_string("admin_room_delete_title") << endl;
 
       string uid = Validation::string_validation(get_translated_string("admin_room_input_uid"), "uid");
@@ -189,9 +189,9 @@ class AdminRoomDashboard {
       vector<string> menu_list = MenuList::ADMIN_ROOM_DASHBOARD_MENU;
 
       while (true) {
-        cout << "\n\n--------------------------------------------------------------------" << endl;
-        cout << "               " << get_translated_string(App::APP_NAME) << "                  " << endl;
-        cout << "--------------------------------------------------------------------" << endl;
+        cout << "\n\n----------------------------------------" << endl;
+        cout << "\t" << get_translated_string(App::APP_NAME) << endl;
+        cout << "----------------------------------------" << endl;
         cout << Sprintf::format(get_translated_string("menu_list_admin_room_title"), {user.get_username()}) << endl;
 
         for (unsigned int i = 0; i < menu_list.size(); i++) {

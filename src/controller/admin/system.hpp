@@ -64,9 +64,9 @@ class AdminSystemDashboard {
       vector<string> menu_list = MenuList::ADMIN_SYSTEM_DASHBOARD_MENU;
 
       while (true) {
-        cout << "\n\n--------------------------------------------------------------------" << endl;
-        cout << "               " << get_translated_string(App::APP_NAME) << "                  " << endl;
-        cout << "--------------------------------------------------------------------" << endl;
+        cout << "\n\n----------------------------------------" << endl;
+        cout << "\t" << get_translated_string(App::APP_NAME) << endl;
+        cout << "----------------------------------------" << endl;
         cout << Sprintf::format(get_translated_string("menu_list_admin_system_title"), {user.get_username()}) << endl;
 
         for (unsigned int i = 0; i < menu_list.size(); i++) {

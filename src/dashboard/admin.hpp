@@ -7,6 +7,7 @@
 #include "../controller/admin/user.hpp"
 #include "../controller/admin/admin.hpp"
 #include "../controller/admin/system.hpp"
+#include "../controller/admin/booking.hpp"
 
 /**
  * @brief AdminDashboard class to handle admin dashboard
@@ -26,9 +27,9 @@ class AdminDashboard {
       vector<string> menu_list = MenuList::ADMIN_DASHBOARD_MENU;
 
       while (true) {
-        cout << "\n\n--------------------------------------------------------------------" << endl;
-        cout << "               " << get_translated_string(App::APP_NAME) << "                  " << endl;
-        cout << "--------------------------------------------------------------------" << endl;
+        cout << "\n\n----------------------------------------" << endl;
+        cout << "\t" << get_translated_string(App::APP_NAME) << endl;
+        cout << "----------------------------------------" << endl;
         cout << Sprintf::format(get_translated_string("menu_list_admin_title"), {user.get_username()}) << endl;
 
         for (unsigned int i = 0; i < menu_list.size(); i++) {
@@ -42,15 +43,13 @@ class AdminDashboard {
             break;
           case 2: AdminUserDashboard::dashboard(user);
             break;
-          case 3: cout << get_translated_string("menu_list_admin_manage_booking") << endl;
+          case 3: AdminBookingDashboard::dashboard(user);
             break;
           case 4: AdminAdminDashboard::dashboard(user);
             break;
-          case 5: cout << get_translated_string("menu_list_admin_report_and_statistic") << endl;
+          case 5: AdminSystemDashboard::dashboard(user);
             break;
-          case 6: AdminSystemDashboard::dashboard(user);
-            break;
-          case 7: return;
+          case 6: return;
             break;
           default: cout << get_translated_string("menu_list_admin_invalid") << endl;
             break;
