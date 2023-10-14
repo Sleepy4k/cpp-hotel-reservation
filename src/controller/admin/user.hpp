@@ -23,6 +23,8 @@ class AdminUserDashboard {
      * @return void
     */
     static void list(User user) {
+      using std::to_string;
+
       vector<User> users = user.get();
 
       cout << "\n\n----------------------------------------" << endl;

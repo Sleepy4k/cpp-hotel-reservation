@@ -25,6 +25,8 @@ class AdminRoomDashboard {
      * @return void
      */
     static void list(Room room) {
+      using std::to_string;
+
       cout << "\n\n----------------------------------------" << endl;
       cout << "\t" << get_translated_string(App::APP_NAME) << endl;
       cout << "----------------------------------------" << endl;
@@ -91,6 +93,8 @@ class AdminRoomDashboard {
      * @return void
      */
     static void search(Room room) {
+      using std::to_string;
+
       cout << "\n\n----------------------------------------" << endl;
       cout << "\t" << get_translated_string(App::APP_NAME) << endl;
       cout << "----------------------------------------" << endl;
@@ -124,6 +128,8 @@ class AdminRoomDashboard {
      * @return void
      */
     static void edit(Room room) {
+      using std::to_string;
+
       cout << "\n\n----------------------------------------" << endl;
       cout << "\t" << get_translated_string(App::APP_NAME) << endl;
       cout << "----------------------------------------" << endl;

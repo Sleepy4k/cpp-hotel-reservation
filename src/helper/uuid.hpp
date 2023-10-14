@@ -9,9 +9,6 @@
 
 using std::ctime;
 using std::string;
-using std::mt19937;
-using std::unordered_set;
-using std::uniform_int_distribution;
 
 /**
  * @brief UUID class to generate UUID
@@ -41,6 +38,9 @@ class UUID {
      * @return string
      */
     static string generate_uuid() {
+      using std::mt19937;
+      using std::unordered_set;
+
       static mt19937 gen(time(nullptr));
       static unordered_set<string> generatedUUIDs;
 

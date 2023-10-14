@@ -4,7 +4,6 @@
 #define HANDLER_HASH_HPP
 
 using std::string;
-using std::to_string;
 
 /**
  * @brief Hash class to encrypt and decrypt the password
@@ -20,6 +19,8 @@ struct Hash {
    * @return string 
    */
   static string encrypt(const string user_password) {
+    using std::to_string;
+
     int hash = 0;
 
     for (unsigned int i = 0; i < user_password.length(); i++) {

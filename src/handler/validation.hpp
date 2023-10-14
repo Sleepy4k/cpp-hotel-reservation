@@ -12,11 +12,6 @@
 using std::cin;
 using std::cout;
 using std::endl;
-using std::regex;
-using std::getline;
-using std::to_string;
-using std::streamsize;
-using std::numeric_limits;
 
 /**
  * @brief Validation class to validate the data
@@ -54,6 +49,10 @@ struct Validation {
    * @return int 
    */
   static int integer_validation(const int min, const int max) {
+    using std::to_string;
+    using std::streamsize;
+    using std::numeric_limits;
+
     int choice;
 
     while (true) {
@@ -82,6 +81,8 @@ struct Validation {
    * @return string 
    */
   static string string_validation(const string prompt, const string validationType) {
+    using std::regex;
+
     string data;
     regex validationRegex;
 

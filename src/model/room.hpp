@@ -13,8 +13,6 @@
 using std::cerr;
 using std::cout;
 using std::vector;
-using std::to_string;
-using std::stringstream;
 
 /**
  * @brief Room class to handle room
@@ -227,6 +225,8 @@ class Room {
      * @return vector<Room> 
      */
     const vector<Room> get() {
+      using std::stringstream;
+
       string content = File::read(Path::getPath() + "/room.csv");
 
       string line;
@@ -258,6 +258,9 @@ class Room {
      * @return void
      */
     const void create(const bool allow_print = true) {
+      using std::fstream;
+      using std::stringstream;
+
       string content = File::read(Path::getPath() + "/room.csv");
 
       string line;
@@ -311,6 +314,8 @@ class Room {
      * @return Room
      */
     const Room find(const string uid) {
+      using std::stringstream;
+
       string content = File::read(Path::getPath() + "/room.csv");
 
       Room room;
@@ -344,6 +349,9 @@ class Room {
      * @return void
      */
     const void update(const string uid) {
+      using std::fstream;
+      using std::stringstream;
+
       string content = File::read(Path::getPath() + "/room.csv");
 
       string line;
@@ -408,6 +416,9 @@ class Room {
      * @return void
      */
     const void delete_room(const string uid) {
+      using std::fstream;
+      using std::stringstream;
+
       string content = File::read(Path::getPath() + "/room.csv");
 
       string line;
@@ -464,6 +475,8 @@ class Room {
      * @return string
      */
     const string toString() {
+      using std::to_string;
+
       return "UID: " + this->uid + "\n"
             + "Name: " + this->name + "\n"
             + "Type: " + this->type + "\n"

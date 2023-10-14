@@ -24,6 +24,8 @@ class AdminBookingDashboard {
      * @return void
     */
     static void list(Booking booking) {
+      using std::to_string;
+
       cout << "\n\n----------------------------------------" << endl;
       cout << "\t" << get_translated_string(App::APP_NAME) << endl;
       cout << "----------------------------------------" << endl;

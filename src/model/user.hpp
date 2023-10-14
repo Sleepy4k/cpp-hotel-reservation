@@ -8,16 +8,12 @@
 #include "../const/path.hpp"
 #include "../handler/hash.hpp"
 #include "../storage/file.hpp"
-#include "../storage/cache.hpp"
 
 using std::ios;
 using std::cerr;
 using std::cout;
 using std::endl;
 using std::vector;
-using std::fstream;
-using std::getline;
-using std::stringstream;
 
 /**
  * @brief User class to handle user
@@ -68,8 +64,6 @@ class User {
      */
     string forgot_answer;
 
-    LRUCache<string, string> userCache;
-
   public:
     /**
      * @brief Construct a new User object
@@ -83,7 +77,7 @@ class User {
      * 
      * @return void
      */
-    User(string uid, string role, string username, string password, int forgot_question_id = 0, string forgot_answer = "") : userCache(25) {
+    User(string uid, string role, string username, string password, int forgot_question_id = 0, string forgot_answer = "") {
       set_uid(uid);
       set_role(role);
       set_username(username);
@@ -97,7 +91,7 @@ class User {
      * 
      * @return void
      */
-    User() : userCache(25) {
+    User() {
       set_uid("");
       set_role("");
       set_username("");
@@ -178,11 +172,6 @@ class User {
      * @return string 
      */
     const string get_uid() {
-      if (this->userCache.get("uid") != "-1") {
-        return this->userCache.get("uid");
-      }
-
-      this->userCache.put("uid", this->uid);
       return this->uid;
     };
 
@@ -237,6 +226,8 @@ class User {
      * @return vector<string> 
      */
     const vector<User> get() {
+      using std::stringstream;
+
       string content = File::read(Path::getPath() + "/user.csv");
 
       string line;
@@ -266,6 +257,9 @@ class User {
      * @return void
      */
     const void create(const bool allow_print = true) {
+      using std::fstream;
+      using std::stringstream;
+
       string content = File::read(Path::getPath() + "/user.csv");
 
       string line;
@@ -319,6 +313,8 @@ class User {
      * @return User
      */
     const User find(const string username) {
+      using std::stringstream;
+
       string content = File::read(Path::getPath() + "/user.csv");
 
       User user;
@@ -350,6 +346,9 @@ class User {
      * @return void
      */
     const void update(const string username, const string old_password, const string new_password) {
+      using std::fstream;
+      using std::stringstream;
+
       string content = File::read(Path::getPath() + "/user.csv");
 
       string line;
@@ -411,6 +410,9 @@ class User {
      * @return void
     */
     const void update_role(const string username, const string role) {
+      using std::fstream;
+      using std::stringstream;
+
       string content = File::read(Path::getPath() + "/user.csv");
 
       string line;
@@ -469,6 +471,9 @@ class User {
      * @return void
      */
     const void delete_user(const string username) {
+      using std::fstream;
+      using std::stringstream;
+
       string content = File::read(Path::getPath() + "/user.csv");
 
       string line;
@@ -525,6 +530,8 @@ class User {
      * @return string 
      */
     const string toString() {
+      using std::to_string;
+
       return "UID: " + this->uid + "\n"
             + "Role: " + this->role + "\n"
             + "Username: " + this->username + "\n"

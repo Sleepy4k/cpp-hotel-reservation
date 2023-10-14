@@ -6,7 +6,6 @@
 #include <sstream>
 
 using std::vector;
-using std::stringstream;
 
 /**
  * @brief Sprintf class to format the string
@@ -23,6 +22,8 @@ struct Sprintf {
    * @return string
    */
   static string format(const string format, const vector<string> args = {}) {
+    using std::stringstream;
+
     unsigned int i = 0;
     unsigned int j = 0;
     stringstream result;

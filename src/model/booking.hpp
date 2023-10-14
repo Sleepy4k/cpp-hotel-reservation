@@ -217,6 +217,8 @@ class Booking {
      * @return vector<Booking> 
      */
     const vector<Booking> get() {
+      using std::stringstream;
+
       string content = File::read(Path::getPath() + "/booking.csv");
 
       string line;
@@ -248,6 +250,9 @@ class Booking {
      * @return void
      */
     const void create(const bool allow_print = true) {
+      using std::fstream;
+      using std::stringstream;
+
       string content = File::read(Path::getPath() + "/booking.csv");
 
       string line;
@@ -300,6 +305,8 @@ class Booking {
      * @return Booking 
      */
     const Booking find(const string uid) {
+      using std::stringstream;
+
       string content = File::read(Path::getPath() + "/booking.csv");
 
       Booking booking;
@@ -333,6 +340,9 @@ class Booking {
      * @return void
      */
     const void update(const string uid) {
+      using std::fstream;
+      using std::stringstream;
+
       string content = File::read(Path::getPath() + "/booking.csv");
 
       string line;
@@ -397,6 +407,9 @@ class Booking {
      * @return void
      */
     const void delete_booking(const string uid) {
+      using std::fstream;
+      using std::stringstream;
+
       string content = File::read(Path::getPath() + "/booking.csv");
 
       string line;
