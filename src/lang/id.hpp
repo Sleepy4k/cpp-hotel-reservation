@@ -87,6 +87,15 @@ const map<string, string> indonesian_translations = {
   {"menu_list_admin_admin_press", "Tekan"},
   {"menu_list_admin_admin_invalid", "Menu tidak valid"},
 
+  {"menu_list_admin_admin_title", "Hi %, selamat datang di dasbor pemesanan"},
+  {"menu_list_admin_admin_list", "Tampilkan Semua Pemesanan"},
+  {"menu_list_admin_admin_search", "Cari Pemesanan"},
+  {"menu_list_admin_admin_edit", "Ubah Pemesanan"},
+  {"menu_list_admin_admin_delete", "Hapus Pemesanan"},
+  {"menu_list_admin_admin_back", "Kembali"},
+  {"menu_list_admin_admin_press", "Tekan"},
+  {"menu_list_admin_admin_invalid", "Menu tidak valid"},
+
   {"menu_list_user_profile_title", "Hai %, selamat datang di dasbor user profil"},
   {"menu_list_user_profile_forgot", "Ubah Kata Sandi"},
   {"menu_list_user_profile_back", "Kembali"},
@@ -207,7 +216,43 @@ const map<string, string> indonesian_translations = {
   {"admin_admin_edit_invalid", "Peran tidak valid"},
   {"admin_admin_not_found", "Maaf admin dengan nama pengguna % tidak ditemukan di database kami"},
 
+  {"admin_booking_list_title", "Daftar semua pemesanan"},
+  {"admin_booking_search_title", "Cari pemesanan"},
+  {"admin_booking_edit_title", "Edit data pemesanana"},
+  {"admin_booking_delete_title", "Hapus data pemesanan"},
+  {"admin_booking_list_header", "Ditemukan % total data"},
+  {"admin_booking_list_data_uid", "UUID : %"},
+  {"admin_booking_list_data_user_uid", "ID Pengguna : %"},
+  {"admin_booking_list_data_room_uid", "ID Kamar : %"},
+  {"admin_booking_list_data_check_in", "Tanggal masuk : %"},
+  {"admin_booking_list_data_check_out", "Tanggal keluar : %"},
+  {"admin_booking_list_data_status", "Status : %"},
+  {"admin_booking_list_empty", "Tidak ada data ditemukan"},
+  {"admin_booking_input_check_in", "Silahkan Masukan Tanggal Masuk : "},
+  {"admin_booking_input_check_out", "Silahkan Masukan Tanggal Masuk : "},
+  {"admin_booking_input_status", "Silahkan Masukan Status Pemesanan : "},
+  {"admin_booking_not_found", "Maaf pemesanan dengan id % tidak ditemukan di database kami"},
+
   {"press_any_key_to_continue", "Tekan tombol apa saja untuk melanjutkan"},
 };
+
+/**
+ * @brief Check if translation is duplicated (for testing purpose)
+ * 
+ * @return true || false
+ */
+bool check_id_translate_duplicated() {
+  map<string, string> temp;
+
+  for (auto const& x : indonesian_translations) {
+    if (temp.find(x.first) == temp.end()) {
+      temp.insert({x.first, x.second});
+    } else {
+      return true;
+    }
+  }
+
+  return false;
+}
 
 #endif // LANG_ID_HPP

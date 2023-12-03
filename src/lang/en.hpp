@@ -87,6 +87,15 @@ const map<string, string> english_translations = {
   {"menu_list_admin_admin_press", "Press"},
   {"menu_list_admin_admin_invalid", "Invalid menu"},
 
+  {"menu_list_admin_booking_title", "Hi %, welcome to booking dashboard"},
+  {"menu_list_admin_admin_list", "Show All Booking"},
+  {"menu_list_admin_admin_search", "Seach Booking"},
+  {"menu_list_admin_admin_edit", "Edit Booking"},
+  {"menu_list_admin_admin_delete", "Delete Booking"},
+  {"menu_list_admin_admin_back", "Back"},
+  {"menu_list_admin_admin_press", "Press"},
+  {"menu_list_admin_admin_invalid", "Invalid menu"},
+
   {"menu_list_user_profile_title", "Hai %, welcome to profile user dashboard"},
   {"menu_list_user_profile_forgot", "Change Password"},
   {"menu_list_user_profile_back", "Back"},
@@ -207,7 +216,44 @@ const map<string, string> english_translations = {
   {"admin_admin_edit_invalid", "Invalid role"},
   {"admin_admin_not_found", "Sorry admin with username % not found in our database"},
 
+  {"admin_booking_list_title", "List of all booking"},
+  {"admin_booking_search_title", "Search a booking"},
+  {"admin_booking_edit_title", "Edit booking data"},
+  {"admin_booking_delete_title", "Remove bokking data"},
+  {"admin_booking_list_header", "Found % total data"},
+  {"admin_booking_list_data_uid", "UUID : %"},
+  {"admin_booking_list_data_user_uid", "User ID : %"},
+  {"admin_booking_list_data_room_uid", "Room ID : %"},
+  {"admin_booking_list_data_check_in", "Check IN : %"},
+  {"admin_booking_list_data_check_out", "Check OUT : %"},
+  {"admin_booking_list_data_status", "Status : %"},
+  {"admin_booking_list_empty", "No Data Found"},
+  {"admin_booking_input_check_in", "Please Enter Username : "},
+  {"admin_booking_input_check_out", "Please Enter Role (admin/user) : "},
+  {"admin_booking_input_check_out", "Please Enter Role (admin/user) : "},
+  {"admin_booking_not_found", "Sorry booking with id % not found in our database"},
+  {"admin_booking_not_found", "Sorry booking with id % not found in our database"},
+
   {"press_any_key_to_continue", "Press any key to continue"},
 };
+
+/**
+ * @brief Check if translation is duplicated (for testing purpose)
+ * 
+ * @return true || false
+ */
+bool check_en_translate_duplicated() {
+  map<string, string> temp;
+
+  for (auto const& x : english_translations) {
+    if (temp.find(x.first) == temp.end()) {
+      temp.insert({x.first, x.second});
+    } else {
+      return true;
+    }
+  }
+
+  return false;
+}
 
 #endif // LANG_EN_HPP

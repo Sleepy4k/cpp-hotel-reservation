@@ -28,7 +28,7 @@ void change_language() {
 /**
  * @brief Get the language
  * 
- * @return Language
+ * @return void
  */
 void init_language() {
   string language = File::read(Path::getPath() + "/language.txt");

@@ -42,7 +42,7 @@ class AdminBookingDashboard {
           cout << Sprintf::format(get_translated_string("admin_booking_list_data_room_uid"), {bookings[i].get_room_id()}) << '\n';
           cout << Sprintf::format(get_translated_string("admin_booking_list_data_check_in"), {bookings[i].get_check_in_date()}) << '\n';
           cout << Sprintf::format(get_translated_string("admin_booking_list_data_check_out"), {bookings[i].get_check_out_date()}) << '\n';
-          cout << Sprintf::format(get_translated_string("admin_booking_list_data_statis"), {bookings[i].get_status()}) << '\n';
+          cout << Sprintf::format(get_translated_string("admin_booking_list_data_status"), {bookings[i].get_status()}) << '\n';
           cout << "--------------------------------------------------------" << '\n';
         }
 
@@ -81,7 +81,7 @@ class AdminBookingDashboard {
       cout << Sprintf::format(get_translated_string("admin_booking_list_data_room_uid"), {data.get_room_id()}) << '\n';
       cout << Sprintf::format(get_translated_string("admin_booking_list_data_check_in"), {data.get_check_in_date()}) << '\n';
       cout << Sprintf::format(get_translated_string("admin_booking_list_data_check_out"), {data.get_check_out_date()}) << '\n';
-      cout << Sprintf::format(get_translated_string("admin_booking_list_data_statis"), {data.get_status()}) << '\n';
+      cout << Sprintf::format(get_translated_string("admin_booking_list_data_status"), {data.get_status()}) << '\n';
       cout << "--------------------------------------------------------" << '\n';
 
       Getky::pause();
@@ -114,7 +114,7 @@ class AdminBookingDashboard {
       cout << Sprintf::format(get_translated_string("admin_booking_list_data_room_uid"), {data.get_room_id()}) << '\n';
       cout << Sprintf::format(get_translated_string("admin_booking_list_data_check_in"), {data.get_check_in_date()}) << '\n';
       cout << Sprintf::format(get_translated_string("admin_booking_list_data_check_out"), {data.get_check_out_date()}) << '\n';
-      cout << Sprintf::format(get_translated_string("admin_booking_list_data_statis"), {data.get_status()}) << '\n';
+      cout << Sprintf::format(get_translated_string("admin_booking_list_data_status"), {data.get_status()}) << '\n';
       cout << "--------------------------------------------------------" << '\n';
 
       string check_in = Validation::string_validation(get_translated_string("admin_booking_input_check_in"), "date");
@@ -158,7 +158,7 @@ class AdminBookingDashboard {
         cout << "\n\n----------------------------------------" << endl;
         cout << "\t" << get_translated_string(App::APP_NAME) << endl;
         cout << "----------------------------------------" << endl;
-        cout << Sprintf::format(get_translated_string("menu_list_admin__booking_title"), {user.get_username()}) << endl;
+        cout << Sprintf::format(get_translated_string("menu_list_admin_booking_title"), {user.get_username()}) << endl;
       
         for (unsigned int i = 0; i < menu_list.size(); i++) {
           cout << get_translated_string("menu_list_admin_booking_press") << " " << i + 1 << " --> " << get_translated_string(menu_list[i]) << '\n';
